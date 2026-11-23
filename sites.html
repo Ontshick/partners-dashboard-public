@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sites · PARTNERS</title>
+  <script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+  <link rel="stylesheet" href="static/essai/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="static/essai/charts.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">PARTNERS<small>Essai clinique MVE · RD Congo</small></div>
+  <nav class="nav">
+    
+    <a href="index.html" class="">Vue d'ensemble</a>
+    <a href="sites.html" class="actif">Sites</a>
+    <a href="qualite.html" class="">Qualité &amp; sécurité</a>
+    <a href="dictionnaire.html" class="">Dictionnaire</a>
+    
+  </nav>
+  <span class="spacer"></span>
+  <button class="theme-btn" id="theme-btn" type="button" title="Basculer clair / sombre">◐ Thème</button>
+</header>
+<main>
+
+<h1>Comparaison des sites</h1>
+<p class="sous-titre">Une ligne par site (Protocol ID OpenClinica). Les chiffres proviennent de l'export le plus récent de chaque site.</p>
+
+<section class="carte" style="margin-bottom:16px">
+  <div class="table-scroll"><table>
+    <thead><tr>
+      <th>Site</th><th>Protocole</th><th class="num">Participants</th><th>Période de randomisation</th>
+      <th class="num">Femmes</th><th class="num">Âge médian</th><th class="num">Ct médian</th>
+      <th class="num">Remdesivir</th><th class="num">MBP134</th>
+      <th class="num">Sorties</th><th class="num">Décès</th><th class="num">Mortalité</th><th class="num">En attente</th>
+      <th class="num">PCR saisies</th><th class="num">EIG</th><th class="num">Déviations</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="pastille" style="background:var(--s1)"></span><a href="site-PA_103.html">ALIMA Nizi</a></td>
+        <td><code>PA_103</code></td>
+        <td class="num">249</td>
+        <td>04/08/2026 → 21/11/2026</td>
+        <td class="num">65,5 %</td>
+        <td class="num">26</td>
+        <td class="num">29</td>
+        <td class="num">123</td><td class="num">138</td>
+        <td class="num">172</td><td class="num">58</td>
+        <td class="num">25,2 %</td><td class="num">19</td>
+        <td class="num">853</td><td class="num">1</td><td class="num">5</td>
+      </tr>
+      <tr>
+        <td><span class="pastille" style="background:var(--s2)"></span><a href="site-PA_104.html">Elikya (MSF), Bunia</a> <span class="muted">· site 2</span></td>
+        <td><code>PA_104</code></td>
+        <td class="num">210</td>
+        <td>23/07/2026 → 18/10/2026</td>
+        <td class="num">56,7 %</td>
+        <td class="num">29,5</td>
+        <td class="num">28,1</td>
+        <td class="num">106</td><td class="num">104</td>
+        <td class="num">154</td><td class="num">51</td>
+        <td class="num">24,6 %</td><td class="num">3</td>
+        <td class="num">913</td><td class="num">3</td><td class="num">3</td>
+      </tr>
+      <tr>
+        <td><span class="pastille" style="background:var(--s3)"></span><a href="site-PA_105.html">IMC HGR Bunia</a> <span class="muted">· site 5</span></td>
+        <td><code>PA_105</code></td>
+        <td class="num">94</td>
+        <td>09/09/2026 → 20/11/2026</td>
+        <td class="num">64,9 %</td>
+        <td class="num">30</td>
+        <td class="num">27,2</td>
+        <td class="num">49</td><td class="num">47</td>
+        <td class="num">53</td><td class="num">29</td>
+        <td class="num">35,4 %</td><td class="num">12</td>
+        <td class="num">321</td><td class="num">0</td><td class="num">1</td>
+      </tr>
+      <tr>
+        <td><span class="pastille" style="background:var(--s4)"></span><a href="site-PA_110.html">Beni (MSF)</a> <span class="muted">· site 7</span></td>
+        <td><code>PA_110</code></td>
+        <td class="num">52</td>
+        <td>01/11/2026 → 21/11/2026</td>
+        <td class="num">55,8 %</td>
+        <td class="num">24,5</td>
+        <td class="num">24</td>
+        <td class="num">19</td><td class="num">26</td>
+        <td class="num">11</td><td class="num">16</td>
+        <td class="num">59,3 %</td><td class="num">25</td>
+        <td class="num">128</td><td class="num">0</td><td class="num">0</td>
+      </tr>
+      <tr>
+        <td><span class="pastille" style="background:var(--s5)"></span><a href="site-PA_111.html">Beni (IMC)</a> <span class="muted">· site 6</span></td>
+        <td><code>PA_111</code></td>
+        <td class="num">42</td>
+        <td>27/10/2026 → 21/11/2026</td>
+        <td class="num">52,4 %</td>
+        <td class="num">25</td>
+        <td class="num">22,9</td>
+        <td class="num">23</td><td class="num">25</td>
+        <td class="num">22</td><td class="num">6</td>
+        <td class="num">21,4 %</td><td class="num">14</td>
+        <td class="num">121</td><td class="num">0</td><td class="num">0</td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="carte" style="margin-bottom:16px">
+  <h2>Complétude des CRF par site</h2>
+  <p class="muted">% de participants ayant au moins une donnée saisie dans le CRF.</p>
+  <div class="legende-q">Échelle : <span class="c0">0</span><span class="c1">1–24</span><span class="c2">25–49</span><span class="c3">50–69</span><span class="c4">70–89</span><span class="c5">≥ 90 %</span></div>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Site</th><th class="num" title="Randomisation">C1<br><span class="muted" style="text-transform:none;font-weight:400">Randomisation</span></th><th class="num" title="Enrolment Day 1">C2<br><span class="muted" style="text-transform:none;font-weight:400">Entry</span></th><th class="num" title="Enrolment Day 1">C3<br><span class="muted" style="text-transform:none;font-weight:400">Baseline</span></th><th class="num" title="Daily Clinical">C4<br><span class="muted" style="text-transform:none;font-weight:400">Daily Clinical</span></th><th class="num" title="PCR">C5<br><span class="muted" style="text-transform:none;font-weight:400">PCR</span></th><th class="num" title="Ad hoc PCR">C6<br><span class="muted" style="text-transform:none;font-weight:400">Ad hoc PCR</span></th><th class="num" title="Biochemistry">C7<br><span class="muted" style="text-transform:none;font-weight:400">Biochemistry</span></th><th class="num" title="Outcomes">C8<br><span class="muted" style="text-transform:none;font-weight:400">Outcomes</span></th><th class="num" title="Follow-up Day 28">C9<br><span class="muted" style="text-transform:none;font-weight:400">Follow-up Day 28</span></th><th class="num" title="Pregnancy Outcomes">C10<br><span class="muted" style="text-transform:none;font-weight:400">Pregnancy Outcomes</span></th><th class="num" title="Safety">C11<br><span class="muted" style="text-transform:none;font-weight:400">SAE Notification</span></th><th class="num" title="Safety">C12<br><span class="muted" style="text-transform:none;font-weight:400">CCO Assessment</span></th><th class="num" title="Withdrawal">C13<br><span class="muted" style="text-transform:none;font-weight:400">Withdrawal</span></th><th class="num" title="Protocol Deviation and Violation Report">C14<br><span class="muted" style="text-transform:none;font-weight:400">Protocol Deviatio…</span></th><th class="num" title="Protocol Deviation and Violation Assessment">C15<br><span class="muted" style="text-transform:none;font-weight:400">Protocol Deviatio…</span></th></tr></thead>
+    <tbody><tr><td>ALIMA Nizi</td><td class="c5">100</td><td class="c5">100</td><td class="c5">99,2</td><td class="c1">1,2</td><td class="c5">99,2</td><td class="c1">9,2</td><td class="c5">98</td><td class="c5">93,6</td><td class="c3">65,5</td><td class="c1">6,4</td><td class="c0">0,4</td><td class="c0">0</td><td class="c0">0</td><td class="c1">2</td><td class="c1">2</td></tr><tr><td>Elikya (MSF), Bunia</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">99</td><td class="c5">100</td><td class="c2">27,6</td><td class="c5">100</td><td class="c5">100</td><td class="c4">83,8</td><td class="c1">4,3</td><td class="c1">1,4</td><td class="c1">1,4</td><td class="c1">1</td><td class="c1">1,4</td><td class="c1">1,4</td></tr><tr><td>IMC HGR Bunia</td><td class="c5">100</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">98,9</td><td class="c5">98,9</td><td class="c2">38,3</td><td class="c5">96,8</td><td class="c4">87,2</td><td class="c2">41,5</td><td class="c1">4,3</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c1">1,1</td><td class="c1">1,1</td></tr><tr><td>Beni (MSF)</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c0">0</td><td class="c5">100</td><td class="c1">5,8</td><td class="c4">86,5</td><td class="c3">51,9</td><td class="c0">0</td><td class="c1">1,9</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td>Beni (IMC)</td><td class="c5">100</td><td class="c5">100</td><td class="c5">97,6</td><td class="c0">0</td><td class="c5">97,6</td><td class="c2">28,6</td><td class="c4">88,1</td><td class="c3">66,7</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td></tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte">
+  <h2>Fichiers sources importés</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Site</th><th>Date export</th><th>Description</th><th class="num">Lignes</th><th class="num">Colonnes</th><th>Fichier(s)</th><th>Utilisé</th></tr></thead>
+    <tbody>
+      <tr><td>ALIMA Nizi</td><td>21/11/2026</td><td>PARTNERS Data Dictionary</td><td class="num">249</td><td class="num">375</td>
+        <td><code>donnees_extraites\EXCEL_Data_Dictionary_2026-11-21-105455353\EXCEL_Data_Dictionary_2026-11-21-105455353.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr>
+    
+      <tr><td>ALIMA Nizi</td><td>20/11/2026</td><td>clinical dataset nizi</td><td class="num">245</td><td class="num">375</td>
+        <td><code>donnees_extraites\EXCEL_full_dataset_2026-11-20-104717343_NYZI\EXCEL_full_dataset_2026-11-20-104717343.xls</code><br></td>
+        <td><span class="badge attente">version antérieure</span></td></tr>
+    
+      <tr><td>Elikya (MSF), Bunia</td><td>22/11/2026</td><td>DataSet Site2 Elykia Bunia</td><td class="num">210</td><td class="num">684</td>
+        <td><code>EXCEL_Full_Dataset_2026-11-22-093908065Site.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr>
+    
+      <tr><td>IMC HGR Bunia</td><td>20/11/2026</td><td>DataSet Site5 IMC Bunia</td><td class="num">94</td><td class="num">283</td>
+        <td><code>EXCEL_Full_Dataset_2026-11-20-112316732IMCBUNIA SITE5.xls</code><br><code>donnees_extraites\EXCEL_Full_Dataset_2026-11-20-112316732_IMC_BUNIA_SITE_5\EXCEL_Full_Dataset_2026-11-20-112316732.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr>
+    
+      <tr><td>Beni (MSF)</td><td>23/11/2026</td><td>FULL DATASET SITE 07 MSF/BENI</td><td class="num">52</td><td class="num">254</td>
+        <td><code>donnees_extraites\EXCEL_FULL_DATASET_2026-11-23-132657090\EXCEL_FULL_DATASET_2026-11-23-132657090.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr>
+    
+      <tr><td>Beni (IMC)</td><td>21/11/2026</td><td>Full dataset site 06 IMC BENI NORD-KIVU</td><td class="num">42</td><td class="num">261</td>
+        <td><code>EXCEL_Full_dataset__2026-11-21-151920902IMC BENI.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<p class="note muted" style="margin-top:24px">Version statique publique – données agrégées uniquement, aucune donnée individuelle de participant. Générée le 23/11/2026 à 17:57 à partir des exports OpenClinica.</p>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qualité & sécurité · PARTNERS</title>
+  <script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+  <link rel="stylesheet" href="static/essai/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="static/essai/charts.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">PARTNERS<small>Essai clinique MVE · RD Congo</small></div>
+  <nav class="nav">
+    
+    <a href="index.html" class="">Vue d'ensemble</a>
+    <a href="sites.html" class="">Sites</a>
+    <a href="qualite.html" class="actif">Qualité &amp; sécurité</a>
+    <a href="dictionnaire.html" class="">Dictionnaire</a>
+    
+  </nav>
+  <span class="spacer"></span>
+  <button class="theme-btn" id="theme-btn" type="button" title="Basculer clair / sombre">◐ Thème</button>
+</header>
+<main>
+
+<h1>Qualité des données &amp; sécurité</h1>
+<p class="sous-titre">Contrôles automatiques, complétude des CRF, événements indésirables graves et déviations au protocole.</p>
+
+<div class="grille">
+  <section class="carte span-5">
+    <h2>Contrôles de cohérence</h2>
+    <table>
+      <thead><tr><th>Contrôle</th><th class="num">Participants</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge ok">OK</span> Décès sans date de décès
+          </td>
+          <td class="num">0</td></tr>
+      
+        <tr><td><span class="badge ok">OK</span> Sortie vivante sans date de sortie
+          </td>
+          <td class="num">0</td></tr>
+      
+        <tr><td><span class="badge alerte">à vérifier</span> Issue primaire non renseignée
+          </td>
+          <td class="num">67</td></tr>
+      
+        <tr><td><span class="badge alerte">à vérifier</span> Issue primaire « inconnue » (99)
+          </td>
+          <td class="num">6</td></tr>
+      
+        <tr><td><span class="badge ok">OK</span> Âge manquant
+          </td>
+          <td class="num">0</td></tr>
+      
+        <tr><td><span class="badge ok">OK</span> Ct d&#x27;admission manquant
+          </td>
+          <td class="num">0</td></tr>
+      
+        <tr><td><span class="badge alerte">à vérifier</span> Allocation manquante
+          </td>
+          <td class="num">8</td></tr>
+      
+        <tr><td><span class="badge ok">OK</span> Grossesse déclarée chez un homme
+          </td>
+          <td class="num">0</td></tr>
+      
+        <tr><td><span class="badge ok">OK</span> Date de décès avant randomisation
+          </td>
+          <td class="num">0</td></tr>
+      
+        <tr><td><span class="badge alerte">à vérifier</span> Remdesivir alloué mais non reçu
+          </td>
+          <td class="num">5</td></tr>
+      
+        <tr><td><span class="badge alerte">à vérifier</span> MBP134 alloué mais non reçu
+          </td>
+          <td class="num">5</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="carte span-7">
+    <h2>Complétude des CRF</h2>
+    <p class="muted">% de participants avec au moins une donnée dans le CRF.</p>
+    <div class="legende-q"><span class="c0">0</span><span class="c1">1–24</span><span class="c2">25–49</span><span class="c3">50–69</span><span class="c4">70–89</span><span class="c5">≥ 90 %</span></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th>CRF</th><th class="num">ALIMA Nizi</th><th class="num">Elikya (MSF),…</th><th class="num">IMC HGR Bunia</th><th class="num">Beni (MSF)</th><th class="num">Beni (IMC)</th></tr></thead>
+      <tbody><tr><td><code>C1</code> Randomisation</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td></tr><tr><td><code>C2</code> Entry</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td></tr><tr><td><code>C3</code> Baseline</td><td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td></tr><tr><td><code>C4</code> Daily Clinical</td><td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td><code>C5</code> PCR</td><td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td></tr><tr><td><code>C6</code> Ad hoc PCR</td><td class="c1">9,2</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td></tr><tr><td><code>C7</code> Biochemistry</td><td class="c5">98</td><td class="c5">100</td><td class="c5">96,8</td><td class="c4">86,5</td><td class="c4">88,1</td></tr><tr><td><code>C8</code> Outcomes</td><td class="c5">93,6</td><td class="c5">100</td><td class="c4">87,2</td><td class="c3">51,9</td><td class="c3">66,7</td></tr><tr><td><code>C9</code> Follow-up Day 28</td><td class="c3">65,5</td><td class="c4">83,8</td><td class="c2">41,5</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td><code>C10</code> Pregnancy Outcomes</td><td class="c1">6,4</td><td class="c1">4,3</td><td class="c1">4,3</td><td class="c1">1,9</td><td class="c0">0</td></tr><tr><td><code>C11</code> SAE Notification</td><td class="c0">0,4</td><td class="c1">1,4</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td><code>C12</code> CCO Assessment</td><td class="c0">0</td><td class="c1">1,4</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td><code>C13</code> Withdrawal</td><td class="c0">0</td><td class="c1">1</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td><code>C14</code> Protocol Deviation and Violation Report</td><td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c0">0</td><td class="c0">0</td></tr><tr><td><code>C15</code> Protocol Deviation and Violation Assessment</td><td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c0">0</td><td class="c0">0</td></tr></tbody>
+    </table></div>
+  </section>
+
+  
+  <section class="carte span-12">
+    <h2>Événements indésirables graves et déviations par site</h2>
+    <table>
+      <thead><tr><th>Site</th><th class="num">EIG notifiés</th><th class="num">Déviations / violations</th></tr></thead>
+      <tbody><tr><td>ALIMA Nizi</td><td class="num">1</td><td class="num">5</td></tr><tr><td>Elikya (MSF), Bunia</td><td class="num">3</td><td class="num">3</td></tr><tr><td>IMC HGR Bunia</td><td class="num">0</td><td class="num">1</td></tr><tr><td>Beni (MSF)</td><td class="num">0</td><td class="num">0</td></tr><tr><td>Beni (IMC)</td><td class="num">0</td><td class="num">0</td></tr></tbody>
+    </table>
+    <p class="note">Le détail des événements est réservé à l'application interne.</p>
+  </section>
+  
+
+  <section class="carte span-12">
+    <h2>Exports importés</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Site</th><th>Protocole</th><th>Date</th><th>Dataset</th><th class="num">Participants</th><th>Fichier(s)</th><th>Statut</th></tr></thead>
+      <tbody><tr><td>ALIMA Nizi</td><td><code>PA_103</code></td><td>21/11/2026</td><td>Data_Dictionary</td><td class="num">249</td>
+        <td><code>donnees_extraites\EXCEL_Data_Dictionary_2026-11-21-105455353\EXCEL_Data_Dictionary_2026-11-21-105455353.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr><tr><td>ALIMA Nizi</td><td><code>PA_103</code></td><td>20/11/2026</td><td>full_dataset</td><td class="num">245</td>
+        <td><code>donnees_extraites\EXCEL_full_dataset_2026-11-20-104717343_NYZI\EXCEL_full_dataset_2026-11-20-104717343.xls</code><br></td>
+        <td><span class="badge attente">version antérieure</span></td></tr><tr><td>Elikya (MSF), Bunia</td><td><code>PA_104</code></td><td>22/11/2026</td><td>Full_Dataset</td><td class="num">210</td>
+        <td><code>EXCEL_Full_Dataset_2026-11-22-093908065Site.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr><tr><td>IMC HGR Bunia</td><td><code>PA_105</code></td><td>20/11/2026</td><td>Full_Dataset</td><td class="num">94</td>
+        <td><code>EXCEL_Full_Dataset_2026-11-20-112316732IMCBUNIA SITE5.xls</code><br><code>donnees_extraites\EXCEL_Full_Dataset_2026-11-20-112316732_IMC_BUNIA_SITE_5\EXCEL_Full_Dataset_2026-11-20-112316732.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr><tr><td>Beni (MSF)</td><td><code>PA_110</code></td><td>23/11/2026</td><td>FULL_DATASET</td><td class="num">52</td>
+        <td><code>donnees_extraites\EXCEL_FULL_DATASET_2026-11-23-132657090\EXCEL_FULL_DATASET_2026-11-23-132657090.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr><tr><td>Beni (IMC)</td><td><code>PA_111</code></td><td>21/11/2026</td><td>Full_dataset_</td><td class="num">42</td>
+        <td><code>EXCEL_Full_dataset__2026-11-21-151920902IMC BENI.xls</code><br></td>
+        <td><span class="badge ok">retenu</span></td></tr></tbody>
+    </table></div>
+  </section>
+</div>
+
+<p class="note muted" style="margin-top:24px">Version statique publique – données agrégées uniquement, aucune donnée individuelle de participant. Générée le 23/11/2026 à 17:57 à partir des exports OpenClinica.</p>
+</main>
+
+</body>
+</html>

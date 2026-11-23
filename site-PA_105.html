@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue d'ensemble · PARTNERS</title>
+  <script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+  <link rel="stylesheet" href="static/essai/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="static/essai/charts.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">PARTNERS<small>Essai clinique MVE · RD Congo</small></div>
+  <nav class="nav">
+    
+    <a href="index.html" class="actif">Vue d'ensemble</a>
+    <a href="sites.html" class="">Sites</a>
+    <a href="qualite.html" class="">Qualité &amp; sécurité</a>
+    <a href="dictionnaire.html" class="">Dictionnaire</a>
+    
+  </nav>
+  <span class="spacer"></span>
+  <button class="theme-btn" id="theme-btn" type="button" title="Basculer clair / sombre">◐ Thème</button>
+</header>
+<main>
+
+<h1>Vue d'ensemble de l'essai</h1>
+<p class="sous-titre">
+  IMC HGR Bunia (PA_105)
+  · export le plus récent : 23/11/2026
+</p>
+
+<form class="filtres" method="get">
+  <select name="site" onchange="location.href = this.value ? 'site-' + this.value + '.html' : 'index.html'">
+    <option value="">Tous les sites</option>
+    <option value="PA_103" >ALIMA Nizi – PA_103</option><option value="PA_104" >Elikya (MSF), Bunia (site 2) – PA_104</option><option value="PA_105" selected>IMC HGR Bunia (site 5) – PA_105</option><option value="PA_110" >Beni (MSF) (site 7) – PA_110</option><option value="PA_111" >Beni (IMC) (site 6) – PA_111</option>
+  </select>
+  <noscript><button class="btn">Filtrer</button></noscript>
+</form>
+
+<section class="kpis">
+  <div class="kpi"><div class="val">94</div><div class="lib">Participants randomisés</div><div class="det">1 site</div></div>
+  <div class="kpi"><div class="val">29</div><div class="lib">Décès (issue primaire)</div><div class="det">mortalité 35,4 % des issues connues</div></div>
+  <div class="kpi"><div class="val">53</div><div class="lib">Sorties vivantes</div><div class="det">0 transférés</div></div>
+  <div class="kpi"><div class="val">12</div><div class="lib">Issue en attente / inconnue</div><div class="det">12 non saisies, 0 inconnues</div></div>
+  <div class="kpi"><div class="val">64,9 %</div><div class="lib">Femmes</div><div class="det">5 enceintes</div></div>
+  <div class="kpi"><div class="val">30 ans</div><div class="lib">Âge médian</div><div class="det">18 participants &lt; 18 ans</div></div>
+  <div class="kpi"><div class="val">11</div><div class="lib">Agents de santé</div></div>
+  <div class="kpi"><div class="val">0 / 1</div><div class="lib">EIG / déviations</div><div class="det"><a href="qualite.html">voir le détail</a></div></div>
+</section>
+
+<div class="grille">
+  <section class="carte span-8">
+    <h2>Recrutement cumulé par site</h2>
+    <div class="chart-box haut"><canvas id="g-recrutement" aria-label="Recrutement cumulé par semaine et par site"></canvas></div>
+    <p class="note">Par semaine de randomisation (lundi).</p>
+  </section>
+  <section class="carte span-4">
+    <h2>Participants par site</h2>
+    <div class="chart-box haut"><canvas id="g-sites" aria-label="Participants par site"></canvas></div>
+  </section>
+
+  <section class="carte span-5">
+    <h2>Issue primaire de l'hospitalisation</h2>
+    <div class="chart-box"><canvas id="g-issues" aria-label="Issue primaire"></canvas></div>
+  </section>
+  <section class="carte span-7">
+    <h2>Pyramide âge × sexe</h2>
+    <div class="chart-box"><canvas id="g-age" aria-label="Répartition par âge et sexe"></canvas></div>
+  </section>
+
+  <section class="carte span-7">
+    <h2>Ct à l'admission et issue</h2>
+    <div class="chart-box"><canvas id="g-ct" aria-label="Issue selon la valeur Ct à l'admission"></canvas></div>
+    <p class="note">Un Ct bas correspond à une charge virale élevée. Mortalité par tranche (décès / (décès + sorties)) :
+      <strong>&lt; 20</strong> 100 % · <strong>20–24,9</strong> 69,2 % · <strong>25–29,9</strong> 25,8 % · <strong>30–34,9</strong> 8,7 % · <strong>≥ 35</strong> 0 %</p>
+  </section>
+  <section class="carte span-5">
+    <h2>Plan factoriel 2 × 2</h2>
+    <table>
+      <thead><tr><th>Comparaison 1 \ 2</th><th class="num">Pas de traitement supplémentaire</th><th class="num">MBP134</th><th class="num">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Pas de traitement supplémentaire</td><td class="num">27</td><td class="num">18</td><td class="num"><strong>45</strong></td></tr><tr><td>Remdesivir</td><td class="num">20</td><td class="num">29</td><td class="num"><strong>49</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Comparaison 1 : remdesivir vs pas de traitement supplémentaire · Comparaison 2 : MBP134 vs pas de traitement supplémentaire.</p>
+  </section>
+
+  <section class="carte span-12">
+    <h2>Issue primaire par bras (descriptif)</h2>
+    <div class="avertissement">Données brutes non monitorées – statistiques descriptives uniquement, sans valeur d'analyse d'efficacité.</div>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Comparaison</th><th>Bras</th><th class="num">N</th><th class="num">Sorties vivantes</th><th class="num">Décès</th><th class="num">Transférés</th><th class="num">Inconnue</th><th class="num">En attente</th><th class="num">Mortalité (issues connues)</th></tr></thead>
+      <tbody>
+        <tr><td>Comparaison 1</td><td>Pas de traitement supplémentaire</td><td class="num">45</td><td class="num">25</td><td class="num">15</td><td class="num">0</td><td class="num">0</td><td class="num">5</td><td class="num">37,5 %</td></tr>
+      
+        <tr><td>Comparaison 1</td><td>Remdesivir</td><td class="num">49</td><td class="num">28</td><td class="num">14</td><td class="num">0</td><td class="num">0</td><td class="num">7</td><td class="num">33,3 %</td></tr>
+      
+        <tr><td>Comparaison 2</td><td>Pas de traitement supplémentaire</td><td class="num">47</td><td class="num">25</td><td class="num">16</td><td class="num">0</td><td class="num">0</td><td class="num">6</td><td class="num">39 %</td></tr>
+      
+        <tr><td>Comparaison 2</td><td>MBP134</td><td class="num">47</td><td class="num">28</td><td class="num">13</td><td class="num">0</td><td class="num">0</td><td class="num">6</td><td class="num">31,7 %</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</div>
+<script id="donnees-graphiques" type="application/json">{"recrutement": {"labels": ["2026-09-07", "2026-09-14", "2026-09-21", "2026-09-28", "2026-10-05", "2026-10-12", "2026-10-19", "2026-10-26", "2026-11-02", "2026-11-09", "2026-11-16"], "series": [{"nom": "IMC HGR Bunia", "slot": 3, "valeurs": [6, 20, 24, 39, 47, 55, 64, 72, 76, 87, 94]}]}, "sites": [{"nom": "ALIMA Nizi", "slot": 1, "n": 249, "proto": "PA_103"}, {"nom": "Elikya (MSF), Bunia", "slot": 2, "n": 210, "proto": "PA_104"}, {"nom": "IMC HGR Bunia", "slot": 3, "n": 94, "proto": "PA_105"}, {"nom": "Beni (MSF)", "slot": 4, "n": 52, "proto": "PA_110"}, {"nom": "Beni (IMC)", "slot": 5, "n": 42, "proto": "PA_111"}], "age_sexe": {"labels": ["0\u20134", "5\u201314", "15\u201324", "25\u201334", "35\u201344", "45\u201354", "55\u201364", "65+"], "F": [4, 5, 17, 15, 8, 4, 4, 4], "M": [2, 3, 6, 3, 6, 10, 2, 1]}, "ct_issue": {"labels": ["\u003C 20", "20\u201324,9", "25\u201329,9", "30\u201334,9", "\u2265 35"], "sortis": [0, 8, 23, 21, 1], "deces": [1, 18, 8, 2, 0], "autres": [0, 4, 4, 4, 0], "mortalite": [100.0, 69.2, 25.8, 8.7, 0.0]}, "issues": {"labels": ["Sortie vivante", "D\u00e9c\u00e9d\u00e9", "Transf\u00e9r\u00e9", "Inconnue", "En attente"], "valeurs": [53, 29, 0, 0, 12]}}</script>
+
+<p class="note muted" style="margin-top:24px">Version statique publique – données agrégées uniquement, aucune donnée individuelle de participant. Générée le 23/11/2026 à 17:57 à partir des exports OpenClinica.</p>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  PC.base();
+  const G = JSON.parse(document.getElementById("donnees-graphiques").textContent);
+
+  // Recrutement cumulé
+  new Chart(document.getElementById("g-recrutement"), {
+    type: "line",
+    data: { labels: G.recrutement.labels, datasets: G.recrutement.series.map(s => ({
+      label: s.nom, data: s.valeurs, borderColor: PC.slot(s.slot), backgroundColor: PC.slot(s.slot),
+      borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, pointHoverBorderColor: PC.css("--surface"), pointHoverBorderWidth: 2, tension: 0.2,
+    })) },
+    options: {
+      interaction: { mode: "index", intersect: false },
+      plugins: { tooltip: { callbacks: { title: (it) => "Semaine du " + new Date(it[0].label).toLocaleDateString("fr-FR") } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { maxTicksLimit: 8, callback: function (v) { return new Date(this.getLabelForValue(v)).toLocaleDateString("fr-FR", { day: "2-digit", month: "short" }); } } },
+        y: { beginAtZero: true, border: { display: false }, ticks: { precision: 0 } },
+      },
+    },
+  });
+
+  // Participants par site
+  new Chart(document.getElementById("g-sites"), {
+    type: "bar",
+    data: { labels: G.sites.map(s => s.nom), datasets: [{ label: "Participants", data: G.sites.map(s => s.n),
+      ...PC.barre(G.sites.map(s => PC.slot(s.slot))), borderRadius: { topRight: 4, bottomRight: 4 }, borderSkipped: "left" }] },
+    options: {
+      indexAxis: "y", plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true, border: { display: false }, ticks: { precision: 0 } }, y: { grid: { display: false } } },
+      onClick: (e, el) => { if (!el.length) return; const p = G.sites[el[0].index].proto;
+        location.href = "site-" + p + ".html"; },
+    },
+  });
+
+  // Issues
+  const coulIssues = [PC.css("--good"), PC.css("--critical"), PC.slot(7), PC.css("--neutral"), PC.css("--surface-2")];
+  new Chart(document.getElementById("g-issues"), {
+    type: "bar",
+    data: { labels: G.issues.labels, datasets: [{ label: "Participants", data: G.issues.valeurs,
+      ...PC.barre(coulIssues), borderColor: [null, null, null, null, PC.css("--neutral")].map(c => c || PC.css("--surface")), borderWidth: 1,
+      borderRadius: { topRight: 4, bottomRight: 4 }, borderSkipped: "left" }] },
+    options: { indexAxis: "y", plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true, border: { display: false }, ticks: { precision: 0 } }, y: { grid: { display: false } } } },
+  });
+
+  // Âge x sexe
+  new Chart(document.getElementById("g-age"), {
+    type: "bar",
+    data: { labels: G.age_sexe.labels, datasets: [
+      { label: "Femmes", data: G.age_sexe.F, ...PC.barre(PC.slot(1)) },
+      { label: "Hommes", data: G.age_sexe.M, ...PC.barre(PC.slot(2)) },
+    ] },
+    options: { scales: PC.axes(false, "Participants"), plugins: { tooltip: { mode: "index", intersect: false } } },
+  });
+
+  // Ct x issue
+  new Chart(document.getElementById("g-ct"), {
+    type: "bar",
+    data: { labels: G.ct_issue.labels, datasets: [
+      { label: "Sortie vivante", data: G.ct_issue.sortis, ...PC.barre(PC.css("--good")), borderRadius: 0 },
+      { label: "Décédé", data: G.ct_issue.deces, ...PC.barre(PC.css("--critical")), borderRadius: 0 },
+      { label: "Autre / en attente", data: G.ct_issue.autres, ...PC.barre(PC.css("--neutral")) },
+    ] },
+    options: {
+      scales: { ...PC.axes(true, "Participants"), x: { stacked: true, grid: { display: false }, title: { display: true, text: "Valeur Ct à l'admission" } } },
+      plugins: { tooltip: { mode: "index", intersect: false } },
+      datasets: { bar: { borderColor: PC.css("--surface"), borderWidth: { top: 2 } } },
+    },
+  });
+});
+</script>
+
+</body>
+</html>

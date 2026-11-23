@@ -1,0 +1,2052 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dictionnaire de données · PARTNERS</title>
+  <script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+  <link rel="stylesheet" href="static/essai/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="static/essai/charts.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">PARTNERS<small>Essai clinique MVE · RD Congo</small></div>
+  <nav class="nav">
+    
+    <a href="index.html" class="">Vue d'ensemble</a>
+    <a href="sites.html" class="">Sites</a>
+    <a href="qualite.html" class="">Qualité &amp; sécurité</a>
+    <a href="dictionnaire.html" class="actif">Dictionnaire</a>
+    
+  </nav>
+  <span class="spacer"></span>
+  <button class="theme-btn" id="theme-btn" type="button" title="Basculer clair / sombre">◐ Thème</button>
+</header>
+<main>
+
+<h1>Dictionnaire de données</h1>
+<p class="sous-titre">289 variables issues des en-têtes des exports OpenClinica, organisées par événement d'étude et CRF.</p>
+
+<div class="avertissement">
+  Le fichier <code>EXCEL_Data_Dictionary_2026-11-21</code> fourni contient la structure de l'étude (événements, CRF, variables) mais pas les libellés des modalités.
+  Les libellés affichés ici ont été établis à partir des noms de variables et vérifiés par recoupement dans les données ;
+  ceux marqués « (à confirmer) » sont à valider avec le dictionnaire officiel (export « CRF metadata » d'OpenClinica), puis à corriger dans <code>essai/codebook.py</code>.
+</div>
+
+<div class="grille" style="margin-bottom:16px">
+  <section class="carte span-12">
+    <h2>Événements d'étude et CRF</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Événement</th><th>Nom</th><th>Répétable</th><th>CRF</th></tr></thead>
+      <tbody><tr><td><code>E1</code></td><td>Randomisation</td><td>Non</td>
+        <td><a href="#crf-C1"><code>C1</code> Randomisation</a></td></tr><tr><td><code>E2</code></td><td>Enrolment Day 1</td><td>Non</td>
+        <td><a href="#crf-C2"><code>C2</code> Entry</a> · <a href="#crf-C3"><code>C3</code> Baseline</a></td></tr><tr><td><code>E3</code></td><td>Daily Clinical</td><td>Oui</td>
+        <td><a href="#crf-C4"><code>C4</code> Daily Clinical</a></td></tr><tr><td><code>E4</code></td><td>PCR</td><td>Oui</td>
+        <td><a href="#crf-C5"><code>C5</code> PCR</a></td></tr><tr><td><code>E5</code></td><td>Ad hoc PCR</td><td>Oui</td>
+        <td><a href="#crf-C6"><code>C6</code> Ad hoc PCR</a></td></tr><tr><td><code>E6</code></td><td>Biochemistry</td><td>Oui</td>
+        <td><a href="#crf-C7"><code>C7</code> Biochemistry</a></td></tr><tr><td><code>E7</code></td><td>Outcomes</td><td>Non</td>
+        <td><a href="#crf-C8"><code>C8</code> Outcomes</a></td></tr><tr><td><code>E8</code></td><td>Follow-up Day 28</td><td>Non</td>
+        <td><a href="#crf-C9"><code>C9</code> Follow-up Day 28</a></td></tr><tr><td><code>E10</code></td><td>Pregnancy Outcomes</td><td>Non</td>
+        <td><a href="#crf-C10"><code>C10</code> Pregnancy Outcomes</a></td></tr><tr><td><code>E11</code></td><td>Safety</td><td>Non</td>
+        <td><a href="#crf-C11"><code>C11</code> SAE Notification</a> · <a href="#crf-C12"><code>C12</code> CCO Assessment</a></td></tr><tr><td><code>E12</code></td><td>Withdrawal</td><td>Non</td>
+        <td><a href="#crf-C13"><code>C13</code> Withdrawal</a></td></tr><tr><td><code>E13</code></td><td>Protocol Deviation and Violation Report</td><td>Non</td>
+        <td><a href="#crf-C14"><code>C14</code> Protocol Deviation and Violation Report</a></td></tr><tr><td><code>E14</code></td><td>Protocol Deviation and Violation Assessment</td><td>Non</td>
+        <td><a href="#crf-C15"><code>C15</code> Protocol Deviation and Violation Assessment</a></td></tr></tbody>
+    </table></div>
+  </section>
+</div>
+
+<form class="filtres" method="get" id="form-dico" onsubmit="return false">
+  <input type="search" name="q" value="" placeholder="Rechercher une variable ou un libellé">
+  <select name="crf"><option value="">Tous les CRF</option><option value="C1" >C1 – Randomisation</option><option value="C2" >C2 – Entry</option><option value="C3" >C3 – Baseline</option><option value="C4" >C4 – Daily Clinical</option><option value="C5" >C5 – PCR</option><option value="C6" >C6 – Ad hoc PCR</option><option value="C7" >C7 – Biochemistry</option><option value="C8" >C8 – Outcomes</option><option value="C9" >C9 – Follow-up Day 28</option><option value="C10" >C10 – Pregnancy Outcomes</option><option value="C11" >C11 – SAE Notification</option><option value="C12" >C12 – CCO Assessment</option><option value="C13" >C13 – Withdrawal</option><option value="C14" >C14 – Protocol Deviation and Violation Report</option><option value="C15" >C15 – Protocol Deviation and Violation Assessment</option></select>
+  
+</form>
+
+<div class="legende-q">Complétude (% de participants renseignés) : <span class="c0">0</span><span class="c1">1–24</span><span class="c2">25–49</span><span class="c3">50–69</span><span class="c4">70–89</span><span class="c5">≥ 90</span><span class="c-na">— absent de l'export du site</span></div>
+
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E1" data-crf="">
+  <h2>E1 – Randomisation</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C1" data-crf="C1">
+  <h2>E1 · Randomisation — C1 · Randomisation</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="centre_id identifiant du centre">
+      <td><code>CENTRE_ID</code></td>
+      <td>Identifiant du centre</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="centre_name nom du centre">
+      <td><code>CENTRE_NAME</code></td>
+      <td>Nom du centre</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="country_code code pays">
+      <td><code>COUNTRY_CODE</code></td>
+      <td>Code pays</td>
+      <td style="font-size:12px"><code>CD</code> = RD Congo</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="consent consentement obtenu">
+      <td><code>CONSENT</code></td>
+      <td>Consentement obtenu</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="consent_date date du consentement">
+      <td><code>CONSENT_DATE</code></td>
+      <td>Date du consentement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="consent_source personne ayant consenti">
+      <td><code>CONSENT_SOURCE</code></td>
+      <td>Personne ayant consenti</td>
+      <td style="font-size:12px"><code>1</code> = Participant (à confirmer)<br><code>2</code> = Représentant légal / parent (à confirmer)<br><code>3</code> = Témoin impartial / autre (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_enrol déjà inclus auparavant dans partners">
+      <td><code>PREVIOUS_ENROL</code></td>
+      <td>Déjà inclus auparavant dans PARTNERS</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="virus_type type de virus">
+      <td><code>VIRUS_TYPE</code></td>
+      <td>Type de virus</td>
+      <td style="font-size:12px"><code>1</code> = Orthoebolavirus zairense (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="pcr_conf infection confirmée par pcr">
+      <td><code>PCR_CONF</code></td>
+      <td>Infection confirmée par PCR</td>
+      <td style="font-size:12px"><code>1</code> = Oui<br><code>2</code> = Non / en attente (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="admission_ct_value valeur ct à l&#x27;admission">
+      <td><code>ADMISSION_CT_VALUE</code></td>
+      <td>Valeur Ct à l&#x27;admission</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="admission_ct_value_na ct à l&#x27;admission non disponible">
+      <td><code>ADMISSION_CT_VALUE_NA</code></td>
+      <td>Ct à l&#x27;admission non disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="pcr_date date de la pcr diagnostique">
+      <td><code>PCR_DATE</code></td>
+      <td>Date de la PCR diagnostique</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="pep_any prophylaxie post-exposition reçue">
+      <td><code>PEP_ANY</code></td>
+      <td>Prophylaxie post-exposition reçue</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_treat_rem remdesivir reçu avant inclusion">
+      <td><code>PREVIOUS_TREAT_REM</code></td>
+      <td>Remdesivir reçu avant inclusion</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_treat_mab anticorps monoclonal reçu avant inclusion">
+      <td><code>PREVIOUS_TREAT_MAB</code></td>
+      <td>Anticorps monoclonal reçu avant inclusion</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_treat_mab_name nom de l&#x27;anticorps monoclonal reçu">
+      <td><code>PREVIOUS_TREAT_MAB_NAME</code></td>
+      <td>Nom de l&#x27;anticorps monoclonal reçu</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="treat_suit_b_1 éligible au remdesivir">
+      <td><code>TREAT_SUIT_B_1</code></td>
+      <td>Éligible au remdesivir</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_suit_b_2 éligible au mbp134">
+      <td><code>TREAT_SUIT_B_2</code></td>
+      <td>Éligible au MBP134</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_suit_c_2 éligible au comparateur bras 2">
+      <td><code>TREAT_SUIT_C_2</code></td>
+      <td>Éligible au comparateur bras 2</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="treat_avail_b_1 remdesivir disponible">
+      <td><code>TREAT_AVAIL_B_1</code></td>
+      <td>Remdesivir disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_b_2 mbp134 disponible">
+      <td><code>TREAT_AVAIL_B_2</code></td>
+      <td>MBP134 disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_c_2 comparateur bras 2 disponible">
+      <td><code>TREAT_AVAIL_C_2</code></td>
+      <td>Comparateur bras 2 disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="sex sexe">
+      <td><code>SEX</code></td>
+      <td>Sexe</td>
+      <td style="font-size:12px"><code>1</code> = Masculin<br><code>2</code> = Féminin</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="date_birth_yn date de naissance connue">
+      <td><code>DATE_BIRTH_YN</code></td>
+      <td>Date de naissance connue</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="date_birth date de naissance">
+      <td><code>DATE_BIRTH</code></td>
+      <td>Date de naissance</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">4,8</td><td class="c1">4,8</td><td class="c0">0</td><td class="c2">34,6</td><td class="c2">31</td>
+    </tr><tr data-texte="cal_age âge calculé (texte)">
+      <td><code>CAL_AGE</code></td>
+      <td>Âge calculé (texte)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">4,8</td><td class="c1">4,8</td><td class="c-na">—</td><td class="c2">34,6</td><td class="c2">31</td>
+    </tr><tr data-texte="age_estimate_years âge estimé (années)">
+      <td><code>AGE_ESTIMATE_YEARS</code></td>
+      <td>Âge estimé (années)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">95,2</td><td class="c5">95,2</td><td class="c5">100</td><td class="c3">65,4</td><td class="c3">69</td>
+    </tr><tr data-texte="age_estimate_months âge estimé (mois)">
+      <td><code>AGE_ESTIMATE_MONTHS</code></td>
+      <td>Âge estimé (mois)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">1,6</td><td class="c1">3,3</td><td class="c1">5,3</td><td class="c1">3,8</td><td class="c1">2,4</td>
+    </tr><tr data-texte="cal_age_y âge (années)">
+      <td><code>CAL_AGE_Y</code></td>
+      <td>Âge (années)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="pregnant enceinte">
+      <td><code>PREGNANT</code></td>
+      <td>Enceinte</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c3">50,2</td><td class="c2">44,8</td><td class="c3">54,3</td><td class="c2">40,4</td><td class="c2">42,9</td>
+    </tr><tr data-texte="rand_date date de randomisation">
+      <td><code>RAND_DATE</code></td>
+      <td>Date de randomisation</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="rand_time heure de randomisation">
+      <td><code>RAND_TIME</code></td>
+      <td>Heure de randomisation</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="allocation_1 allocation – comparaison 1 (remdesivir)">
+      <td><code>ALLOCATION_1</code></td>
+      <td>Allocation – comparaison 1 (remdesivir)</td>
+      <td style="font-size:12px"><code>1</code> = Pas de traitement supplémentaire<br><code>2</code> = Remdesivir</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c4">86,5</td><td class="c5">100</td>
+    </tr><tr data-texte="allocation_2 allocation – comparaison 2 (mbp134)">
+      <td><code>ALLOCATION_2</code></td>
+      <td>Allocation – comparaison 2 (MBP134)</td>
+      <td style="font-size:12px"><code>1</code> = Pas de traitement supplémentaire<br><code>2</code> = MBP134</td>
+      <td class="num">1</td>
+      <td class="c5">99,6</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_ratio_1 ratio d&#x27;allocation – comparaison 1">
+      <td><code>TREAT_RATIO_1</code></td>
+      <td>Ratio d&#x27;allocation – comparaison 1</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_trial_1 traitements disponibles (essai) – comp. 1">
+      <td><code>TREAT_AVAIL_TRIAL_1</code></td>
+      <td>Traitements disponibles (essai) – comp. 1</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_centre_1 traitements disponibles (centre) – comp. 1">
+      <td><code>TREAT_AVAIL_CENTRE_1</code></td>
+      <td>Traitements disponibles (centre) – comp. 1</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_ratio_2 ratio d&#x27;allocation – comparaison 2">
+      <td><code>TREAT_RATIO_2</code></td>
+      <td>Ratio d&#x27;allocation – comparaison 2</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_trial_2 traitements disponibles (essai) – comp. 2">
+      <td><code>TREAT_AVAIL_TRIAL_2</code></td>
+      <td>Traitements disponibles (essai) – comp. 2</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_centre_2 traitements disponibles (centre) – comp. 2">
+      <td><code>TREAT_AVAIL_CENTRE_2</code></td>
+      <td>Traitements disponibles (centre) – comp. 2</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="protocol_ver version du protocole">
+      <td><code>PROTOCOL_VER</code></td>
+      <td>Version du protocole</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E2" data-crf="">
+  <h2>E2 – Enrolment Day 1</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C2" data-crf="C2">
+  <h2>E2 · Enrolment Day 1 — C2 · Entry</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="cal_allocation_1_rn_lab allocation 1 (libellé en)">
+      <td><code>CAL_ALLOCATION_1_RN_LAB</code></td>
+      <td>Allocation 1 (libellé EN)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c4">86,5</td><td class="c5">100</td>
+    </tr><tr data-texte="cal_allocation_1_rn_lab_fr allocation 1 (libellé fr)">
+      <td><code>CAL_ALLOCATION_1_RN_LAB_FR</code></td>
+      <td>Allocation 1 (libellé FR)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c4">86,5</td><td class="c5">100</td>
+    </tr><tr data-texte="cal_allocation_2_rn_lab allocation 2 (libellé en)">
+      <td><code>CAL_ALLOCATION_2_RN_LAB</code></td>
+      <td>Allocation 2 (libellé EN)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">99,6</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="cal_allocation_2_rn_lab_fr allocation 2 (libellé fr)">
+      <td><code>CAL_ALLOCATION_2_RN_LAB_FR</code></td>
+      <td>Allocation 2 (libellé FR)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">99,6</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="consent consentement obtenu">
+      <td><code>CONSENT</code></td>
+      <td>Consentement obtenu</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="consent_date date du consentement">
+      <td><code>CONSENT_DATE</code></td>
+      <td>Date du consentement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="consent_source personne ayant consenti">
+      <td><code>CONSENT_SOURCE</code></td>
+      <td>Personne ayant consenti</td>
+      <td style="font-size:12px"><code>1</code> = Participant (à confirmer)<br><code>2</code> = Représentant légal / parent (à confirmer)<br><code>3</code> = Témoin impartial / autre (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_enrol déjà inclus auparavant dans partners">
+      <td><code>PREVIOUS_ENROL</code></td>
+      <td>Déjà inclus auparavant dans PARTNERS</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="virus_type type de virus">
+      <td><code>VIRUS_TYPE</code></td>
+      <td>Type de virus</td>
+      <td style="font-size:12px"><code>1</code> = Orthoebolavirus zairense (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="pcr_conf infection confirmée par pcr">
+      <td><code>PCR_CONF</code></td>
+      <td>Infection confirmée par PCR</td>
+      <td style="font-size:12px"><code>1</code> = Oui<br><code>2</code> = Non / en attente (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="admission_ct_value valeur ct à l&#x27;admission">
+      <td><code>ADMISSION_CT_VALUE</code></td>
+      <td>Valeur Ct à l&#x27;admission</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="admission_ct_value_na ct à l&#x27;admission non disponible">
+      <td><code>ADMISSION_CT_VALUE_NA</code></td>
+      <td>Ct à l&#x27;admission non disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="pcr_date date de la pcr diagnostique">
+      <td><code>PCR_DATE</code></td>
+      <td>Date de la PCR diagnostique</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="pep_any prophylaxie post-exposition reçue">
+      <td><code>PEP_ANY</code></td>
+      <td>Prophylaxie post-exposition reçue</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_treat_rem remdesivir reçu avant inclusion">
+      <td><code>PREVIOUS_TREAT_REM</code></td>
+      <td>Remdesivir reçu avant inclusion</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_treat_mab anticorps monoclonal reçu avant inclusion">
+      <td><code>PREVIOUS_TREAT_MAB</code></td>
+      <td>Anticorps monoclonal reçu avant inclusion</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="previous_treat_mab_name nom de l&#x27;anticorps monoclonal reçu">
+      <td><code>PREVIOUS_TREAT_MAB_NAME</code></td>
+      <td>Nom de l&#x27;anticorps monoclonal reçu</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="treat_suit_b_1 éligible au remdesivir">
+      <td><code>TREAT_SUIT_B_1</code></td>
+      <td>Éligible au remdesivir</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_suit_b_2 éligible au mbp134">
+      <td><code>TREAT_SUIT_B_2</code></td>
+      <td>Éligible au MBP134</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_suit_c_2 éligible au comparateur bras 2">
+      <td><code>TREAT_SUIT_C_2</code></td>
+      <td>Éligible au comparateur bras 2</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="treat_avail_b_1 remdesivir disponible">
+      <td><code>TREAT_AVAIL_B_1</code></td>
+      <td>Remdesivir disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_b_2 mbp134 disponible">
+      <td><code>TREAT_AVAIL_B_2</code></td>
+      <td>MBP134 disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="treat_avail_c_2 comparateur bras 2 disponible">
+      <td><code>TREAT_AVAIL_C_2</code></td>
+      <td>Comparateur bras 2 disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="sex sexe">
+      <td><code>SEX</code></td>
+      <td>Sexe</td>
+      <td style="font-size:12px"><code>1</code> = Masculin<br><code>2</code> = Féminin</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="date_birth_yn date de naissance connue">
+      <td><code>DATE_BIRTH_YN</code></td>
+      <td>Date de naissance connue</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="date_birth date de naissance">
+      <td><code>DATE_BIRTH</code></td>
+      <td>Date de naissance</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">4,8</td><td class="c1">4,8</td><td class="c0">0</td><td class="c2">34,6</td><td class="c2">31</td>
+    </tr><tr data-texte="cal_age âge calculé (texte)">
+      <td><code>CAL_AGE</code></td>
+      <td>Âge calculé (texte)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">4,8</td><td class="c1">4,8</td><td class="c-na">—</td><td class="c2">34,6</td><td class="c2">31</td>
+    </tr><tr data-texte="age_estimate_years âge estimé (années)">
+      <td><code>AGE_ESTIMATE_YEARS</code></td>
+      <td>Âge estimé (années)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">95,2</td><td class="c5">95,2</td><td class="c5">100</td><td class="c3">65,4</td><td class="c3">69</td>
+    </tr><tr data-texte="age_estimate_months âge estimé (mois)">
+      <td><code>AGE_ESTIMATE_MONTHS</code></td>
+      <td>Âge estimé (mois)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">1,6</td><td class="c1">3,3</td><td class="c1">5,3</td><td class="c1">3,8</td><td class="c1">2,4</td>
+    </tr><tr data-texte="cal_age_y âge (années)">
+      <td><code>CAL_AGE_Y</code></td>
+      <td>Âge (années)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td><td class="c5">100</td>
+    </tr><tr data-texte="pregnant enceinte">
+      <td><code>PREGNANT</code></td>
+      <td>Enceinte</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c3">50,2</td><td class="c2">44,8</td><td class="c3">54,3</td><td class="c2">40,4</td><td class="c2">42,9</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C3" data-crf="C3">
+  <h2>E2 · Enrolment Day 1 — C3 · Baseline</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="malaria_test_result test paludisme (tdr)">
+      <td><code>MALARIA_TEST_RESULT</code></td>
+      <td>Test paludisme (TDR)</td>
+      <td style="font-size:12px"><code>0</code> = Négatif<br><code>1</code> = Positif<br><code>2</code> = Indéterminé (à confirmer)<br><code>99</code> = Non fait / inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcr_control ct du contrôle interne pcr">
+      <td><code>PCR_CONTROL</code></td>
+      <td>Ct du contrôle interne PCR</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">99,5</td><td class="c5">98,9</td><td class="c4">84,6</td><td class="c5">97,6</td>
+    </tr><tr data-texte="egestage_rptestcd âge gestationnel (semaines)">
+      <td><code>EGESTAGE_RPTESTCD</code></td>
+      <td>Âge gestationnel (semaines)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">6,8</td><td class="c1">2,4</td><td class="c1">5,3</td><td class="c1">1,9</td><td class="c1">2,4</td>
+    </tr><tr data-texte="apsc_brfedind allaitement en cours">
+      <td><code>APSC_BRFEDIND</code></td>
+      <td>Allaitement en cours</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu<br><code>88</code> = Non applicable</td>
+      <td class="num">1</td>
+      <td class="c2">49,4</td><td class="c2">44,8</td><td class="c3">54,3</td><td class="c2">40,4</td><td class="c2">40,5</td>
+    </tr><tr data-texte="hcw_status agent de santé">
+      <td><code>HCW_STATUS</code></td>
+      <td>Agent de santé</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">99,5</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="needlestick exposition par piqûre d&#x27;aiguille">
+      <td><code>NEEDLESTICK</code></td>
+      <td>Exposition par piqûre d&#x27;aiguille</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu<br><code>88</code> = Non applicable</td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">6,7</td><td class="c1">11,7</td><td class="c1">15,4</td><td class="c1">7,1</td>
+    </tr><tr data-texte="base_sympt_yn symptomatique à l&#x27;inclusion">
+      <td><code>BASE_SYMPT_YN</code></td>
+      <td>Symptomatique à l&#x27;inclusion</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="first_symptom date des premiers symptômes">
+      <td><code>FIRST_SYMPTOM</code></td>
+      <td>Date des premiers symptômes</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">98,8</td><td class="c5">99,5</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="admiss_date date d&#x27;admission">
+      <td><code>ADMISS_DATE</code></td>
+      <td>Date d&#x27;admission</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="admiss_transfer transféré d&#x27;un autre établissement">
+      <td><code>ADMISS_TRANSFER</code></td>
+      <td>Transféré d&#x27;un autre établissement</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="transfer_name établissement d&#x27;origine">
+      <td><code>TRANSFER_NAME</code></td>
+      <td>Établissement d&#x27;origine</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">2,4</td><td class="c1">1,1</td><td class="c3">63,5</td><td class="c5">92,9</td>
+    </tr><tr data-texte="transfer_date date du transfert">
+      <td><code>TRANSFER_DATE</code></td>
+      <td>Date du transfert</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c3">53,8</td><td class="c5">90,5</td>
+    </tr><tr data-texte="weight_vsorres poids (kg)">
+      <td><code>WEIGHT_VSORRES</code></td>
+      <td>Poids (kg)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">95,2</td>
+    </tr><tr data-texte="temp_vsorres température (°c)">
+      <td><code>TEMP_VSORRES</code></td>
+      <td>Température (°C)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">97,2</td><td class="c5">99,5</td><td class="c5">97,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="heart_rate_vsorres fréquence cardiaque (bpm)">
+      <td><code>HEART_RATE_VSORRES</code></td>
+      <td>Fréquence cardiaque (bpm)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">96</td><td class="c5">96,2</td><td class="c5">96,8</td><td class="c5">98,1</td><td class="c5">97,6</td>
+    </tr><tr data-texte="sysbp_vsorres pression artérielle systolique (mmhg)">
+      <td><code>SYSBP_VSORRES</code></td>
+      <td>Pression artérielle systolique (mmHg)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c4">78,7</td><td class="c4">86,7</td><td class="c5">90,4</td><td class="c4">71,2</td><td class="c3">69</td>
+    </tr><tr data-texte="rr_vsorres fréquence respiratoire (/min)">
+      <td><code>RR_VSORRES</code></td>
+      <td>Fréquence respiratoire (/min)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">94</td><td class="c1">15,7</td><td class="c1">11,7</td><td class="c3">57,7</td><td class="c4">85,7</td>
+    </tr><tr data-texte="oxy_vsorres saturation en o₂ (%)">
+      <td><code>OXY_VSORRES</code></td>
+      <td>Saturation en O₂ (%)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">93,2</td><td class="c5">99,5</td><td class="c5">95,7</td><td class="c5">98,1</td><td class="c5">90,5</td>
+    </tr><tr data-texte="oxy_sup_vsorres sous oxygène lors de la mesure">
+      <td><code>OXY_SUP_VSORRES</code></td>
+      <td>Sous oxygène lors de la mesure</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">97,6</td><td class="c5">100</td><td class="c5">97,9</td><td class="c5">100</td><td class="c5">95,2</td>
+    </tr><tr data-texte="gcs_vsorres score de glasgow">
+      <td><code>GCS_VSORRES</code></td>
+      <td>Score de Glasgow</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c3">69,1</td><td class="c4">79</td><td class="c4">84</td><td class="c4">78,8</td><td class="c3">66,7</td>
+    </tr><tr data-texte="avpu_vsorres échelle avpu">
+      <td><code>AVPU_VSORRES</code></td>
+      <td>Échelle AVPU</td>
+      <td style="font-size:12px"><code>1</code> = A – Alerte<br><code>2</code> = V – Répond à la voix<br><code>3</code> = P – Répond à la douleur<br><code>4</code> = U – Inconscient</td>
+      <td class="num">1</td>
+      <td class="c2">30,1</td><td class="c1">21</td><td class="c1">14,9</td><td class="c1">21,2</td><td class="c2">31</td>
+    </tr><tr data-texte="cap_refill_vsorres temps de recoloration capillaire (s)">
+      <td><code>CAP_REFILL_VSORRES</code></td>
+      <td>Temps de recoloration capillaire (s)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">90,5</td>
+    </tr><tr data-texte="aidshiv_mhyn vih / sida">
+      <td><code>AIDSHIV_MHYN</code></td>
+      <td>VIH / SIDA</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="tb_mhyn tuberculose">
+      <td><code>TB_MHYN</code></td>
+      <td>Tuberculose</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="diabetes_mhyn diabète">
+      <td><code>DIABETES_MHYN</code></td>
+      <td>Diabète</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="liver_mhyn maladie hépatique chronique">
+      <td><code>LIVER_MHYN</code></td>
+      <td>Maladie hépatique chronique</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="renal_mhyn maladie rénale chronique">
+      <td><code>RENAL_MHYN</code></td>
+      <td>Maladie rénale chronique</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="malnourish_mhyn malnutrition">
+      <td><code>MALNOURISH_MHYN</code></td>
+      <td>Malnutrition</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="immune_mhyn immunodépression">
+      <td><code>IMMUNE_MHYN</code></td>
+      <td>Immunodépression</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="evdhx_mhyn antécédent de mve">
+      <td><code>EVDHX_MHYN</code></td>
+      <td>Antécédent de MVE</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="vacc_mhyn vacciné contre ebola">
+      <td><code>VACC_MHYN</code></td>
+      <td>Vacciné contre Ebola</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="malaria_med traitement antipaludique">
+      <td><code>MALARIA_MED</code></td>
+      <td>Traitement antipaludique</td>
+      <td style="font-size:12px"><code>0</code> = Aucun<br><code>88</code> = Autre (préciser)</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="malaria_med_oth autre antipaludique">
+      <td><code>MALARIA_MED_OTH</code></td>
+      <td>Autre antipaludique</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c4">84,7</td><td class="c2">26,7</td><td class="c4">74,5</td><td class="c4">82,7</td><td class="c4">83,3</td>
+    </tr><tr data-texte="antiviral_med autre antiviral reçu">
+      <td><code>ANTIVIRAL_MED</code></td>
+      <td>Autre antiviral reçu</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pcr_control_na ct contrôle non disponible">
+      <td><code>PCR_CONTROL_NA</code></td>
+      <td>Ct contrôle non disponible</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c0">0</td><td class="c1">15,4</td><td class="c-na">—</td>
+    </tr><tr data-texte="transfer_date_unknown date de transfert inconnue">
+      <td><code>TRANSFER_DATE_UNKNOWN</code></td>
+      <td>Date de transfert inconnue</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c1">9,6</td><td class="c1">2,4</td>
+    </tr><tr data-texte="vacc_name_mhyn vacc name mhyn">
+      <td><code>VACC_NAME_MHYN</code></td>
+      <td>Vacc name mhyn</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td><td class="c1">17,3</td><td class="c1">7,1</td>
+    </tr><tr data-texte="vacc_date_mhyn vacc date mhyn">
+      <td><code>VACC_DATE_MHYN</code></td>
+      <td>Vacc date mhyn</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td><td class="c1">11,5</td><td class="c1">4,8</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E3" data-crf="">
+  <h2>E3 – Daily Clinical</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">10</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">10</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C4" data-crf="C4">
+  <h2>E3 · Daily Clinical — C4 · Daily Clinical</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">10</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="day_no jour d&#x27;étude">
+      <td><code>DAY_NO</code></td>
+      <td>Jour d&#x27;étude</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="dcdate date de la visite quotidienne">
+      <td><code>DCDATE</code></td>
+      <td>Date de la visite quotidienne</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="daily_mbp134 mbp134 administré ce jour">
+      <td><code>DAILY_MBP134</code></td>
+      <td>MBP134 administré ce jour</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="mbp_reaction réaction à la perfusion mbp134">
+      <td><code>MBP_REACTION</code></td>
+      <td>Réaction à la perfusion MBP134</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">5</td>
+      <td class="c0">0,4</td><td class="c2">48,1</td><td class="c3">50</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="daily_remdes remdesivir administré ce jour">
+      <td><code>DAILY_REMDES</code></td>
+      <td>Remdesivir administré ce jour</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="rem_reaction réaction à la perfusion remdesivir">
+      <td><code>REM_REACTION</code></td>
+      <td>Réaction à la perfusion remdesivir</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c0">0,8</td><td class="c2">49,5</td><td class="c2">48,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="oxygen_crit oxygénothérapie">
+      <td><code>OXYGEN_CRIT</code></td>
+      <td>Oxygénothérapie</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="niv_crit ventilation non invasive">
+      <td><code>NIV_CRIT</code></td>
+      <td>Ventilation non invasive</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="imv_crit ventilation mécanique invasive">
+      <td><code>IMV_CRIT</code></td>
+      <td>Ventilation mécanique invasive</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="rrt_crit épuration extra-rénale">
+      <td><code>RRT_CRIT</code></td>
+      <td>Épuration extra-rénale</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="ino_crit inotropes / vasopresseurs">
+      <td><code>INO_CRIT</code></td>
+      <td>Inotropes / vasopresseurs</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="blood_crit transfusion sanguine">
+      <td><code>BLOOD_CRIT</code></td>
+      <td>Transfusion sanguine</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="drugs_crit autres médicaments critiques">
+      <td><code>DRUGS_CRIT</code></td>
+      <td>Autres médicaments critiques</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">10</td>
+      <td class="c1">1,2</td><td class="c5">99</td><td class="c5">98,9</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">10</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="mbp_severity sévérité de la réaction mbp134">
+      <td><code>MBP_SEVERITY</code></td>
+      <td>Sévérité de la réaction MBP134</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">7,1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="exprx_crit traitement expérimental hors essai">
+      <td><code>EXPRX_CRIT</code></td>
+      <td>Traitement expérimental hors essai</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">2</td>
+      <td class="c-na">—</td><td class="c1">1,9</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E4" data-crf="">
+  <h2>E4 – PCR</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C5" data-crf="C5">
+  <h2>E4 · PCR — C5 · PCR</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="day_no jour d&#x27;étude">
+      <td><code>DAY_NO</code></td>
+      <td>Jour d&#x27;étude</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcrdate date du prélèvement pcr">
+      <td><code>PCRDATE</code></td>
+      <td>Date du prélèvement PCR</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcrdate_lab date de réception au laboratoire">
+      <td><code>PCRDATE_LAB</code></td>
+      <td>Date de réception au laboratoire</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c2">42,6</td><td class="c4">79</td><td class="c1">11,7</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pcrdaterep_lab date du résultat pcr">
+      <td><code>PCRDATEREP_LAB</code></td>
+      <td>Date du résultat PCR</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcrqual_lab résultat pcr qualitatif">
+      <td><code>PCRQUAL_LAB</code></td>
+      <td>Résultat PCR qualitatif</td>
+      <td style="font-size:12px"><code>0</code> = Négatif<br><code>1</code> = Positif<br><code>2</code> = Indéterminé<br><code>99</code> = Non fait / inconnu</td>
+      <td class="num">8</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcrquant_lab_dec valeur ct">
+      <td><code>PCRQUANT_LAB_DEC</code></td>
+      <td>Valeur Ct</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcrstore_lab échantillon stocké">
+      <td><code>PCRSTORE_LAB</code></td>
+      <td>Échantillon stocké</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">8</td>
+      <td class="c5">99,2</td><td class="c5">100</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcrident_lab_tx identifiant de l&#x27;échantillon">
+      <td><code>PCRIDENT_LAB_TX</code></td>
+      <td>Identifiant de l&#x27;échantillon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c4">89,2</td><td class="c1">3,8</td><td class="c0">0</td><td class="c2">25</td><td class="c0">0</td>
+    </tr><tr data-texte="daily_ct_equip équipement pcr utilisé">
+      <td><code>DAILY_CT_EQUIP</code></td>
+      <td>Équipement PCR utilisé</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c5">99,2</td><td class="c5">98,1</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="cal_pcr_date_min date pcr minimale (calcul)">
+      <td><code>CAL_PCR_DATE_MIN</code></td>
+      <td>Date PCR minimale (calcul)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c5">98,4</td><td class="c4">89</td><td class="c5">98,9</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="pcr_present pcr réalisée">
+      <td><code>PCR_PRESENT</code></td>
+      <td>PCR réalisée</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">7</td>
+      <td class="c3">64,7</td><td class="c2">42,4</td><td class="c5">95,7</td><td class="c5">100</td><td class="c5">97,6</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E5" data-crf="">
+  <h2>E5 – Ad hoc PCR</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C6" data-crf="C6">
+  <h2>E5 · Ad hoc PCR — C6 · Ad hoc PCR</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="pcrdate date du prélèvement pcr">
+      <td><code>PCRDATE</code></td>
+      <td>Date du prélèvement PCR</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c1">9,2</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="day_no jour d&#x27;étude">
+      <td><code>DAY_NO</code></td>
+      <td>Jour d&#x27;étude</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c1">9,2</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="pcrdate_lab date de réception au laboratoire">
+      <td><code>PCRDATE_LAB</code></td>
+      <td>Date de réception au laboratoire</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c1">9,2</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="pcrdaterep_lab date du résultat pcr">
+      <td><code>PCRDATEREP_LAB</code></td>
+      <td>Date du résultat PCR</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c1">8,8</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="daily_ct_equip équipement pcr utilisé">
+      <td><code>DAILY_CT_EQUIP</code></td>
+      <td>Équipement PCR utilisé</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c1">8,8</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="pcrqual_lab résultat pcr qualitatif">
+      <td><code>PCRQUAL_LAB</code></td>
+      <td>Résultat PCR qualitatif</td>
+      <td style="font-size:12px"><code>0</code> = Négatif<br><code>1</code> = Positif<br><code>2</code> = Indéterminé<br><code>99</code> = Non fait / inconnu</td>
+      <td class="num">5</td>
+      <td class="c1">8,8</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="pcrstore_lab échantillon stocké">
+      <td><code>PCRSTORE_LAB</code></td>
+      <td>Échantillon stocké</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">5</td>
+      <td class="c1">8,8</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="pcrident_lab_tx identifiant de l&#x27;échantillon">
+      <td><code>PCRIDENT_LAB_TX</code></td>
+      <td>Identifiant de l&#x27;échantillon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">4</td>
+      <td class="c1">7,2</td><td class="c0">0</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c0">0</td>
+    </tr><tr data-texte="cal_pcr_date_min date pcr minimale (calcul)">
+      <td><code>CAL_PCR_DATE_MIN</code></td>
+      <td>Date PCR minimale (calcul)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c1">9,2</td><td class="c2">27,6</td><td class="c2">38,3</td><td class="c1">5,8</td><td class="c2">28,6</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pcrquant_lab_dec valeur ct">
+      <td><code>PCRQUANT_LAB_DEC</code></td>
+      <td>Valeur Ct</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">5</td>
+      <td class="c-na">—</td><td class="c1">10,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c1">4,8</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E6" data-crf="">
+  <h2>E6 – Biochemistry</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C7" data-crf="C7">
+  <h2>E6 · Biochemistry — C7 · Biochemistry</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="day_no jour d&#x27;étude">
+      <td><code>DAY_NO</code></td>
+      <td>Jour d&#x27;étude</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c5">98</td><td class="c5">100</td><td class="c5">96,8</td><td class="c4">86,5</td><td class="c4">88,1</td>
+    </tr><tr data-texte="biochdate date du prélèvement biochimie">
+      <td><code>BIOCHDATE</code></td>
+      <td>Date du prélèvement biochimie</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c5">98</td><td class="c5">100</td><td class="c5">96,8</td><td class="c4">86,5</td><td class="c4">88,1</td>
+    </tr><tr data-texte="biochdate_lab date d&#x27;analyse biochimie">
+      <td><code>BIOCHDATE_LAB</code></td>
+      <td>Date d&#x27;analyse biochimie</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c2">39</td><td class="c3">63,8</td><td class="c2">34</td><td class="c4">84,6</td><td class="c4">88,1</td>
+    </tr><tr data-texte="creatinine_lab_dec créatinine">
+      <td><code>CREATININE_LAB_DEC</code></td>
+      <td>Créatinine</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c2">37,3</td><td class="c3">62,4</td><td class="c2">34</td><td class="c4">80,8</td><td class="c4">88,1</td>
+    </tr><tr data-texte="creat_unit_lab unité de la créatinine">
+      <td><code>CREAT_UNIT_LAB</code></td>
+      <td>Unité de la créatinine</td>
+      <td style="font-size:12px"><code>1</code> = mg/dL (à confirmer)<br><code>2</code> = µmol/L (à confirmer)<br><code>99</code> = Inconnue</td>
+      <td class="num">8</td>
+      <td class="c2">37,3</td><td class="c3">63,8</td><td class="c2">34</td><td class="c4">80,8</td><td class="c4">88,1</td>
+    </tr><tr data-texte="ast_lab asat (ui/l)">
+      <td><code>AST_LAB</code></td>
+      <td>ASAT (UI/L)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c2">31,3</td><td class="c3">57,1</td><td class="c2">29,8</td><td class="c3">65,4</td><td class="c4">78,6</td>
+    </tr><tr data-texte="ast_uln_int asat – limite sup. normale">
+      <td><code>AST_ULN_INT</code></td>
+      <td>ASAT – limite sup. normale</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c2">31,3</td><td class="c3">57,1</td><td class="c2">29,8</td><td class="c3">65,4</td><td class="c4">78,6</td>
+    </tr><tr data-texte="alt_lab alat (ui/l)">
+      <td><code>ALT_LAB</code></td>
+      <td>ALAT (UI/L)</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c2">32,1</td><td class="c3">61</td><td class="c2">34</td><td class="c4">82,7</td><td class="c4">88,1</td>
+    </tr><tr data-texte="alt_uln_int alat – limite sup. normale">
+      <td><code>ALT_ULN_INT</code></td>
+      <td>ALAT – limite sup. normale</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">7</td>
+      <td class="c2">32,1</td><td class="c3">61</td><td class="c2">34</td><td class="c4">82,7</td><td class="c4">88,1</td>
+    </tr><tr data-texte="biochem_present biochimie réalisée">
+      <td><code>BIOCHEM_PRESENT</code></td>
+      <td>Biochimie réalisée</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">8</td>
+      <td class="c3">63,9</td><td class="c2">40,5</td><td class="c5">93,6</td><td class="c4">86,5</td><td class="c4">88,1</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">8</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E7" data-crf="">
+  <h2>E7 – Outcomes</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C8" data-crf="C8">
+  <h2>E7 · Outcomes — C8 · Outcomes</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td>
+    </tr><tr data-texte="primary_out issue primaire (hospitalisation)">
+      <td><code>PRIMARY_OUT</code></td>
+      <td>Issue primaire (hospitalisation)</td>
+      <td style="font-size:12px"><code>1</code> = Sortie vivante<br><code>2</code> = Toujours hospitalisé (à confirmer)<br><code>3</code> = Transféré<br><code>4</code> = Décédé<br><code>99</code> = Inconnue</td>
+      <td class="num">1</td>
+      <td class="c5">93,6</td><td class="c5">100</td><td class="c4">87,2</td><td class="c3">51,9</td><td class="c3">66,7</td>
+    </tr><tr data-texte="discharge_out date de sortie">
+      <td><code>DISCHARGE_OUT</code></td>
+      <td>Date de sortie</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c3">69,1</td><td class="c4">73,3</td><td class="c3">56,4</td><td class="c1">21,2</td><td class="c3">52,4</td>
+    </tr><tr data-texte="death_d_out date du décès">
+      <td><code>DEATH_D_OUT</code></td>
+      <td>Date du décès</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">23,3</td><td class="c1">24,3</td><td class="c2">30,9</td><td class="c2">30,8</td><td class="c1">14,3</td>
+    </tr><tr data-texte="death_cause_out cause du décès">
+      <td><code>DEATH_CAUSE_OUT</code></td>
+      <td>Cause du décès</td>
+      <td style="font-size:12px"><code>1</code> = Maladie à virus (MVE)<br><code>2</code> = Autre cause</td>
+      <td class="num">1</td>
+      <td class="c1">23,3</td><td class="c1">24,3</td><td class="c2">30,9</td><td class="c2">30,8</td><td class="c1">14,3</td>
+    </tr><tr data-texte="death_detail_out détail de la cause du décès">
+      <td><code>DEATH_DETAIL_OUT</code></td>
+      <td>Détail de la cause du décès</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">23,3</td><td class="c1">24,3</td><td class="c2">30,9</td><td class="c2">30,8</td><td class="c1">14,3</td>
+    </tr><tr data-texte="outcome_pregtest_result test de grossesse à la sortie">
+      <td><code>OUTCOME_PREGTEST_RESULT</code></td>
+      <td>Test de grossesse à la sortie</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">14,1</td><td class="c2">30</td><td class="c1">2,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="rem_yn remdesivir reçu">
+      <td><code>REM_YN</code></td>
+      <td>Remdesivir reçu</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">93,6</td><td class="c5">96,2</td><td class="c4">87,2</td><td class="c3">51,9</td><td class="c3">66,7</td>
+    </tr><tr data-texte="rem_days nombre de jours de remdesivir">
+      <td><code>REM_DAYS</code></td>
+      <td>Nombre de jours de remdesivir</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c2">45,8</td><td class="c2">48,6</td><td class="c2">42,6</td><td class="c1">19,2</td><td class="c2">42,9</td>
+    </tr><tr data-texte="rem_reason raison d&#x27;arrêt du remdesivir">
+      <td><code>REM_REASON</code></td>
+      <td>Raison d&#x27;arrêt du remdesivir</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c2">34,9</td><td class="c2">31</td><td class="c2">26,6</td><td class="c1">17,3</td><td class="c2">26,2</td>
+    </tr><tr data-texte="rem_irr réaction à la perfusion de remdesivir">
+      <td><code>REM_IRR</code></td>
+      <td>Réaction à la perfusion de remdesivir</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c2">45,8</td><td class="c2">48,1</td><td class="c2">42,6</td><td class="c1">19,2</td><td class="c2">42,9</td>
+    </tr><tr data-texte="mbp134_course mbp134 reçu">
+      <td><code>MBP134_COURSE</code></td>
+      <td>MBP134 reçu</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui – complet<br><code>2</code> = Oui – partiel (à confirmer)</td>
+      <td class="num">1</td>
+      <td class="c5">93,6</td><td class="c5">96,2</td><td class="c4">87,2</td><td class="c3">51,9</td><td class="c3">66,7</td>
+    </tr><tr data-texte="mbp134_irr réaction à la perfusion de mbp134">
+      <td><code>MBP134_IRR</code></td>
+      <td>Réaction à la perfusion de MBP134</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c3">51,4</td><td class="c2">46,7</td><td class="c2">43,6</td><td class="c1">21,2</td><td class="c2">38,1</td>
+    </tr><tr data-texte="mbp134_severity sévérité réaction mbp134">
+      <td><code>MBP134_SEVERITY</code></td>
+      <td>Sévérité réaction MBP134</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">13,3</td><td class="c1">4,3</td><td class="c-na">—</td><td class="c1">1,9</td><td class="c-na">—</td>
+    </tr><tr data-texte="other_rx autre traitement spécifique">
+      <td><code>OTHER_RX</code></td>
+      <td>Autre traitement spécifique</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c5">93,6</td><td class="c5">96,2</td><td class="c4">87,2</td><td class="c3">51,9</td><td class="c3">66,7</td>
+    </tr><tr data-texte="exprx_crit traitement expérimental hors essai">
+      <td><code>EXPRX_CRIT</code></td>
+      <td>Traitement expérimental hors essai</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c1">3,2</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="supp_care soins de support">
+      <td><code>SUPP_CARE</code></td>
+      <td>Soins de support</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c5">93,6</td><td class="c5">96,2</td><td class="c4">87,2</td><td class="c3">51,9</td><td class="c3">66,7</td>
+    </tr><tr data-texte="outcomenewpreg grossesse découverte pendant l&#x27;hospitalisation">
+      <td><code>OUTCOMENEWPREG</code></td>
+      <td>Grossesse découverte pendant l&#x27;hospitalisation</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c1">24,5</td><td class="c1">9,5</td><td class="c2">27,7</td><td class="c1">9,6</td><td class="c1">21,4</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="extra_treat_out traitement supplémentaire reçu">
+      <td><code>EXTRA_TREAT_OUT</code></td>
+      <td>Traitement supplémentaire reçu</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">3,8</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="transfer_out date de transfert">
+      <td><code>TRANSFER_OUT</code></td>
+      <td>Date de transfert</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="transfer_name_out établissement de transfert">
+      <td><code>TRANSFER_NAME_OUT</code></td>
+      <td>Établissement de transfert</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="rem_severity sévérité réaction remdesivir">
+      <td><code>REM_SEVERITY</code></td>
+      <td>Sévérité réaction remdesivir</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c1">1,9</td><td class="c-na">—</td>
+    </tr><tr data-texte="antiviral_other_rx autre antiviral">
+      <td><code>ANTIVIRAL_OTHER_RX</code></td>
+      <td>Autre antiviral</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E8" data-crf="">
+  <h2>E8 – Follow-up Day 28</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C9" data-crf="C9">
+  <h2>E8 · Follow-up Day 28 — C9 · Follow-up Day 28</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="nofu28 pas de suivi à j28">
+      <td><code>NOFU28</code></td>
+      <td>Pas de suivi à J28</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c1">1,6</td><td class="c1">11,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_extra_treat j28 – traitement supplémentaire">
+      <td><code>F28_EXTRA_TREAT</code></td>
+      <td>J28 – traitement supplémentaire</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c3">63,9</td><td class="c4">72,4</td><td class="c2">41,5</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_relapse j28 – rechute">
+      <td><code>F28_RELAPSE</code></td>
+      <td>J28 – rechute</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c3">63,9</td><td class="c4">72,4</td><td class="c2">41,5</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_primary_out statut à j28">
+      <td><code>F28_PRIMARY_OUT</code></td>
+      <td>Statut à J28</td>
+      <td style="font-size:12px"><code>1</code> = Sortie vivante<br><code>2</code> = Toujours hospitalisé (à confirmer)<br><code>3</code> = Transféré<br><code>4</code> = Décédé<br><code>99</code> = Inconnue</td>
+      <td class="num">1</td>
+      <td class="c3">63,9</td><td class="c4">72,4</td><td class="c2">41,5</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_discharge_out j28 – date de sortie">
+      <td><code>F28_DISCHARGE_OUT</code></td>
+      <td>J28 – date de sortie</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c3">62,2</td><td class="c4">71</td><td class="c2">41,5</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_death_d_out j28 – date du décès">
+      <td><code>F28_DEATH_D_OUT</code></td>
+      <td>J28 – date du décès</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">1,6</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_death_cause_out j28 – cause du décès">
+      <td><code>F28_DEATH_CAUSE_OUT</code></td>
+      <td>J28 – cause du décès</td>
+      <td style="font-size:12px"><code>1</code> = Maladie à virus (MVE)<br><code>2</code> = Autre cause</td>
+      <td class="num">1</td>
+      <td class="c1">1,6</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_death_detail_out j28 – détail cause du décès">
+      <td><code>F28_DEATH_DETAIL_OUT</code></td>
+      <td>J28 – détail cause du décès</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">1,6</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_transfer_out j28 – date de transfert">
+      <td><code>F28_TRANSFER_OUT</code></td>
+      <td>J28 – date de transfert</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="f28_transfer_name_out j28 – établissement de transfert">
+      <td><code>F28_TRANSFER_NAME_OUT</code></td>
+      <td>J28 – établissement de transfert</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E10" data-crf="">
+  <h2>E10 – Pregnancy Outcomes</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C10" data-crf="C10">
+  <h2>E10 · Pregnancy Outcomes — C10 · Pregnancy Outcomes</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c-na">—</td>
+    </tr><tr data-texte="expect_preg date prévue d&#x27;accouchement">
+      <td><code>EXPECT_PREG</code></td>
+      <td>Date prévue d&#x27;accouchement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">6,4</td><td class="c1">4,3</td><td class="c1">4,3</td><td class="c1">1,9</td><td class="c-na">—</td>
+    </tr><tr data-texte="neonate_preg issue néonatale">
+      <td><code>NEONATE_PREG</code></td>
+      <td>Issue néonatale</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">5,2</td><td class="c1">1,9</td><td class="c1">3,2</td><td class="c1">1,9</td><td class="c-na">—</td>
+    </tr><tr data-texte="neonatedate_preg date de l&#x27;issue de grossesse">
+      <td><code>NEONATEDATE_PREG</code></td>
+      <td>Date de l&#x27;issue de grossesse</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">5,2</td><td class="c1">1,9</td><td class="c1">3,2</td><td class="c1">1,9</td><td class="c-na">—</td>
+    </tr><tr data-texte="maternal_preg issue maternelle">
+      <td><code>MATERNAL_PREG</code></td>
+      <td>Issue maternelle</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">5,2</td><td class="c1">1,9</td><td class="c1">3,2</td><td class="c1">1,9</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E11" data-crf="">
+  <h2>E11 – Safety</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C11" data-crf="C11">
+  <h2>E11 · Safety — C11 · SAE Notification</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="cal_now date de notification">
+      <td><code>CAL_NOW</code></td>
+      <td>Date de notification</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="number_ssar_sit numéro de l&#x27;eig">
+      <td><code>NUMBER_SSAR_SIT</code></td>
+      <td>Numéro de l&#x27;EIG</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="ssar_site_date date de survenue de l&#x27;eig">
+      <td><code>SSAR_SITE_DATE</code></td>
+      <td>Date de survenue de l&#x27;EIG</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="ssar_site_time heure de survenue de l&#x27;eig">
+      <td><code>SSAR_SITE_TIME</code></td>
+      <td>Heure de survenue de l&#x27;EIG</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="severity_sit critère de gravité">
+      <td><code>SEVERITY_SIT</code></td>
+      <td>Critère de gravité</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="sar_his description de l&#x27;eig">
+      <td><code>SAR_HIS</code></td>
+      <td>Description de l&#x27;EIG</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="site_cause_assessment lien de causalité (site)">
+      <td><code>SITE_CAUSE_ASSESSMENT</code></td>
+      <td>Lien de causalité (site)</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="agent_sit produit suspecté">
+      <td><code>AGENT_SIT</code></td>
+      <td>Produit suspecté</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="sar_outcome issue de l&#x27;eig">
+      <td><code>SAR_OUTCOME</code></td>
+      <td>Issue de l&#x27;EIG</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="medhx_ssar_site antécédents pertinents">
+      <td><code>MEDHX_SSAR_SITE</code></td>
+      <td>Antécédents pertinents</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="lab_ssar_site examens pertinents">
+      <td><code>LAB_SSAR_SITE</code></td>
+      <td>Examens pertinents</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0,4</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="relatedreason justification de la causalité">
+      <td><code>RELATEDREASON</code></td>
+      <td>Justification de la causalité</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="action_ssar action prise">
+      <td><code>ACTION_SSAR</code></td>
+      <td>Action prise</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="response_ssar évolution à l&#x27;arrêt">
+      <td><code>RESPONSE_SSAR</code></td>
+      <td>Évolution à l&#x27;arrêt</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="reintroduce_ssar réintroduction">
+      <td><code>REINTRODUCE_SSAR</code></td>
+      <td>Réintroduction</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C12" data-crf="C12">
+  <h2>E11 · Safety — C12 · CCO Assessment</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="number_spon number spon">
+      <td><code>NUMBER_SPON</code></td>
+      <td>Number spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="protocol_spon protocol spon">
+      <td><code>PROTOCOL_SPON</code></td>
+      <td>Protocol spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="causality_spon causality spon">
+      <td><code>CAUSALITY_SPON</code></td>
+      <td>Causality spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="causalitydesc_spon causalitydesc spon">
+      <td><code>CAUSALITYDESC_SPON</code></td>
+      <td>Causalitydesc spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="expect_spon expect spon">
+      <td><code>EXPECT_SPON</code></td>
+      <td>Expect spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="ibversion_spon ibversion spon">
+      <td><code>IBVERSION_SPON</code></td>
+      <td>Ibversion spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="ibdate_spon ibdate spon">
+      <td><code>IBDATE_SPON</code></td>
+      <td>Ibdate spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="protocolversion_spon protocolversion spon">
+      <td><code>PROTOCOLVERSION_SPON</code></td>
+      <td>Protocolversion spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="susar_spon susar spon">
+      <td><code>SUSAR_SPON</code></td>
+      <td>Susar spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="meddra_spon meddra spon">
+      <td><code>MEDDRA_SPON</code></td>
+      <td>Meddra spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="meddrapt_spon meddrapt spon">
+      <td><code>MEDDRAPT_SPON</code></td>
+      <td>Meddrapt spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="notes_spon notes spon">
+      <td><code>NOTES_SPON</code></td>
+      <td>Notes spon</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1,4</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E12" data-crf="">
+  <h2>E12 – Withdrawal</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C13" data-crf="C13">
+  <h2>E12 · Withdrawal — C13 · Withdrawal</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="active_with retrait actif de l&#x27;étude">
+      <td><code>ACTIVE_WITH</code></td>
+      <td>Retrait actif de l&#x27;étude</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="continue_with poursuite du suivi après retrait">
+      <td><code>CONTINUE_WITH</code></td>
+      <td>Poursuite du suivi après retrait</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="relative_with retrait par un proche">
+      <td><code>RELATIVE_WITH</code></td>
+      <td>Retrait par un proche</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="date_with date du retrait">
+      <td><code>DATE_WITH</code></td>
+      <td>Date du retrait</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c1">1</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="cal_form_start_dt cal form start dt">
+      <td><code>CAL_FORM_START_DT</code></td>
+      <td>Cal form start dt</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="cal_form_edit_dt cal form edit dt">
+      <td><code>CAL_FORM_EDIT_DT</code></td>
+      <td>Cal form edit dt</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0,5</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E13" data-crf="">
+  <h2>E13 – Protocol Deviation and Violation Report</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C14" data-crf="C14">
+  <h2>E13 · Protocol Deviation and Violation Report — C14 · Protocol Deviation and Violation Report</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="datestamp_dvf date de la déviation">
+      <td><code>DATESTAMP_DVF</code></td>
+      <td>Date de la déviation</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_brief déviation – résumé court">
+      <td><code>PV_BRIEF</code></td>
+      <td>Déviation – résumé court</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_summary déviation – description">
+      <td><code>PV_SUMMARY</code></td>
+      <td>Déviation – description</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_addpt déviation – autres participants concernés">
+      <td><code>PV_ADDPT</code></td>
+      <td>Déviation – autres participants concernés</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-E14" data-crf="">
+  <h2>E14 – Protocol Deviation and Violation Assessment</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="startdate date de début de l&#x27;événement">
+      <td><code>StartDate</code></td>
+      <td>Date de début de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="event status statut de l&#x27;événement">
+      <td><code>Event Status</code></td>
+      <td>Statut de l&#x27;événement</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+<section class="carte groupe-dico" style="margin-bottom:16px" id="crf-C15" data-crf="C15">
+  <h2>E14 · Protocol Deviation and Violation Assessment — C15 · Protocol Deviation and Violation Assessment</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Variable</th><th>Libellé</th><th>Modalités</th><th class="num">Répét.</th><th class="num" title="ALIMA Nizi">ALIMA Nizi</th><th class="num" title="Elikya (MSF), Bunia">Elikya (MSF),…</th><th class="num" title="IMC HGR Bunia">IMC HGR Bunia</th><th class="num" title="Beni (MSF)">Beni (MSF)</th><th class="num" title="Beni (IMC)">Beni (IMC)</th></tr></thead>
+    <tbody><tr data-texte="crf version id version du crf">
+      <td><code>CRF Version ID</code></td>
+      <td>Version du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c0">0</td><td class="c0">0</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_sig déviation significative (violation)">
+      <td><code>PV_SIG</code></td>
+      <td>Déviation significative (violation)</td>
+      <td style="font-size:12px"><code>0</code> = Non<br><code>1</code> = Oui<br><code>99</code> = Inconnu</td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_category catégorie de déviation">
+      <td><code>PV_CATEGORY</code></td>
+      <td>Catégorie de déviation</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_otherinfo informations complémentaires">
+      <td><code>PV_OTHERINFO</code></td>
+      <td>Informations complémentaires</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="pv_outcome issue / clôture de la déviation">
+      <td><code>PV_OUTCOME</code></td>
+      <td>Issue / clôture de la déviation</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c1">2</td><td class="c1">1,4</td><td class="c1">1,1</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr><tr data-texte="crf version status statut du crf">
+      <td><code>CRF Version Status</code></td>
+      <td>Statut du CRF</td>
+      <td style="font-size:12px"><span class="muted">texte / numérique / date</span></td>
+      <td class="num">1</td>
+      <td class="c-na">—</td><td class="c0">0</td><td class="c-na">—</td><td class="c-na">—</td><td class="c-na">—</td>
+    </tr></tbody>
+  </table></div>
+</section>
+
+
+<p class="note muted" style="margin-top:24px">Version statique publique – données agrégées uniquement, aucune donnée individuelle de participant. Générée le 23/11/2026 à 17:57 à partir des exports OpenClinica.</p>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const f = document.getElementById("form-dico");
+  const q = f.querySelector("[name=q]"), crf = f.querySelector("[name=crf]");
+  f.querySelectorAll("button, a.btn").forEach(b => b.remove());
+  const filtrer = () => {
+    const t = q.value.trim().toLowerCase(), c = crf.value;
+    document.querySelectorAll(".groupe-dico").forEach(g => {
+      let visibles = 0;
+      g.querySelectorAll("tbody tr").forEach(tr => {
+        const ok = !t || tr.dataset.texte.includes(t);
+        tr.style.display = ok ? "" : "none"; if (ok) visibles++;
+      });
+      g.style.display = (!c || g.dataset.crf === c) && visibles ? "" : "none";
+    });
+  };
+  q.addEventListener("input", filtrer); crf.addEventListener("change", filtrer);
+});
+</script>
+
+</body>
+</html>
