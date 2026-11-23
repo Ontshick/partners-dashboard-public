@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapports hebdomadaires · PARTNERS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/essai/meuri.css">
+<link rel="stylesheet" href="static/essai/partners.css">
+<script src="static/essai/charts.js"></script>
+</head>
+<body>
+
+<div class="app">
+<aside class="menu" id="menu">
+  <div class="logos-menu">
+    <div class="logo-blanc logo-partners"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"></div>
+    <div class="logo-blanc logo-inrb"><img src="static/essai/logo_inrb.png" alt="Institut National de Recherche Biomédicale (INRB)"></div>
+  </div>
+  <div class="logo"><div><b>PARTNERS RDC</b><span>Essai clinique MVE · INRB<br>Remdesivir / MBP134 · plan factoriel</span></div></div>
+
+  <nav aria-label="Navigation principale">
+  <div class="groupe">Tableau de bord</div>
+  <a href="index.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>Vue d'ensemble</a>
+  <details class="pli" ><summary><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Sites<span class="pastille">5</span></summary>
+  <a class="sous " href="site-PA_103.html">ALIMA Nizi</a><a class="sous " href="site-PA_104.html">Elikya (MSF), Bunia</a><a class="sous " href="site-PA_105.html">IMC HGR Bunia</a><a class="sous " href="site-PA_110.html">Beni (MSF)</a><a class="sous " href="site-PA_111.html">Beni (IMC)</a>
+  </details>
+  <a href="sites.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>Comparaison des sites</a>
+  
+
+  <div class="groupe">Données</div>
+  <a href="qualite.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Qualité &amp; sécurité</a>
+  <a href="dictionnaire.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h4"/></svg>Dictionnaire de données</a>
+  <a href="rapports.html" class="actif"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Rapports hebdomadaires</a>
+
+  <div class="groupe">Version statique<small>Instantané des données au 23/11/2026 ; données agrégées, sans identifiant de participant.</small></div>
+  
+  </nav>
+  <div class="auteur"><div class="avatar" aria-hidden="true">LO</div><div><small>Réalisé par</small><b>Leader Lawanga O'ntshick</b><span>MSc. PhD Student</span>
+    <em>Biostatisticien<br>Département d'Épidémiologie et Santé Globale</em></div></div>
+</aside>
+<div class="contenu">
+<header class="top"><div class="wrap">
+  <div class="brand">
+    <div class="titre-bloc"><button class="btn sec petit" id="bouton-menu" type="button" aria-label="Ouvrir le menu">☰</button>
+      <div class="titre-texte"><h1>Rapports hebdomadaires</h1>
+        <div class="meta"><span class="puce-date">Données au 23/11/2026</span>
+          <span class="meta-txt">Exports OpenClinica · 5 sites</span></div>
+      </div></div>
+    <div class="outils">
+    <details class="menu-rapport">
+      <summary class="btn btn-rapport"><svg class="ico-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><span class="txt-rapport">Rapport hebdomadaire</span><span class="chevron" aria-hidden="true"></span></summary>
+      <div class="menu-rapport-liste" role="menu">
+        <div class="menu-rapport-titre">Semaine 47 · du 16/11 au 22/11/2026</div>
+        <a role="menuitem" href="rapports/partners_rapport_hebdo_2026-S47.pdf" download><span class="fmt pdf">P</span><span><b>PDF</b><small>Rapport à imprimer ou à diffuser</small></span></a>
+        <a role="menuitem" href="rapports/partners_rapport_hebdo_2026-S47.docx" download><span class="fmt docx">W</span><span><b>Word</b><small>Document modifiable (.docx)</small></span></a>
+        <a role="menuitem" href="rapports/partners_rapport_hebdo_2026-S47.pptx" download><span class="fmt pptx">P</span><span><b>PowerPoint</b><small>Présentation (.pptx)</small></span></a>
+        <a role="menuitem" href="rapports.html" class="tous-rapports"><span class="fmt tous"><svg class="ico-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h4"/></svg></span><span><b>Toutes les semaines</b><small>Archive des rapports hebdomadaires</small></span></a>
+      </div></details>
+    </div>
+  </div>
+</div></header>
+<main class="wrap">
+
+<section class="hero hero-page" aria-label="Rapports hebdomadaires">
+  <div class="hero-ico" aria-hidden="true"><svg class="ico-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+  <div style="position:relative;z-index:1"><span class="surtitre">PARTNERS RDC · essai clinique MVE</span>
+    <h2 class="hero-titre">Rapports hebdomadaires</h2>
+    <p>Un rapport par semaine (lundi → dimanche), en PDF, Word et PowerPoint : indicateurs clés, situation par site,
+      inclusions par jour, figures et randomisation. Données agrégées, sans identifiant de participant.</p></div>
+</section>
+
+<section class="carte">
+  <h2>Archive (18 semaines)</h2>
+  
+  <div class="table-scroll"><table>
+    <thead><tr><th>Semaine</th><th>Période</th><th class="num">Inclusions de la semaine</th><th class="num">Inclusions cumulées</th><th class="num">Décès de la semaine</th><th class="num">Mortalité (fin de semaine)</th><th>Télécharger</th></tr></thead>
+    <tbody><tr>
+      <td><b>S47</b> <span class="muted">2026</span> <span class="badge ok">dernière</span></td>
+      <td>16/11 → 22/11/2026</td>
+      <td class="num"><b>54</b></td><td class="num">647</td><td class="num">11</td>
+      <td class="num">28 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S47.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S47.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S47.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S46</b> <span class="muted">2026</span></td>
+      <td>09/11 → 15/11/2026</td>
+      <td class="num"><b>41</b></td><td class="num">593</td><td class="num">12</td>
+      <td class="num">27,2 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S46.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S46.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S46.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S45</b> <span class="muted">2026</span></td>
+      <td>02/11 → 08/11/2026</td>
+      <td class="num"><b>45</b></td><td class="num">552</td><td class="num">14</td>
+      <td class="num">27,2 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S45.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S45.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S45.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S44</b> <span class="muted">2026</span></td>
+      <td>26/10 → 01/11/2026</td>
+      <td class="num"><b>30</b></td><td class="num">507</td><td class="num">8</td>
+      <td class="num">26 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S44.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S44.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S44.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S43</b> <span class="muted">2026</span></td>
+      <td>19/10 → 25/10/2026</td>
+      <td class="num"><b>20</b></td><td class="num">477</td><td class="num">10</td>
+      <td class="num">25,3 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S43.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S43.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S43.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S42</b> <span class="muted">2026</span></td>
+      <td>12/10 → 18/10/2026</td>
+      <td class="num"><b>40</b></td><td class="num">457</td><td class="num">4</td>
+      <td class="num">26 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S42.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S42.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S42.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S41</b> <span class="muted">2026</span></td>
+      <td>05/10 → 11/10/2026</td>
+      <td class="num"><b>33</b></td><td class="num">417</td><td class="num">8</td>
+      <td class="num">26,4 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S41.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S41.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S41.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S40</b> <span class="muted">2026</span></td>
+      <td>28/09 → 04/10/2026</td>
+      <td class="num"><b>35</b></td><td class="num">384</td><td class="num">12</td>
+      <td class="num">26,9 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S40.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S40.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S40.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S39</b> <span class="muted">2026</span></td>
+      <td>21/09 → 27/09/2026</td>
+      <td class="num"><b>24</b></td><td class="num">349</td><td class="num">3</td>
+      <td class="num">26,3 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S39.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S39.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S39.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S38</b> <span class="muted">2026</span></td>
+      <td>14/09 → 20/09/2026</td>
+      <td class="num"><b>54</b></td><td class="num">325</td><td class="num">19</td>
+      <td class="num">28,9 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S38.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S38.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S38.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S37</b> <span class="muted">2026</span></td>
+      <td>07/09 → 13/09/2026</td>
+      <td class="num"><b>41</b></td><td class="num">271</td><td class="num">14</td>
+      <td class="num">26 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S37.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S37.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S37.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S36</b> <span class="muted">2026</span></td>
+      <td>31/08 → 06/09/2026</td>
+      <td class="num"><b>43</b></td><td class="num">230</td><td class="num">6</td>
+      <td class="num">24,7 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S36.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S36.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S36.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S35</b> <span class="muted">2026</span></td>
+      <td>24/08 → 30/08/2026</td>
+      <td class="num"><b>40</b></td><td class="num">187</td><td class="num">10</td>
+      <td class="num">27,3 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S35.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S35.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S35.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S34</b> <span class="muted">2026</span></td>
+      <td>17/08 → 23/08/2026</td>
+      <td class="num"><b>51</b></td><td class="num">147</td><td class="num">9</td>
+      <td class="num">30,2 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S34.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S34.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S34.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S33</b> <span class="muted">2026</span></td>
+      <td>10/08 → 16/08/2026</td>
+      <td class="num"><b>42</b></td><td class="num">96</td><td class="num">11</td>
+      <td class="num">38,5 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S33.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S33.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S33.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S32</b> <span class="muted">2026</span></td>
+      <td>03/08 → 09/08/2026</td>
+      <td class="num"><b>35</b></td><td class="num">54</td><td class="num">5</td>
+      <td class="num">56,2 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S32.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S32.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S32.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S31</b> <span class="muted">2026</span></td>
+      <td>27/07 → 02/08/2026</td>
+      <td class="num"><b>15</b></td><td class="num">19</td><td class="num">3</td>
+      <td class="num">57,1 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S31.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S31.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S31.pptx" download>PowerPoint</a>
+      </td></tr><tr>
+      <td><b>S30</b> <span class="muted">2026</span></td>
+      <td>20/07 → 26/07/2026</td>
+      <td class="num"><b>4</b></td><td class="num">4</td><td class="num">1</td>
+      <td class="num">100 %</td>
+      <td class="telechargements">
+        <a class="dl pdf" href="rapports/partners_rapport_hebdo_2026-S30.pdf" download>PDF</a>
+        <a class="dl docx" href="rapports/partners_rapport_hebdo_2026-S30.docx" download>Word</a>
+        <a class="dl pptx" href="rapports/partners_rapport_hebdo_2026-S30.pptx" download>PowerPoint</a>
+      </td></tr>
+    </tbody>
+  </table></div>
+  
+  <p class="note">Statut « fin de semaine » reconstitué à partir des dates de randomisation, de sortie et de décès : une saisie tardive peut modifier les chiffres d'une semaine passée.
+    Les rapports sont régénérés à chaque publication.</p>
+</section>
+
+</main>
+<footer class="signature"><div class="wrap">
+  <div class="pied-bloc"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"><img src="static/essai/logo_inrb.png" alt="INRB"><div><b>Essai clinique PARTNERS</b><span>Tableau de bord · maladie à virus Ebola · Remdesivir / MBP134 · RD Congo</span></div></div>
+  <div class="pied-auteur"><span class="pied-label">Réalisé par</span><b>Leader Lawanga O'ntshick</b> <span>MSc. PhD Student</span>
+    <span class="pied-role">Biostatisticien - Département d'Épidémiologie et Santé Globale</span></div>
+  <div class="pied-note">Données au 23/11/2026 · données agrégées, sans identifiant de participant · générée le 23/11/2026 19:31</div>
+</div></footer>
+</div>
+</div>
+<script>document.addEventListener("click", e => document.querySelectorAll("details.menu-rapport[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; }));</script>
+
+</body>
+</html>

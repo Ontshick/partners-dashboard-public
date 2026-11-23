@@ -1,0 +1,290 @@
+[
+ {
+  "code": "2026-S47",
+  "numero": 47,
+  "lundi": "2026-11-16",
+  "dimanche": "2026-11-22",
+  "titre": "Semaine 47 – du 16/11/2026 au 22/11/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S47.pdf",
+   "docx": "partners_rapport_hebdo_2026-S47.docx",
+   "pptx": "partners_rapport_hebdo_2026-S47.pptx"
+  },
+  "inclus_semaine": 54,
+  "inclus_cumul": 647,
+  "deces_semaine": 11,
+  "mortalite": 28.0
+ },
+ {
+  "code": "2026-S46",
+  "numero": 46,
+  "lundi": "2026-11-09",
+  "dimanche": "2026-11-15",
+  "titre": "Semaine 46 – du 09/11/2026 au 15/11/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S46.pdf",
+   "docx": "partners_rapport_hebdo_2026-S46.docx",
+   "pptx": "partners_rapport_hebdo_2026-S46.pptx"
+  },
+  "inclus_semaine": 41,
+  "inclus_cumul": 593,
+  "deces_semaine": 12,
+  "mortalite": 27.2
+ },
+ {
+  "code": "2026-S45",
+  "numero": 45,
+  "lundi": "2026-11-02",
+  "dimanche": "2026-11-08",
+  "titre": "Semaine 45 – du 02/11/2026 au 08/11/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S45.pdf",
+   "docx": "partners_rapport_hebdo_2026-S45.docx",
+   "pptx": "partners_rapport_hebdo_2026-S45.pptx"
+  },
+  "inclus_semaine": 45,
+  "inclus_cumul": 552,
+  "deces_semaine": 14,
+  "mortalite": 27.2
+ },
+ {
+  "code": "2026-S44",
+  "numero": 44,
+  "lundi": "2026-10-26",
+  "dimanche": "2026-11-01",
+  "titre": "Semaine 44 – du 26/10/2026 au 01/11/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S44.pdf",
+   "docx": "partners_rapport_hebdo_2026-S44.docx",
+   "pptx": "partners_rapport_hebdo_2026-S44.pptx"
+  },
+  "inclus_semaine": 30,
+  "inclus_cumul": 507,
+  "deces_semaine": 8,
+  "mortalite": 26.0
+ },
+ {
+  "code": "2026-S43",
+  "numero": 43,
+  "lundi": "2026-10-19",
+  "dimanche": "2026-10-25",
+  "titre": "Semaine 43 – du 19/10/2026 au 25/10/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S43.pdf",
+   "docx": "partners_rapport_hebdo_2026-S43.docx",
+   "pptx": "partners_rapport_hebdo_2026-S43.pptx"
+  },
+  "inclus_semaine": 20,
+  "inclus_cumul": 477,
+  "deces_semaine": 10,
+  "mortalite": 25.3
+ },
+ {
+  "code": "2026-S42",
+  "numero": 42,
+  "lundi": "2026-10-12",
+  "dimanche": "2026-10-18",
+  "titre": "Semaine 42 – du 12/10/2026 au 18/10/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S42.pdf",
+   "docx": "partners_rapport_hebdo_2026-S42.docx",
+   "pptx": "partners_rapport_hebdo_2026-S42.pptx"
+  },
+  "inclus_semaine": 40,
+  "inclus_cumul": 457,
+  "deces_semaine": 4,
+  "mortalite": 26.0
+ },
+ {
+  "code": "2026-S41",
+  "numero": 41,
+  "lundi": "2026-10-05",
+  "dimanche": "2026-10-11",
+  "titre": "Semaine 41 – du 05/10/2026 au 11/10/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S41.pdf",
+   "docx": "partners_rapport_hebdo_2026-S41.docx",
+   "pptx": "partners_rapport_hebdo_2026-S41.pptx"
+  },
+  "inclus_semaine": 33,
+  "inclus_cumul": 417,
+  "deces_semaine": 8,
+  "mortalite": 26.4
+ },
+ {
+  "code": "2026-S40",
+  "numero": 40,
+  "lundi": "2026-09-28",
+  "dimanche": "2026-10-04",
+  "titre": "Semaine 40 – du 28/09/2026 au 04/10/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S40.pdf",
+   "docx": "partners_rapport_hebdo_2026-S40.docx",
+   "pptx": "partners_rapport_hebdo_2026-S40.pptx"
+  },
+  "inclus_semaine": 35,
+  "inclus_cumul": 384,
+  "deces_semaine": 12,
+  "mortalite": 26.9
+ },
+ {
+  "code": "2026-S39",
+  "numero": 39,
+  "lundi": "2026-09-21",
+  "dimanche": "2026-09-27",
+  "titre": "Semaine 39 – du 21/09/2026 au 27/09/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S39.pdf",
+   "docx": "partners_rapport_hebdo_2026-S39.docx",
+   "pptx": "partners_rapport_hebdo_2026-S39.pptx"
+  },
+  "inclus_semaine": 24,
+  "inclus_cumul": 349,
+  "deces_semaine": 3,
+  "mortalite": 26.3
+ },
+ {
+  "code": "2026-S38",
+  "numero": 38,
+  "lundi": "2026-09-14",
+  "dimanche": "2026-09-20",
+  "titre": "Semaine 38 – du 14/09/2026 au 20/09/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S38.pdf",
+   "docx": "partners_rapport_hebdo_2026-S38.docx",
+   "pptx": "partners_rapport_hebdo_2026-S38.pptx"
+  },
+  "inclus_semaine": 54,
+  "inclus_cumul": 325,
+  "deces_semaine": 19,
+  "mortalite": 28.9
+ },
+ {
+  "code": "2026-S37",
+  "numero": 37,
+  "lundi": "2026-09-07",
+  "dimanche": "2026-09-13",
+  "titre": "Semaine 37 – du 07/09/2026 au 13/09/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S37.pdf",
+   "docx": "partners_rapport_hebdo_2026-S37.docx",
+   "pptx": "partners_rapport_hebdo_2026-S37.pptx"
+  },
+  "inclus_semaine": 41,
+  "inclus_cumul": 271,
+  "deces_semaine": 14,
+  "mortalite": 26.0
+ },
+ {
+  "code": "2026-S36",
+  "numero": 36,
+  "lundi": "2026-08-31",
+  "dimanche": "2026-09-06",
+  "titre": "Semaine 36 – du 31/08/2026 au 06/09/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S36.pdf",
+   "docx": "partners_rapport_hebdo_2026-S36.docx",
+   "pptx": "partners_rapport_hebdo_2026-S36.pptx"
+  },
+  "inclus_semaine": 43,
+  "inclus_cumul": 230,
+  "deces_semaine": 6,
+  "mortalite": 24.7
+ },
+ {
+  "code": "2026-S35",
+  "numero": 35,
+  "lundi": "2026-08-24",
+  "dimanche": "2026-08-30",
+  "titre": "Semaine 35 – du 24/08/2026 au 30/08/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S35.pdf",
+   "docx": "partners_rapport_hebdo_2026-S35.docx",
+   "pptx": "partners_rapport_hebdo_2026-S35.pptx"
+  },
+  "inclus_semaine": 40,
+  "inclus_cumul": 187,
+  "deces_semaine": 10,
+  "mortalite": 27.3
+ },
+ {
+  "code": "2026-S34",
+  "numero": 34,
+  "lundi": "2026-08-17",
+  "dimanche": "2026-08-23",
+  "titre": "Semaine 34 – du 17/08/2026 au 23/08/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S34.pdf",
+   "docx": "partners_rapport_hebdo_2026-S34.docx",
+   "pptx": "partners_rapport_hebdo_2026-S34.pptx"
+  },
+  "inclus_semaine": 51,
+  "inclus_cumul": 147,
+  "deces_semaine": 9,
+  "mortalite": 30.2
+ },
+ {
+  "code": "2026-S33",
+  "numero": 33,
+  "lundi": "2026-08-10",
+  "dimanche": "2026-08-16",
+  "titre": "Semaine 33 – du 10/08/2026 au 16/08/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S33.pdf",
+   "docx": "partners_rapport_hebdo_2026-S33.docx",
+   "pptx": "partners_rapport_hebdo_2026-S33.pptx"
+  },
+  "inclus_semaine": 42,
+  "inclus_cumul": 96,
+  "deces_semaine": 11,
+  "mortalite": 38.5
+ },
+ {
+  "code": "2026-S32",
+  "numero": 32,
+  "lundi": "2026-08-03",
+  "dimanche": "2026-08-09",
+  "titre": "Semaine 32 – du 03/08/2026 au 09/08/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S32.pdf",
+   "docx": "partners_rapport_hebdo_2026-S32.docx",
+   "pptx": "partners_rapport_hebdo_2026-S32.pptx"
+  },
+  "inclus_semaine": 35,
+  "inclus_cumul": 54,
+  "deces_semaine": 5,
+  "mortalite": 56.2
+ },
+ {
+  "code": "2026-S31",
+  "numero": 31,
+  "lundi": "2026-07-27",
+  "dimanche": "2026-08-02",
+  "titre": "Semaine 31 – du 27/07/2026 au 02/08/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S31.pdf",
+   "docx": "partners_rapport_hebdo_2026-S31.docx",
+   "pptx": "partners_rapport_hebdo_2026-S31.pptx"
+  },
+  "inclus_semaine": 15,
+  "inclus_cumul": 19,
+  "deces_semaine": 3,
+  "mortalite": 57.1
+ },
+ {
+  "code": "2026-S30",
+  "numero": 30,
+  "lundi": "2026-07-20",
+  "dimanche": "2026-07-26",
+  "titre": "Semaine 30 – du 20/07/2026 au 26/07/2026",
+  "fichiers": {
+   "pdf": "partners_rapport_hebdo_2026-S30.pdf",
+   "docx": "partners_rapport_hebdo_2026-S30.docx",
+   "pptx": "partners_rapport_hebdo_2026-S30.pptx"
+  },
+  "inclus_semaine": 4,
+  "inclus_cumul": 4,
+  "deces_semaine": 1,
+  "mortalite": 100.0
+ }
+]

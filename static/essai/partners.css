@@ -180,3 +180,20 @@ footer.signature .pied-bloc img{height:40px;width:auto;background:#fff;border-ra
 .svg-carte .lbl-n{font-size:17px}
 .svg-carte .lbl-n-unite{font-size:12px}
 .svg-carte .zs-site{stroke-width:2.2;fill-opacity:.85}
+/* ---- tableau des inclusions par jour ---- */
+.table-jours{max-height:520px;overflow-y:auto}
+.table-jours thead th{position:sticky;top:0;z-index:1;background:#1a3563}
+.table-jours tfoot td{position:sticky;bottom:0;background:#1a3563;border-top:1px solid var(--bord-fort)}
+.carte tr.debut-semaine td{border-bottom:2px solid rgba(140,180,240,.45)}
+.carte tr.jour-vide td{opacity:.6}
+/* ---- bouton et menu « Rapport hebdomadaire » ---- */
+.btn-rapport{background:linear-gradient(180deg,#1fb98c,#139a73)!important;box-shadow:0 1px 2px rgba(0,0,0,.15),0 4px 12px rgba(22,163,127,.35)!important}
+.menu-rapport-liste{right:0;left:auto}
+.menu-rapport-titre{font-size:11.5px;font-weight:700;color:#51627a;text-transform:uppercase;letter-spacing:.05em;padding:6px 10px 8px;border-bottom:1px solid #e3e9f1;margin-bottom:4px}
+.fmt.tous{background:linear-gradient(135deg,#0b1f3a,#2f6fdb)}
+.menu-rapport-liste a.tous-rapports{border-top:1px solid #e3e9f1;margin-top:4px;border-radius:0 0 10px 10px}
+@media (max-width:760px){.txt-rapport{display:none}}
+.telechargements{white-space:nowrap}
+.dl{display:inline-block;padding:3px 10px;border-radius:7px;font-size:12px;font-weight:700;color:#fff!important;text-decoration:none;margin-right:4px}
+.dl.pdf{background:linear-gradient(135deg,#c8323f,#e8626d)}.dl.docx{background:linear-gradient(135deg,#2b579a,#4a7fd0)}.dl.pptx{background:linear-gradient(135deg,#c43e1c,#ec7a4c)}
+.dl:hover{filter:brightness(1.1)}
