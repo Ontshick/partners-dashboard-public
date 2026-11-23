@@ -1,0 +1,70 @@
+/* ===== Compléments PARTNERS au thème MEURI (classes propres au dashboard PARTNERS) ===== */
+main > h1{font-size:22px;margin:0 0 4px;color:var(--fond-texte);font-weight:700}
+.sous-titre{color:var(--fond-texte2);margin:0 0 18px}
+/* cartes blanches */
+.carte{background:var(--surface);border:1px solid rgba(255,255,255,.7);border-radius:var(--rayon);padding:18px 20px;min-width:0;box-shadow:var(--ombre);
+  animation:monter .5s cubic-bezier(.2,.7,.2,1) both;color:var(--ink)}
+.carte > h2:first-of-type{font-size:15px;margin:0 0 14px;color:var(--ink);font-weight:650;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.carte > h2:first-of-type::before{width:8px;height:8px;border-radius:3px;background:linear-gradient(135deg,#2f6fdb,#16a37f)}
+.carte h3{color:var(--ink2)}
+.grille{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}
+@media (max-width:1100px){.grille > *{grid-column:span 12 !important}}
+.carte .note,.carte p.note{background:none;border:0;padding:0;margin:8px 0 0;color:var(--muted);font-size:12.5px}
+p.note.muted{background:none;border:0;padding:0;color:var(--fond-texte2)}
+.chart-box{position:relative;height:280px}.chart-box.haut{height:340px}
+.avertissement{background:var(--warn-bg);border:1px solid #f4dfb3;border-left:4px solid var(--s4);padding:10px 14px;border-radius:10px;font-size:13.5px;margin:0 0 14px;color:#5b4410}
+.avertissement code{color:#5b4410}
+main > .avertissement{margin-bottom:18px}
+/* tableaux */
+.carte table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.carte th,.carte td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.carte thead th{background:var(--surface2);color:var(--ink2);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #d5deea;position:sticky;top:0}
+.carte thead th:first-child{border-top-left-radius:8px}.carte thead th:last-child{border-top-right-radius:8px}
+.carte tbody tr:nth-child(even) td{background:#fafcff}
+.carte tbody tr:hover td{background:#f4f8ff}
+td.num,th.num{text-align:right!important;white-space:nowrap}
+.table-scroll{overflow-x:auto}
+code{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:12px;color:var(--ink2)}
+.carte a{color:var(--accent2)}
+/* KPI : texte du dashboard PARTNERS dans les cartes sombres */
+.kpi .val{display:block;font-size:30px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.1}
+.kpi.alerte .val{color:#ff8a91}.kpi.bon .val{color:#5fe0b0}
+.kpi .lib{display:block;color:#dbe5f3;font-size:13px;font-weight:600;margin-top:6px}
+.kpi .det{display:block;color:#a9b8cc;font-size:12px;line-height:1.45;margin-top:2px}
+.kpi .det a{color:#9fcbff}
+/* filtres */
+.filtres{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+main > .filtres select,main > .filtres input{min-width:220px}
+/* pastilles, badges */
+.pastille-site{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.badge.ok::before{content:"✓ ";font-weight:700}
+.badge.deces{background:var(--err-bg);color:var(--err)}.badge.deces::before{content:"✕ ";font-weight:700}
+.badge.attente{background:#eef2f7;color:var(--ink2)}.badge.attente::before{content:"… ";font-weight:700}
+.badge.transf{background:#efeaff;color:#5b3fd6}.badge.transf::before{content:"→ ";font-weight:700}
+.badge.alerte{background:var(--warn-bg);color:var(--warn)}.badge.alerte::before{content:"! ";font-weight:700}
+/* complétude : rampe séquentielle bleue */
+.c0,.c1,.c2,.c3,.c4,.c5,.c-na{text-align:center!important;font-size:12px;min-width:52px}
+.carte td.c0{background:#f5f8fc!important;color:var(--muted)}
+.carte td.c1{background:#dbe8fb!important;color:#0f1f33}
+.carte td.c2{background:#b3cdf5!important;color:#0f1f33}
+.carte td.c3{background:#6f9fe8!important;color:#0f1f33}
+.carte td.c4{background:#2f6fdb!important;color:#fff}
+.carte td.c5{background:#1b4fae!important;color:#fff}
+.carte td.c-na{color:var(--muted)}
+.legende-q{display:flex;gap:4px;align-items:center;font-size:12px;color:var(--muted);margin:8px 0;flex-wrap:wrap}
+.legende-q span{padding:1px 8px;border-radius:4px}
+.legende-q .c0{background:#f5f8fc}.legende-q .c1{background:#dbe8fb}.legende-q .c2{background:#b3cdf5}
+.legende-q .c3{background:#6f9fe8}.legende-q .c4{background:#2f6fdb;color:#fff}.legende-q .c5{background:#1b4fae;color:#fff}
+main > .legende-q{color:var(--fond-texte2)}
+/* fiche participant */
+dl.fiche{display:grid;grid-template-columns:max-content 1fr;gap:5px 16px;margin:0}
+dl.fiche dt{color:var(--muted)} dl.fiche dd{margin:0;font-weight:600}
+.carte details{border-top:1px solid var(--line);padding:8px 0}
+.carte details summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.pagination{display:flex;gap:8px;align-items:center;margin-top:12px;color:var(--ink2)}
+main > p > a{color:#9fcbff}
+/* logo texte PARTNERS */
+aside.menu .logo .tuile.texte{font-size:13px}
+/* couleurs utilisées par les graphiques (charts.js) */
+:root{--good:#16a37f;--critical:#d1364a;--neutral:#a9b4c3;--surface-2:#eef2f7;--text-3:#7d8ca1;--s6:#e0569b;--s7:#0e9fb8;--s8:#d1364a}

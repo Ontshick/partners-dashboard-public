@@ -1,53 +1,128 @@
-/* Aides Chart.js : couleurs lues dans les tokens CSS (clair/sombre). */
+/* Aides Chart.js – réglages visuels repris du tableau de bord MEURI RDC. */
 (function () {
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const COUL = ["#2f6fdb", "#f08a24", "#16a37f", "#e9a514", "#7c5cff", "#e0569b", "#0e9fb8", "#d1364a"];
+  window.COUL = COUL;
   window.PC = {
     css,
-    slot: (i) => css(`--s${((i - 1) % 8) + 1}`),
+    slot: (i) => COUL[(i - 1) % COUL.length],
     base() {
-      Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
-      Chart.defaults.font.size = 12;
-      Chart.defaults.color = css("--text-2");
-      Chart.defaults.borderColor = css("--grid");
+      Chart.defaults.font.family = 'Inter,"Segoe UI",system-ui,sans-serif';
+      Chart.defaults.color = "#51627a";
+      Chart.defaults.borderColor = "#e6ebf2";
       Chart.defaults.plugins.legend.labels.boxWidth = 10;
       Chart.defaults.plugins.legend.labels.boxHeight = 10;
-      Chart.defaults.plugins.legend.labels.useBorderRadius = true;
-      Chart.defaults.plugins.legend.labels.borderRadius = 3;
+      Chart.defaults.plugins.legend.labels.usePointStyle = true;
+      Chart.defaults.plugins.legend.labels.pointStyle = "rectRounded";
+      Chart.defaults.plugins.legend.labels.padding = 14;
       Chart.defaults.plugins.legend.align = "start";
-      Chart.defaults.plugins.tooltip.backgroundColor = css("--surface");
-      Chart.defaults.plugins.tooltip.titleColor = css("--text");
-      Chart.defaults.plugins.tooltip.bodyColor = css("--text-2");
-      Chart.defaults.plugins.tooltip.borderColor = css("--border");
-      Chart.defaults.plugins.tooltip.borderWidth = 1;
+      Chart.defaults.plugins.tooltip.backgroundColor = "rgba(8,26,49,.95)";
       Chart.defaults.plugins.tooltip.padding = 10;
+      Chart.defaults.plugins.tooltip.cornerRadius = 8;
       Chart.defaults.plugins.tooltip.boxPadding = 4;
       Chart.defaults.plugins.tooltip.usePointStyle = true;
+      Chart.defaults.plugins.tooltip.titleFont = { weight: "600" };
+      Chart.defaults.elements.line.tension = 0.3;
+      Chart.defaults.elements.line.borderWidth = 2.5;
+      Chart.defaults.animation.duration = 900;
+      Chart.defaults.animation.easing = "easeOutQuart";
+      Chart.defaults.scale.grid.color = "#eef2f7";
+      Chart.defaults.scale.border.display = false;
       Chart.defaults.maintainAspectRatio = false;
+      // barres en dégradé (couleur pleine en haut, plus claire à la base), comme MEURI
+      if (!Chart.registry.plugins.get("degrade")) {
+        Chart.register({ id: "degrade", beforeUpdate(chart) {
+          chart.data.datasets.forEach(ds => {
+            const type = ds.type || chart.config.type;
+            if (type !== "bar" || typeof ds.backgroundColor !== "string" || !/^#[0-9a-f]{6}$/i.test(ds.backgroundColor) || ds._degrade) return;
+            const c = ds.backgroundColor; ds._degrade = true; ds.hoverBackgroundColor = c;
+            ds.backgroundColor = ctx => { const a = ctx.chart.chartArea; if (!a) return c;
+              const h = ctx.chart.options.indexAxis === "y";
+              const g = h ? ctx.chart.ctx.createLinearGradient(a.left, 0, a.right, 0) : ctx.chart.ctx.createLinearGradient(0, a.bottom, 0, a.top);
+              g.addColorStop(0, c + "99"); g.addColorStop(1, c); return g; };
+          });
+        } });
+      }
     },
     barre(couleur) {
-      return {
-        backgroundColor: couleur, borderColor: css("--surface"), borderWidth: { top: 0, bottom: 0, left: 1, right: 1 },
-        borderRadius: { topLeft: 4, topRight: 4 }, borderSkipped: "bottom", maxBarThickness: 44,
-      };
+      return { backgroundColor: couleur, borderRadius: 5, borderSkipped: "bottom", maxBarThickness: 40 };
     },
     axes(empile, titreY) {
       return {
         x: { stacked: !!empile, grid: { display: false } },
-        y: { stacked: !!empile, beginAtZero: true, border: { display: false }, ticks: { precision: 0 },
+        y: { stacked: !!empile, beginAtZero: true, ticks: { precision: 0 },
              title: titreY ? { display: true, text: titreY } : undefined },
       };
     },
   };
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("theme-btn");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-      const sombre = document.documentElement.getAttribute("data-theme") === "dark" ||
-        (!document.documentElement.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
-      const nv = sombre ? "light" : "dark";
-      try { localStorage.setItem("theme", nv); } catch (e) {}
-      document.documentElement.setAttribute("data-theme", nv);
-      location.reload();
+  /* Pyramide des âges : hommes à gauche, femmes à droite.
+     p = {labels, M:[], F:[], total} ; opts.pct = afficher en % du total ; opts.max = borne commune de l'axe. */
+  window.PC.pyramide = function (canvas, p, opts = {}) {
+    if (!canvas || !p) return;
+    const pct = !!opts.pct, tot = p.total || 1;
+    const conv = v => pct ? Math.round(1000 * v / tot) / 10 : v;
+    const labels = [...p.labels].reverse();
+    const M = [...p.M].reverse(), F = [...p.F].reverse();
+    const fmt = v => pct ? Math.abs(v).toLocaleString("fr-FR") + " %" : Math.abs(v);
+    return new Chart(canvas, {
+      type: "bar",
+      data: { labels, datasets: [
+        { label: "Hommes", data: M.map(v => -conv(v)), brut: M, backgroundColor: COUL[0], borderRadius: 4, barPercentage: 0.95, categoryPercentage: 0.9 },
+        { label: "Femmes", data: F.map(conv), brut: F, backgroundColor: COUL[5], borderRadius: 4, barPercentage: 0.95, categoryPercentage: 0.9 },
+      ] },
+      options: {
+        indexAxis: "y",
+        plugins: {
+          legend: { display: opts.legende !== false },
+          tooltip: { callbacks: {
+            title: it => "Âge " + it[0].label + " ans",
+            label: c => ` ${c.dataset.label} : ${c.dataset.brut[c.dataIndex]} (${(100 * c.dataset.brut[c.dataIndex] / tot).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} %)`,
+          } },
+        },
+        scales: {
+          x: { stacked: true, min: opts.max ? -opts.max : undefined, max: opts.max || undefined,
+               ticks: { callback: v => fmt(v), maxTicksLimit: 7 },
+               title: { display: true, text: pct ? "% des participants du site" : "Participants" } },
+          y: { stacked: true, grid: { display: false }, title: { display: !opts.compact, text: "Âge (ans)" } },
+        },
+      },
     });
+  };
+
+  /* Barres horizontales de proportions : items = [{lib, n, N, pct}] */
+  window.PC.proportions = function (canvas, items, couleur) {
+    if (!canvas || !items) return;
+    return new Chart(canvas, {
+      type: "bar",
+      data: { labels: items.map(i => i.lib), datasets: [{ label: "% des participants", data: items.map(i => i.pct ?? 0),
+        backgroundColor: couleur, borderRadius: 4, barThickness: 16 }] },
+      options: { indexAxis: "y", plugins: { legend: { display: false },
+          tooltip: { callbacks: { label: c => ` ${(items[c.dataIndex].pct ?? 0).toLocaleString("fr-FR")} % (${items[c.dataIndex].n}/${items[c.dataIndex].N})` } } },
+        scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + " %" } }, y: { grid: { display: false } } } },
+    });
+  };
+
+  /* Comparaison par site : barres groupées, un jeu de données par site (couleur fixe du site).
+     sites = [{nom, slot, items:[{lib,n,N,pct}]}] */
+  window.PC.parSite = function (canvas, sites) {
+    if (!canvas || !sites || !sites.length) return;
+    const labels = sites[0].items.map(i => i.lib);
+    return new Chart(canvas, {
+      type: "bar",
+      data: { labels, datasets: sites.map(s => ({ label: s.nom, data: s.items.map(i => i.pct ?? 0), items: s.items,
+        backgroundColor: COUL[s.slot - 1], borderRadius: 3, barPercentage: 0.85, categoryPercentage: 0.8 })) },
+      options: { indexAxis: "y", interaction: { mode: "index", axis: "y", intersect: false },
+        plugins: { tooltip: { callbacks: { label: c => { const i = c.dataset.items[c.dataIndex];
+          return ` ${c.dataset.label} : ${i.N ? (i.pct ?? 0).toLocaleString("fr-FR") + " % (" + i.n + "/" + i.N + ")" : "non mesuré"}`; } } } },
+        scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + " %" } }, y: { grid: { display: false } } } },
+    });
+  };
+
+  // menu latéral sur mobile
+  document.addEventListener("DOMContentLoaded", () => {
+    const m = document.getElementById("menu"), b = document.getElementById("bouton-menu");
+    if (!m || !b) return;
+    b.addEventListener("click", e => { e.stopPropagation(); m.classList.toggle("ouvert"); });
+    document.addEventListener("click", e => { if (m.classList.contains("ouvert") && !m.contains(e.target)) m.classList.remove("ouvert"); });
   });
 })();

@@ -1,53 +1,103 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vue d'ensemble · PARTNERS</title>
-  <script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
-  <link rel="stylesheet" href="static/essai/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-  <script src="static/essai/charts.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elikya (MSF), Bunia · PARTNERS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/essai/meuri.css">
+<link rel="stylesheet" href="static/essai/partners.css">
+<script src="static/essai/charts.js"></script>
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">PARTNERS<small>Essai clinique MVE · RD Congo</small></div>
-  <nav class="nav">
-    
-    <a href="index.html" class="actif">Vue d'ensemble</a>
-    <a href="sites.html" class="">Sites</a>
-    <a href="qualite.html" class="">Qualité &amp; sécurité</a>
-    <a href="dictionnaire.html" class="">Dictionnaire</a>
-    
-  </nav>
-  <span class="spacer"></span>
-  <button class="theme-btn" id="theme-btn" type="button" title="Basculer clair / sombre">◐ Thème</button>
-</header>
-<main>
 
-<h1>Vue d'ensemble de l'essai</h1>
-<p class="sous-titre">
-  Elikya (MSF), Bunia (PA_104)
-  · export le plus récent : 23/11/2026
-</p>
+<div class="app">
+<aside class="menu" id="menu">
+  <div class="logo"><div class="tuile texte" aria-label="PARTNERS">PA</div>
+    <div><b>PARTNERS RDC</b><span>Essai clinique MVE<br>Remdesivir / MBP134 · plan factoriel</span></div></div>
+
+  <nav aria-label="Navigation principale">
+  <div class="groupe">Tableau de bord</div>
+  <a href="index.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>Vue d'ensemble</a>
+  <details class="pli" open><summary><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Sites<span class="pastille">5</span></summary>
+  <a class="sous " href="site-PA_103.html">ALIMA Nizi</a><a class="sous actif" href="site-PA_104.html">Elikya (MSF), Bunia</a><a class="sous " href="site-PA_105.html">IMC HGR Bunia</a><a class="sous " href="site-PA_110.html">Beni (MSF)</a><a class="sous " href="site-PA_111.html">Beni (IMC)</a>
+  </details>
+  <a href="sites.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>Comparaison des sites</a>
+  
+
+  <div class="groupe">Données</div>
+  <a href="qualite.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Qualité &amp; sécurité</a>
+  <a href="dictionnaire.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h4"/></svg>Dictionnaire de données</a>
+
+  <div class="groupe">Version statique<small>Instantané des données au 23/11/2026 ; données agrégées, sans identifiant de participant.</small></div>
+  
+  </nav>
+  <div class="auteur"><div class="avatar" aria-hidden="true">LO</div><div><small>Réalisé par</small><b>Leader Lawanga O'ntshick</b><span>MSc. PhD Student</span>
+    <em>Biostatisticien<br>Département d'Épidémiologie et Santé Globale</em></div></div>
+</aside>
+<div class="contenu">
+<header class="top"><div class="wrap">
+  <div class="brand">
+    <div class="titre-bloc"><button class="btn sec petit" id="bouton-menu" type="button" aria-label="Ouvrir le menu">☰</button>
+      <div class="titre-texte"><h1>Elikya (MSF), Bunia</h1>
+        <div class="meta"><span class="puce-date">Données au 23/11/2026</span>
+          <span class="meta-txt">Exports OpenClinica · 5 sites</span></div>
+      </div></div>
+  </div>
+</div></header>
+<main class="wrap">
+
+<section class="hero hero-site" aria-label="Présentation du tableau de bord">
+  <div style="position:relative;z-index:1">
+    <span class="surtitre">Maladie à virus Ebola · République démocratique du Congo</span>
+    
+    <h2 class="hero-titre">Elikya (MSF), Bunia</h2>
+    <p>Site n° 2 de l'essai PARTNERS (protocole <b>PA_104</b>) : <b>210 participants</b> randomisés,
+      export OpenClinica du 22/11/2026.</p>
+    
+    <div class="hero-puces"><span><svg class="ico-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Données au 23/11/2026</span>
+      <span><svg class="ico-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>1 site</span><span><svg class="ico-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="2.5"/><path d="M4 5.5v13c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-13"/><path d="M4 12c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5"/></svg>Export OpenClinica</span>
+      <span><svg class="ico-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg>210 participants</span></div>
+  </div>
+</section>
 
 <form class="filtres" method="get">
-  <select name="site" onchange="location.href = this.value ? 'site-' + this.value + '.html' : 'index.html'">
+  <select name="site" aria-label="Choisir un site" onchange="location.href = this.value ? 'site-' + this.value + '.html' : 'index.html'">
     <option value="">Tous les sites</option>
     <option value="PA_103" >ALIMA Nizi – PA_103</option><option value="PA_104" selected>Elikya (MSF), Bunia (site 2) – PA_104</option><option value="PA_105" >IMC HGR Bunia (site 5) – PA_105</option><option value="PA_110" >Beni (MSF) (site 7) – PA_110</option><option value="PA_111" >Beni (IMC) (site 6) – PA_111</option>
   </select>
   <noscript><button class="btn">Filtrer</button></noscript>
 </form>
 
+<section class="progression" aria-label="Issues connues">
+  <div class="prog-chiffre">
+    <span class="prog-label">Progression du suivi</span>
+    <b>99%</b>
+    <span class="prog-sous">207 / 210 participants avec issue connue</span>
+  </div>
+  <div class="prog-barre-bloc">
+    <div class="prog-titre">Issue primaire de l'hospitalisation renseignée</div>
+    <div class="prog-barre" role="progressbar" aria-valuemin="0" aria-valuemax="210" aria-valuenow="207">
+      <i style="width:99%"></i></div>
+    <p>154 sorties vivantes, 51 décès, 2 transferts ; 3 participants en cours ou sans issue.</p>
+  </div>
+  <div class="prog-encadre">
+    <span class="prog-ico" aria-hidden="true"><svg class="ico-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+    <div><b>Suivi en cours</b><span>Renseignez l'issue des participants restants (CRF Outcomes) pour fiabiliser la mortalité.</span></div>
+  </div>
+</section>
+
 <section class="kpis">
-  <div class="kpi"><div class="val">210</div><div class="lib">Participants randomisés</div><div class="det">1 site</div></div>
-  <div class="kpi"><div class="val">51</div><div class="lib">Décès (issue primaire)</div><div class="det">mortalité 24,6 % des issues connues</div></div>
-  <div class="kpi"><div class="val">154</div><div class="lib">Sorties vivantes</div><div class="det">2 transférés</div></div>
-  <div class="kpi"><div class="val">3</div><div class="lib">Issue en attente / inconnue</div><div class="det">0 non saisies, 3 inconnues</div></div>
-  <div class="kpi"><div class="val">56,7 %</div><div class="lib">Femmes</div><div class="det">6 enceintes</div></div>
-  <div class="kpi"><div class="val">29,5 ans</div><div class="lib">Âge médian</div><div class="det">50 participants &lt; 18 ans</div></div>
-  <div class="kpi"><div class="val">14</div><div class="lib">Agents de santé</div></div>
-  <div class="kpi"><div class="val">3 / 3</div><div class="lib">EIG / déviations</div><div class="det"><a href="qualite.html">voir le détail</a></div></div>
+  <div class="kpi"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg></span><b class="val">210</b><span class="lib">Participants randomisés</span><span class="det">1 site</span></div>
+  <div class="kpi alerte"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 2.4 17.6A2 2 0 0 0 4.1 20.6h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></span><b class="val">51</b><span class="lib">Décès (issue primaire)</span><span class="det">mortalité 24,6 % des issues connues</span></div>
+  <div class="kpi bon"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5.4 5.4 0 0 0-7.7 0L12 6.7l-1.1-1.1a5.4 5.4 0 0 0-7.7 7.7L12 22l8.8-8.7a5.4 5.4 0 0 0 0-7.7Z"/></svg></span><b class="val">154</b><span class="lib">Sorties vivantes</span><span class="det">2 transférés</span></div>
+  <div class="kpi"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b class="val">3</b><span class="lib">Issue en attente / inconnue</span><span class="det">0 non saisies, 3 inconnues</span></div>
+  <div class="kpi"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg></span><b class="val">56,7 %</b><span class="lib">Femmes</span><span class="det">6 enceintes</span></div>
+  <div class="kpi"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span><b class="val">29,5 ans</b><span class="lib">Âge médian</span><span class="det">50 participants &lt; 18 ans</span></div>
+  <div class="kpi"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><b class="val">14</b><span class="lib">Agents de santé</span><span class="det">parmi les participants</span></div>
+  <div class="kpi alerte"><span class="ico"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 2.4 17.6A2 2 0 0 0 4.1 20.6h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></span><b class="val">3 / 3</b><span class="lib">EIG / déviations</span><span class="det"><a href="qualite.html">voir le détail</a></span></div>
 </section>
 
 <div class="grille">
@@ -66,8 +116,9 @@
     <div class="chart-box"><canvas id="g-issues" aria-label="Issue primaire"></canvas></div>
   </section>
   <section class="carte span-7">
-    <h2>Pyramide âge × sexe</h2>
-    <div class="chart-box"><canvas id="g-age" aria-label="Répartition par âge et sexe"></canvas></div>
+    <h2>Pyramide des âges</h2>
+    <div class="chart-box"><canvas id="g-age" aria-label="Pyramide des âges par sexe"></canvas></div>
+    <p class="note">91 hommes · 119 femmes (âge connu pour 210 participants).</p>
   </section>
 
   <section class="carte span-7">
@@ -87,6 +138,21 @@
     <p class="note">Comparaison 1 : remdesivir vs pas de traitement supplémentaire · Comparaison 2 : MBP134 vs pas de traitement supplémentaire.</p>
   </section>
 
+  <section class="carte span-6">
+    <h2>Signes cliniques à l'admission</h2>
+    <div class="chart-box haut"><canvas id="g-signes" aria-label="Signes cliniques à l'admission"></canvas></div>
+    <p class="note">% parmi les participants pour qui la mesure est renseignée (CRF Baseline). Seuils adultes pour FC et FR.</p>
+  </section>
+  <section class="carte span-6">
+    <h2>Biologie à l'inclusion</h2>
+    <div class="chart-box" style="height:220px"><canvas id="g-bio" aria-label="Anomalies biologiques à l'inclusion"></canvas></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Paramètre (1<sup>er</sup> bilan)</th><th class="num">Médiane</th><th class="num">IQR</th><th class="num">N</th></tr></thead>
+      <tbody><tr><td>Créatinine (mg/dL)</td><td class="num"><b>1,1</b></td><td class="num">0,7 – 3,7</td><td class="num">123</td></tr><tr><td>ASAT (UI/L)</td><td class="num"><b>315,5</b></td><td class="num">103,5 – 887,5</td><td class="num">100</td></tr><tr><td>ALAT (UI/L)</td><td class="num"><b>160</b></td><td class="num">56 – 331</td><td class="num">127</td></tr><tr><td>Ct d&#x27;admission</td><td class="num"><b>28,1</b></td><td class="num">25,1 – 31,4</td><td class="num">210</td></tr></tbody>
+    </table></div>
+    <p class="note">Premier bilan biochimique saisi (jour d'étude le plus précoce). LSN = limite supérieure de la normale du laboratoire.</p>
+  </section>
+
   <section class="carte span-12">
     <h2>Issue primaire par bras (descriptif)</h2>
     <div class="avertissement">Données brutes non monitorées – statistiques descriptives uniquement, sans valeur d'analyse d'efficacité.</div>
@@ -104,10 +170,17 @@
     </table></div>
   </section>
 </div>
-<script id="donnees-graphiques" type="application/json">{"recrutement": {"labels": ["2026-07-20", "2026-07-27", "2026-08-03", "2026-08-10", "2026-08-17", "2026-08-24", "2026-08-31", "2026-09-07", "2026-09-14", "2026-09-21", "2026-09-28", "2026-10-05", "2026-10-12"], "series": [{"nom": "Elikya (MSF), Bunia", "slot": 2, "valeurs": [4, 19, 40, 70, 97, 124, 144, 159, 177, 186, 190, 194, 210]}]}, "sites": [{"nom": "ALIMA Nizi", "slot": 1, "n": 249, "proto": "PA_103"}, {"nom": "Elikya (MSF), Bunia", "slot": 2, "n": 210, "proto": "PA_104"}, {"nom": "IMC HGR Bunia", "slot": 3, "n": 94, "proto": "PA_105"}, {"nom": "Beni (MSF)", "slot": 4, "n": 52, "proto": "PA_110"}, {"nom": "Beni (IMC)", "slot": 5, "n": 42, "proto": "PA_111"}], "age_sexe": {"labels": ["0\u20134", "5\u201314", "15\u201324", "25\u201334", "35\u201344", "45\u201354", "55\u201364", "65+"], "F": [9, 14, 24, 28, 20, 13, 4, 7], "M": [4, 12, 16, 24, 18, 13, 2, 2]}, "ct_issue": {"labels": ["\u003C 20", "20\u201324,9", "25\u201329,9", "30\u201334,9", "\u2265 35"], "sortis": [0, 12, 70, 55, 17], "deces": [0, 34, 15, 2, 0], "autres": [0, 3, 2, 0, 0], "mortalite": [null, 73.9, 17.6, 3.5, 0.0]}, "issues": {"labels": ["Sortie vivante", "D\u00e9c\u00e9d\u00e9", "Transf\u00e9r\u00e9", "Inconnue", "En attente"], "valeurs": [154, 51, 2, 3, 0]}}</script>
+<script id="donnees-graphiques" type="application/json">{"recrutement": {"labels": ["2026-07-20", "2026-07-27", "2026-08-03", "2026-08-10", "2026-08-17", "2026-08-24", "2026-08-31", "2026-09-07", "2026-09-14", "2026-09-21", "2026-09-28", "2026-10-05", "2026-10-12"], "series": [{"nom": "Elikya (MSF), Bunia", "slot": 2, "valeurs": [4, 19, 40, 70, 97, 124, 144, 159, 177, 186, 190, 194, 210]}]}, "sites": [{"nom": "ALIMA Nizi", "slot": 1, "n": 249, "proto": "PA_103"}, {"nom": "Elikya (MSF), Bunia", "slot": 2, "n": 210, "proto": "PA_104"}, {"nom": "IMC HGR Bunia", "slot": 3, "n": 94, "proto": "PA_105"}, {"nom": "Beni (MSF)", "slot": 4, "n": 52, "proto": "PA_110"}, {"nom": "Beni (IMC)", "slot": 5, "n": 42, "proto": "PA_111"}], "age_sexe": {"labels": ["0\u20134", "5\u201314", "15\u201324", "25\u201334", "35\u201344", "45\u201354", "55\u201364", "65+"], "F": [9, 14, 24, 28, 20, 13, 4, 7], "M": [4, 12, 16, 24, 18, 13, 2, 2], "total": 210, "n_F": 119, "n_M": 91}, "ct_issue": {"labels": ["\u003C 20", "20\u201324,9", "25\u201329,9", "30\u201334,9", "\u2265 35"], "sortis": [0, 12, 70, 55, 17], "deces": [0, 34, 15, 2, 0], "autres": [0, 3, 2, 0, 0], "mortalite": [null, 73.9, 17.6, 3.5, 0.0]}, "signes": [{"lib": "Fi\u00e8vre (T \u2265 38 \u00b0C)", "n": 40, "N": 209, "pct": 19.1}, {"lib": "Tachycardie (FC \u003E 100/min)", "n": 61, "N": 202, "pct": 30.2}, {"lib": "Hypotension (PAS \u003C 90 mmHg)", "n": 14, "N": 182, "pct": 7.7}, {"lib": "Tachypn\u00e9e (FR \u003E 24/min)", "n": 7, "N": 31, "pct": 22.6}, {"lib": "Hypox\u00e9mie (SpO\u2082 \u003C 94 %)", "n": 16, "N": 209, "pct": 7.7}, {"lib": "Sous oxyg\u00e8ne \u00e0 l'admission", "n": 22, "N": 210, "pct": 10.5}, {"lib": "Conscience alt\u00e9r\u00e9e (AVPU \u2260 A ou GCS \u003C 15)", "n": 3, "N": 210, "pct": 1.4}, {"lib": "Paludisme (TDR positif)", "n": 1, "N": 21, "pct": 4.8}], "biologie": {"anomalies": [{"lib": "Cr\u00e9atinine \u003E 1,5 mg/dL", "n": 47, "N": 123, "pct": 38.2}, {"lib": "ASAT \u003E 3 \u00d7 LSN", "n": 75, "N": 100, "pct": 75.0}, {"lib": "ALAT \u003E 3 \u00d7 LSN", "n": 67, "N": 127, "pct": 52.8}, {"lib": "Ct d'admission \u003C 22 (charge virale \u00e9lev\u00e9e)", "n": 6, "N": 210, "pct": 2.9}], "medianes": [{"lib": "Cr\u00e9atinine (mg/dL)", "med": 1.1, "q1": 0.7, "q3": 3.7, "N": 123}, {"lib": "ASAT (UI/L)", "med": 315.5, "q1": 103.5, "q3": 887.5, "N": 100}, {"lib": "ALAT (UI/L)", "med": 160.0, "q1": 56.0, "q3": 331.0, "N": 127}, {"lib": "Ct d'admission", "med": 28.1, "q1": 25.1, "q3": 31.4, "N": 210}]}, "issues": {"labels": ["Sortie vivante", "D\u00e9c\u00e9d\u00e9", "Transf\u00e9r\u00e9", "Inconnue", "En attente"], "valeurs": [154, 51, 2, 3, 0]}}</script>
 
-<p class="note muted" style="margin-top:24px">Version statique publique – données agrégées uniquement, aucune donnée individuelle de participant. Générée le 23/11/2026 à 17:58 à partir des exports OpenClinica.</p>
 </main>
+<footer class="signature"><div class="wrap">
+  <div class="pied-bloc"><div><b>Essai clinique PARTNERS</b><span>Tableau de bord · maladie à virus Ebola · Remdesivir / MBP134 · RD Congo</span></div></div>
+  <div class="pied-auteur"><span class="pied-label">Réalisé par</span><b>Leader Lawanga O'ntshick</b> <span>MSc. PhD Student</span>
+    <span class="pied-role">Biostatisticien - Département d'Épidémiologie et Santé Globale</span></div>
+  <div class="pied-note">Données au 23/11/2026 · données agrégées, sans identifiant de participant · générée le 23/11/2026 18:23</div>
+</div></footer>
+</div>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -155,15 +228,12 @@ document.addEventListener("DOMContentLoaded", () => {
       scales: { x: { beginAtZero: true, border: { display: false }, ticks: { precision: 0 } }, y: { grid: { display: false } } } },
   });
 
-  // Âge x sexe
-  new Chart(document.getElementById("g-age"), {
-    type: "bar",
-    data: { labels: G.age_sexe.labels, datasets: [
-      { label: "Femmes", data: G.age_sexe.F, ...PC.barre(PC.slot(1)) },
-      { label: "Hommes", data: G.age_sexe.M, ...PC.barre(PC.slot(2)) },
-    ] },
-    options: { scales: PC.axes(false, "Participants"), plugins: { tooltip: { mode: "index", intersect: false } } },
-  });
+  // Pyramide des âges
+  PC.pyramide(document.getElementById("g-age"), G.age_sexe);
+
+  // Signes cliniques et biologie (% parmi les mesurés)
+  PC.proportions(document.getElementById("g-signes"), G.signes, COUL[0]);
+  PC.proportions(document.getElementById("g-bio"), G.biologie.anomalies, COUL[7]);
 
   // Ct x issue
   new Chart(document.getElementById("g-ct"), {
