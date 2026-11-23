@@ -8,8 +8,8 @@
     slot: (i) => COUL[(i - 1) % COUL.length],
     base() {
       Chart.defaults.font.family = 'Inter,"Segoe UI",system-ui,sans-serif';
-      Chart.defaults.color = "#51627a";
-      Chart.defaults.borderColor = "#e6ebf2";
+      Chart.defaults.color = "#b8c7dc";
+      Chart.defaults.borderColor = "rgba(148,178,222,.16)";
       Chart.defaults.plugins.legend.labels.boxWidth = 10;
       Chart.defaults.plugins.legend.labels.boxHeight = 10;
       Chart.defaults.plugins.legend.labels.usePointStyle = true;
@@ -26,7 +26,7 @@
       Chart.defaults.elements.line.borderWidth = 2.5;
       Chart.defaults.animation.duration = 900;
       Chart.defaults.animation.easing = "easeOutQuart";
-      Chart.defaults.scale.grid.color = "#eef2f7";
+      Chart.defaults.scale.grid.color = "rgba(148,178,222,.12)";
       Chart.defaults.scale.border.display = false;
       Chart.defaults.maintainAspectRatio = false;
       // barres en dégradé (couleur pleine en haut, plus claire à la base), comme MEURI
@@ -81,7 +81,7 @@
         },
         scales: {
           x: { stacked: true, min: opts.max ? -opts.max : undefined, max: opts.max || undefined,
-               ticks: { callback: v => fmt(v), maxTicksLimit: 7 },
+               ticks: { callback: v => fmt(v), maxTicksLimit: opts.compact ? 5 : 7, stepSize: opts.compact && opts.max ? opts.max / 2 : undefined },
                title: { display: true, text: pct ? "% des participants du site" : "Participants" } },
           y: { stacked: true, grid: { display: false }, title: { display: !opts.compact, text: "Âge (ans)" } },
         },
@@ -115,6 +115,56 @@
         plugins: { tooltip: { callbacks: { label: c => { const i = c.dataset.items[c.dataIndex];
           return ` ${c.dataset.label} : ${i.N ? (i.pct ?? 0).toLocaleString("fr-FR") + " % (" + i.n + "/" + i.N + ")" : "non mesuré"}`; } } } },
         scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + " %" } }, y: { grid: { display: false } } } },
+    });
+  };
+
+  /* Localisation des sites : points (taille ∝ effectif) + étiquettes « nom / N participants ».
+     sites = [{nom, slot, lat, lon, ville, n}] */
+  window.PC.carteSites = function (canvas, sites) {
+    if (!canvas || !sites || !sites.length) return;
+    const nMax = Math.max(...sites.map(s => s.n), 1);
+    // décalage des étiquettes pour les sites d'une même ville
+    const parVille = {};
+    sites.forEach(s => { const k = s.lat + "," + s.lon; (parVille[k] = parVille[k] || []).push(s); });
+    const decal = new Map();
+    Object.values(parVille).forEach(g => g.forEach((s, i) => decal.set(s, g.length === 1 ? { dx: 18, dy: -38 } :
+      (i === 0 ? { dx: -190, dy: -46 } : { dx: 22, dy: 18 }))));
+    const etiquettes = {
+      id: "etiquettes-sites",
+      afterDatasetsDraw(chart) {
+        const ctx = chart.ctx, meta = chart.getDatasetMeta(0);
+        meta.data.forEach((pt, i) => {
+          const s = sites[i], d = decal.get(s);
+          const x = pt.x + d.dx, y = pt.y + d.dy, w = 168, h = 44;
+          ctx.save();
+          ctx.strokeStyle = "rgba(200,220,255,.55)"; ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(pt.x, pt.y); ctx.lineTo(x + (d.dx < 0 ? w : 0), y + h / 2); ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = "rgba(14,32,62,.94)"; ctx.strokeStyle = "rgba(140,180,240,.45)";
+          ctx.beginPath(); ctx.roundRect(x, y, w, h, 6); ctx.fill(); ctx.stroke();
+          ctx.fillStyle = COUL[s.slot - 1]; ctx.fillRect(x, y + 6, 3, h - 12);
+          ctx.fillStyle = "#dbe5f3"; ctx.font = "600 12px Inter, system-ui, sans-serif";
+          ctx.fillText(s.nom.length > 24 ? s.nom.slice(0, 23) + "…" : s.nom, x + 10, y + 17);
+          ctx.fillStyle = "#ffffff"; ctx.font = "800 15px Inter, system-ui, sans-serif";
+          ctx.fillText(s.n + " participants", x + 10, y + 35);
+          ctx.restore();
+        });
+      },
+    };
+    return new Chart(canvas, {
+      type: "bubble",
+      data: { datasets: [{ data: sites.map(s => ({ x: s.lon, y: s.lat, r: 7 + 14 * Math.sqrt(s.n / nMax) })),
+        backgroundColor: sites.map(s => COUL[s.slot - 1] + "cc"), borderColor: "#ffffff", borderWidth: 1.5 }] },
+      options: {
+        layout: { padding: { top: 10, right: 10 } },
+        plugins: { legend: { display: false },
+          tooltip: { callbacks: { label: c => { const s = sites[c.dataIndex]; return ` ${s.nom} – ${s.ville} : ${s.n} participants`; } } } },
+        scales: {
+          x: { min: 28.6, max: 31.2, title: { display: true, text: "Longitude (° E)" }, ticks: { callback: v => v.toFixed(1) } },
+          y: { min: -0.1, max: 2.5, title: { display: true, text: "Latitude (° N)" }, ticks: { callback: v => v.toFixed(1) } },
+        },
+      },
+      plugins: [etiquettes],
     });
   };
 
