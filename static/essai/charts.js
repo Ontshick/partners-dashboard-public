@@ -67,8 +67,8 @@
     return new Chart(canvas, {
       type: "bar",
       data: { labels, datasets: [
-        { label: "Hommes", data: M.map(v => -conv(v)), brut: M, backgroundColor: COUL[0], borderRadius: 4, barPercentage: 0.95, categoryPercentage: 0.9 },
-        { label: "Femmes", data: F.map(conv), brut: F, backgroundColor: COUL[5], borderRadius: 4, barPercentage: 0.95, categoryPercentage: 0.9 },
+        { label: opts.libM || "Hommes", data: M.map(v => -conv(v)), brut: M, backgroundColor: COUL[0], borderRadius: 4, barPercentage: 0.95, categoryPercentage: 0.9 },
+        { label: opts.libF || "Femmes", data: F.map(conv), brut: F, backgroundColor: COUL[5], borderRadius: 4, barPercentage: 0.95, categoryPercentage: 0.9 },
       ] },
       options: {
         indexAxis: "y",

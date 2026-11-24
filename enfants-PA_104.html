@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enfants – Elikya (MSF), Bunia · PARTNERS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/essai/meuri.css">
+<link rel="stylesheet" href="static/essai/partners.css">
+<script src="static/essai/charts.js"></script>
+</head>
+<body>
+
+<div class="app">
+<aside class="menu" id="menu">
+  <div class="logos-menu">
+    <div class="logo-blanc logo-partners"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"></div>
+    <div class="logo-blanc logo-inrb"><img src="static/essai/logo_inrb.png" alt="Institut National de Recherche Biomédicale (INRB)"></div>
+  </div>
+  <div class="logo"><div><b>PARTNERS RDC</b><span>Essai clinique MVE · INRB<br>Remdesivir / MBP134 · plan factoriel</span></div></div>
+
+  <nav aria-label="Navigation principale">
+  <div class="groupe">Tableau de bord</div>
+  <a href="index.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>Vue d'ensemble</a>
+  <details class="pli" ><summary><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Sites<span class="pastille">6</span></summary>
+  <a class="sous " href="site-PA_103.html">ALIMA Nizi</a><a class="sous " href="site-PA_104.html">Elikya (MSF), Bunia</a><a class="sous " href="site-PA_105.html">IMC HGR Bunia</a><a class="sous " href="site-PA_110.html">Beni (MSF)</a><a class="sous " href="site-PA_111.html">Beni (IMC)</a><a class="sous " href="site-PA_101.html">CME ALIMA Bunia</a>
+  </details>
+  <a href="sites.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>Comparaison des sites</a>
+  <a href="enfants.html" class="actif"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg>Enfants (&lt; 18 ans)</a>
+  
+
+  <div class="groupe">Données</div>
+  <a href="qualite.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Qualité &amp; sécurité</a>
+  <a href="dictionnaire.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h4"/></svg>Dictionnaire de données</a>
+  <a href="rapports.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Rapports hebdomadaires</a>
+
+  <div class="groupe">Version statique<small>Instantané des données au 23/11/2026 ; données agrégées, sans identifiant de participant.</small></div>
+  
+  </nav>
+  <div class="auteur"><div class="avatar" aria-hidden="true">LO</div><div><small>Réalisé par</small><b>Leader Lawanga O'ntshick</b><span>MSc. PhD Student</span>
+    <em>Biostatisticien<br>Département d'Épidémiologie et Santé Globale</em></div></div>
+</aside>
+<div class="contenu">
+<header class="top"><div class="wrap">
+  <div class="brand">
+    <div class="titre-bloc"><button class="btn sec petit" id="bouton-menu" type="button" aria-label="Ouvrir le menu">☰</button>
+      <div class="titre-texte"><h1>Enfants (&lt; 18 ans) – Elikya (MSF), Bunia</h1>
+        <div class="meta"><span class="puce-date">Données au 23/11/2026</span>
+          <span class="meta-txt">Exports OpenClinica · 6 sites</span></div>
+      </div></div>
+    <div class="outils">
+    <details class="menu-rapport">
+      <summary class="btn btn-rapport"><svg class="ico-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><span class="txt-rapport">Rapport hebdomadaire</span><span class="chevron" aria-hidden="true"></span></summary>
+      <div class="menu-rapport-liste" role="menu">
+        <div class="menu-rapport-titre">Semaine 47 · du 16/11 au 22/11/2026</div>
+        <a role="menuitem" href="rapports/partners_rapport_hebdo_2026-S47.pdf" download><span class="fmt pdf">P</span><span><b>PDF</b><small>Rapport à imprimer ou à diffuser</small></span></a>
+        <a role="menuitem" href="rapports/partners_rapport_hebdo_2026-S47.docx" download><span class="fmt docx">W</span><span><b>Word</b><small>Document modifiable (.docx)</small></span></a>
+        <a role="menuitem" href="rapports/partners_rapport_hebdo_2026-S47.pptx" download><span class="fmt pptx">P</span><span><b>PowerPoint</b><small>Présentation (.pptx)</small></span></a>
+        <a role="menuitem" href="rapports.html" class="tous-rapports"><span class="fmt tous"><svg class="ico-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h4"/></svg></span><span><b>Toutes les semaines</b><small>Archive des rapports hebdomadaires</small></span></a>
+      </div></details>
+    </div>
+  </div>
+</div></header>
+<main class="wrap">
+
+<section class="hero hero-page" aria-label="Analyse des enfants">
+  <div class="hero-ico" aria-hidden="true"><svg class="ico-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg></div>
+  <div style="position:relative;z-index:1"><span class="surtitre">PARTNERS RDC · analyse pédiatrique · Elikya (MSF), Bunia</span>
+    <h2 class="hero-titre">Enfants de moins de 18 ans</h2>
+    <p><b>50 enfants</b> sur 210 participants (23,8 %). Tranches d'âge selon l'UNICEF / OMS,
+      par sexe : effectifs, évolution dans le temps, issue, cinétique virologique et signes cliniques à l'admission.</p></div>
+</section>
+
+<form class="filtres" method="get">
+  <select name="site" aria-label="Choisir un site" onchange="location.href = this.value ? 'enfants-' + this.value + '.html' : 'enfants.html'">
+    <option value="">Tous les sites (vue d'ensemble)</option>
+    <option value="PA_103" >ALIMA Nizi</option><option value="PA_104" selected>Elikya (MSF), Bunia</option><option value="PA_105" >IMC HGR Bunia</option><option value="PA_110" >Beni (MSF)</option><option value="PA_111" >Beni (IMC)</option><option value="PA_101" >CME ALIMA Bunia</option>
+  </select>
+  <noscript><button class="btn">Afficher</button></noscript>
+</form>
+
+<section class="carte panneau-kpi" aria-label="Indicateurs enfants">
+  <h2>Indicateurs clés – enfants</h2>
+  <div class="kpis">
+    <div class="kpi"><b class="val">50</b><span class="lib">Enfants (&lt; 18 ans)</span><span class="det">23,8 % des participants</span></div>
+    <div class="kpi"><b class="val">31 / 19</b><span class="lib">Filles / garçons</span><span class="det">62 % de filles</span></div>
+    <div class="kpi"><b class="val">3</b><span class="lib">Nourrissons (&lt; 1 an)</span><span class="det">inclus dans les 0–4 ans</span></div>
+    <div class="kpi alerte"><b class="val">10</b><span class="lib">Décès d'enfants</span><span class="det">mortalité <span class="tendance hausse">20,4 %</span> (adultes : 25,9 %)</span></div>
+    <div class="kpi alerte"><b class="val">38,5 %</b><span class="lib">Mortalité des 0–4 ans</span><span class="det">5 décès / 13 enfants</span></div>
+    <div class="kpi"><b class="val">6 j</b><span class="lib">Durée médiane d'hospitalisation</span><span class="det">randomisation → sortie ou décès</span></div>
+    <div class="kpi"><b class="val">28,1</b><span class="lib">Ct médian à l'admission</span><span class="det">Ct bas = charge virale élevée</span></div>
+    <div class="kpi"><b class="val">1</b><span class="lib">Issue en attente / inconnue</span><span class="det">exclus de la mortalité</span></div>
+  </div>
+</section>
+
+<div class="grille">
+  <section class="carte span-12">
+    <h2>Tranches d'âge (UNICEF / OMS) et répartition par sexe</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Tranche</th><th>Définition</th><th class="num">Enfants</th><th class="num">% des enfants</th><th class="num">Filles</th><th class="num">Garçons</th>
+        <th class="num">Sorties</th><th class="num">Décès</th><th class="num">Mortalité</th><th class="num">Mortalité filles</th><th class="num">Mortalité garçons</th><th class="num">Durée médiane (j)</th><th class="num">Ct médian</th></tr></thead>
+      <tbody><tr>
+        <td><span class="pastille-site" style="background:#38bdf8"></span><b>0–4 ans</b></td><td style="min-width:230px">Petite enfance – âge préscolaire (&lt; 5 ans) <span class="muted">(dont 3 &lt; 1 an)</span></td>
+        <td class="num"><b>13</b></td><td class="num">26 %</td><td class="num">9</td><td class="num">4</td>
+        <td class="num">8</td><td class="num">5</td><td class="num"><b>38,5 %</b></td>
+        <td class="num">33,3 %</td><td class="num">50 %</td><td class="num">4</td><td class="num">28,3</td></tr><tr>
+        <td><span class="pastille-site" style="background:#22c55e"></span><b>5–9 ans</b></td><td style="min-width:230px">Âge scolaire – enfance</td>
+        <td class="num"><b>11</b></td><td class="num">22 %</td><td class="num">5</td><td class="num">6</td>
+        <td class="num">8</td><td class="num">2</td><td class="num"><b>20 %</b></td>
+        <td class="num">20 %</td><td class="num">20 %</td><td class="num">9</td><td class="num">25,3</td></tr><tr>
+        <td><span class="pastille-site" style="background:#f59e0b"></span><b>10–14 ans</b></td><td style="min-width:230px">Début de l&#x27;adolescence</td>
+        <td class="num"><b>15</b></td><td class="num">30 %</td><td class="num">9</td><td class="num">6</td>
+        <td class="num">12</td><td class="num">2</td><td class="num"><b>13,3 %</b></td>
+        <td class="num">22,2 %</td><td class="num">0 %</td><td class="num">7</td><td class="num">28</td></tr><tr>
+        <td><span class="pastille-site" style="background:#a78bfa"></span><b>15–17 ans</b></td><td style="min-width:230px">Fin de l&#x27;adolescence (mineurs)</td>
+        <td class="num"><b>11</b></td><td class="num">22 %</td><td class="num">8</td><td class="num">3</td>
+        <td class="num">10</td><td class="num">1</td><td class="num"><b>9,1 %</b></td>
+        <td class="num">12,5 %</td><td class="num">0 %</td><td class="num">4</td><td class="num">28,7</td></tr>
+        <tr class="total"><td><b>Total &lt; 18 ans</b></td><td></td><td class="num"><b>50</b></td><td class="num">100 %</td><td class="num">31</td><td class="num">19</td>
+          <td class="num">38</td><td class="num">10</td><td class="num"><b>20,4 %</b></td><td></td><td></td><td class="num">6</td><td class="num">28,1</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Enfant = moins de 18 ans (Convention relative aux droits de l'enfant). 0–4 ans : petite enfance / âge préscolaire (indicateurs UNICEF « moins de 5 ans ») ;
+      5–9 ans : âge scolaire ; 10–14 et 15–17 ans : début et fin de l'adolescence (UNICEF/OMS : 10–19 ans). Mortalité = décès / (décès + sorties + transferts).
+      Petits effectifs : interpréter avec prudence, surtout par site.</p>
+  </section>
+
+  <section class="carte span-6">
+    <h2>Pyramide des âges – enfants</h2>
+    <div class="chart-box"><canvas id="e-pyramide" aria-label="Pyramide des âges des enfants par sexe"></canvas></div>
+    <p class="note">19 garçons · 31 filles.</p>
+  </section>
+  <section class="carte span-6">
+    <h2>Issue de l'hospitalisation par tranche</h2>
+    <div class="chart-box"><canvas id="e-issues" aria-label="Issue par tranche d'âge"></canvas></div>
+    <p class="note">En % des enfants de la tranche ; survolez pour voir les effectifs.</p>
+  </section>
+
+  <section class="carte span-7">
+    <h2>Évolution dans le temps : inclusions mensuelles par tranche</h2>
+    <div class="chart-box"><canvas id="e-evol" aria-label="Inclusions mensuelles d'enfants par tranche d'âge"></canvas></div>
+  </section>
+  <section class="carte span-5">
+    <h2>Mortalité des enfants par mois d'inclusion</h2>
+    <div class="chart-box"><canvas id="e-mort" aria-label="Mortalité mensuelle des enfants"></canvas></div>
+    <p class="note">Le dernier mois est provisoire : les issues des inclusions récentes ne sont pas encore toutes connues.</p>
+  </section>
+
+  <section class="carte span-12">
+    <h2>Évolution virologique : Ct médian de la PCR de suivi par jour d'étude</h2>
+    <div class="chart-box"><canvas id="e-ct" aria-label="Ct médian par jour d'étude et tranche d'âge"></canvas></div>
+    <p class="note">Ct médian des PCR de suivi (CRF PCR) ; point affiché si au moins 3 enfants ont une valeur ce jour-là. Un Ct qui augmente = charge virale qui diminue (≈ 40 : négativation).</p>
+  </section>
+
+  <section class="carte span-12">
+    <h2>Signes cliniques à l'admission par tranche d'âge (seuils pédiatriques)</h2>
+    <div class="chart-box" style="height:460px"><canvas id="e-signes" aria-label="Signes cliniques par tranche d'âge"></canvas></div>
+    <div class="table-scroll"><table class="compact">
+      <thead><tr><th>Signe</th><th class="num">0–4 ans</th><th class="num">5–9 ans</th><th class="num">10–14 ans</th><th class="num">15–17 ans</th></tr></thead>
+      <tbody><tr><td>Fièvre (T ≥ 38 °C)</td><td class="num"><b>23,1 %</b> <span class="muted">(3/13)</span></td><td class="num"><b>18,2 %</b> <span class="muted">(2/11)</span></td><td class="num"><b>40 %</b> <span class="muted">(6/15)</span></td><td class="num"><b>27,3 %</b> <span class="muted">(3/11)</span></td></tr><tr><td>Tachycardie (seuil selon l&#x27;âge)</td><td class="num"><b>8,3 %</b> <span class="muted">(1/12)</span></td><td class="num"><b>27,3 %</b> <span class="muted">(3/11)</span></td><td class="num"><b>20 %</b> <span class="muted">(3/15)</span></td><td class="num"><b>27,3 %</b> <span class="muted">(3/11)</span></td></tr><tr><td>Tachypnée (seuil OMS selon l&#x27;âge)</td><td class="num"><span class="muted">—</span></td><td class="num"><b>0 %</b> <span class="muted">(0/1)</span></td><td class="num"><b>100 %</b> <span class="muted">(1/1)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/4)</span></td></tr><tr><td>Hypotension (seuil PALS selon l&#x27;âge)</td><td class="num"><b>0 %</b> <span class="muted">(0/1)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/4)</span></td><td class="num"><b>12,5 %</b> <span class="muted">(1/8)</span></td><td class="num"><b>22,2 %</b> <span class="muted">(2/9)</span></td></tr><tr><td>Hypoxémie (SpO₂ &lt; 94 %)</td><td class="num"><b>7,7 %</b> <span class="muted">(1/13)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/11)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/15)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/11)</span></td></tr><tr><td>Conscience altérée (AVPU ≠ A ou GCS &lt; 15)</td><td class="num"><b>0 %</b> <span class="muted">(0/13)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/11)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/15)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/11)</span></td></tr><tr><td>Paludisme (TDR positif)</td><td class="num"><span class="muted">—</span></td><td class="num"><b>0 %</b> <span class="muted">(0/1)</span></td><td class="num"><span class="muted">—</span></td><td class="num"><b>0 %</b> <span class="muted">(0/2)</span></td></tr><tr><td>Malnutrition (antécédent)</td><td class="num"><b>0 %</b> <span class="muted">(0/9)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/4)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/9)</span></td><td class="num"><b>0 %</b> <span class="muted">(0/7)</span></td></tr></tbody>
+    </table></div>
+    <p class="note">Seuils selon l'âge – fréquence respiratoire (OMS, PCIME) : &lt; 1 an ≥ 50/min, 1–4 ans ≥ 40, 5–11 ans ≥ 30, ≥ 12 ans &gt; 24 ;
+      fréquence cardiaque (repères PALS) : &lt; 1 an &gt; 160, 1–4 ans &gt; 140, 5–11 ans &gt; 120, ≥ 12 ans &gt; 100 ;
+      hypotension (PALS) : PAS &lt; 70 mmHg (&lt; 1 an), &lt; 70 + 2 × âge (1–10 ans), &lt; 90 (≥ 11 ans). % parmi les enfants dont la mesure est renseignée.</p>
+  </section>
+
+  
+</div>
+<script id="donnees-enfants" type="application/json">{"evol": {"labels": ["juil. 2026", "ao\u00fbt 2026", "sept. 2026", "oct. 2026"], "series": [{"nom": "0\u20134 ans", "couleur": "#38bdf8", "valeurs": [1, 8, 3, 1]}, {"nom": "5\u20139 ans", "couleur": "#22c55e", "valeurs": [0, 6, 5, 0]}, {"nom": "10\u201314 ans", "couleur": "#f59e0b", "valeurs": [1, 9, 5, 0]}, {"nom": "15\u201317 ans", "couleur": "#a78bfa", "valeurs": [0, 7, 2, 2]}], "mortalite": [50.0, 13.8, 26.7, 33.3]}, "cinetique": {"labels": ["J1", "J3", "J5", "J7", "J10"], "series": [{"nom": "0\u20134 ans", "couleur": "#38bdf8", "valeurs": [28.0, 28.5, 32.0, null, null], "n": [13, 8, 4, 1, 1]}, {"nom": "5\u20139 ans", "couleur": "#22c55e", "valeurs": [25.0, 36.0, 36.0, 35.0, 38.0], "n": [11, 9, 9, 4, 4]}, {"nom": "10\u201314 ans", "couleur": "#f59e0b", "valeurs": [28.0, 31.5, 32.0, 33.0, null], "n": [15, 12, 8, 3, 2]}, {"nom": "15\u201317 ans", "couleur": "#a78bfa", "valeurs": [28.0, 31.0, null, null, null], "n": [11, 5, 1, 1, 0]}]}, "issues": {"labels": ["0\u20134 ans", "5\u20139 ans", "10\u201314 ans", "15\u201317 ans"], "sortis": [8, 8, 12, 10], "deces": [5, 2, 2, 1], "autres": [0, 1, 1, 0]}, "pyramide": {"labels": ["0\u20134 ans", "5\u20139 ans", "10\u201314 ans", "15\u201317 ans"], "M": [4, 6, 6, 3], "F": [9, 5, 9, 8], "total": 50, "n_M": 19, "n_F": 31}, "signes": [{"lib": "Fi\u00e8vre (T \u2265 38 \u00b0C)", "pct": [23.1, 18.2, 40.0, 27.3], "n": [3, 2, 6, 3], "N": [13, 11, 15, 11]}, {"lib": "Tachycardie (seuil selon l'\u00e2ge)", "pct": [8.3, 27.3, 20.0, 27.3], "n": [1, 3, 3, 3], "N": [12, 11, 15, 11]}, {"lib": "Tachypn\u00e9e (seuil OMS selon l'\u00e2ge)", "pct": [null, 0.0, 100.0, 0.0], "n": [0, 0, 1, 0], "N": [0, 1, 1, 4]}, {"lib": "Hypotension (seuil PALS selon l'\u00e2ge)", "pct": [0.0, 0.0, 12.5, 22.2], "n": [0, 0, 1, 2], "N": [1, 4, 8, 9]}, {"lib": "Hypox\u00e9mie (SpO\u2082 \u003C 94 %)", "pct": [7.7, 0.0, 0.0, 0.0], "n": [1, 0, 0, 0], "N": [13, 11, 15, 11]}, {"lib": "Conscience alt\u00e9r\u00e9e (AVPU \u2260 A ou GCS \u003C 15)", "pct": [0.0, 0.0, 0.0, 0.0], "n": [0, 0, 0, 0], "N": [13, 11, 15, 11]}, {"lib": "Paludisme (TDR positif)", "pct": [null, 0.0, null, 0.0], "n": [0, 0, 0, 0], "N": [0, 1, 0, 2]}, {"lib": "Malnutrition (ant\u00e9c\u00e9dent)", "pct": [0.0, 0.0, 0.0, 0.0], "n": [0, 0, 0, 0], "N": [9, 4, 9, 7]}], "tranches": ["0\u20134 ans", "5\u20139 ans", "10\u201314 ans", "15\u201317 ans"], "couleurs": ["#38bdf8", "#22c55e", "#f59e0b", "#a78bfa"]}</script>
+
+
+</main>
+<footer class="signature"><div class="wrap">
+  <div class="pied-bloc"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"><img src="static/essai/logo_inrb.png" alt="INRB"><div><b>Essai clinique PARTNERS</b><span>Tableau de bord · maladie à virus Ebola · Remdesivir / MBP134 · RD Congo</span></div></div>
+  <div class="pied-auteur"><span class="pied-label">Réalisé par</span><b>Leader Lawanga O'ntshick</b> <span>MSc. PhD Student</span>
+    <span class="pied-role">Biostatisticien - Département d'Épidémiologie et Santé Globale</span></div>
+  <div class="pied-note">Données au 23/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 10:29</div>
+</div></footer>
+</div>
+</div>
+<script>document.addEventListener("click", e => document.querySelectorAll("details.menu-rapport[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; }));</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  PC.base();
+  const G = JSON.parse(document.getElementById("donnees-enfants").textContent);
+  const C = G.couleurs, T = G.tranches;
+  const pct = v => v == null ? "—" : v.toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %";
+
+  PC.pyramide(document.getElementById("e-pyramide"), G.pyramide, { libM: "Garçons", libF: "Filles" });
+
+  // issue par tranche : barres empilées en %
+  const I = G.issues, tot = T.map((_, i) => I.sortis[i] + I.deces[i] + I.autres[i]);
+  const enPct = arr => arr.map((v, i) => tot[i] ? Math.round(1000 * v / tot[i]) / 10 : 0);
+  new Chart(document.getElementById("e-issues"), { type: "bar",
+    data: { labels: I.labels, datasets: [
+      { label: "Sortie vivante", data: enPct(I.sortis), brut: I.sortis, backgroundColor: "#22c55e" },
+      { label: "Décès", data: enPct(I.deces), brut: I.deces, backgroundColor: "#ef4444" },
+      { label: "Transfert / en attente", data: enPct(I.autres), brut: I.autres, backgroundColor: "#64748b" }] },
+    options: { indexAxis: "y", scales: { x: { stacked: true, max: 100, ticks: { callback: v => v + " %" } }, y: { stacked: true, grid: { display: false } } },
+      plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label} : ${c.dataset.brut[c.dataIndex]} (${pct(c.raw)})` } } } } });
+
+  // inclusions mensuelles par tranche
+  new Chart(document.getElementById("e-evol"), { type: "bar",
+    data: { labels: G.evol.labels, datasets: G.evol.series.map(s => ({ label: s.nom, data: s.valeurs, backgroundColor: s.couleur, borderRadius: 3 })) },
+    options: { scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, ticks: { precision: 0 }, title: { display: true, text: "Enfants inclus" } } },
+      plugins: { tooltip: { mode: "index", intersect: false } } } });
+
+  // mortalité mensuelle
+  new Chart(document.getElementById("e-mort"), { type: "line",
+    data: { labels: G.evol.labels, datasets: [{ label: "Mortalité des enfants", data: G.evol.mortalite, borderColor: "#ef4444", backgroundColor: "#ef4444", pointRadius: 4, spanGaps: true }] },
+    options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => " " + pct(c.raw) } } },
+      scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + " %" } }, x: { grid: { display: false } } } } });
+
+  // cinétique du Ct
+  new Chart(document.getElementById("e-ct"), { type: "line",
+    data: { labels: G.cinetique.labels, datasets: G.cinetique.series.map(s => ({ label: s.nom, data: s.valeurs, n: s.n, borderColor: s.couleur, backgroundColor: s.couleur, pointRadius: 4, spanGaps: true })) },
+    options: { interaction: { mode: "index", intersect: false },
+      plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label} : Ct ${c.raw ?? "—"} (n = ${c.dataset.n[c.dataIndex]})` } } },
+      scales: { y: { suggestedMin: 20, suggestedMax: 40, title: { display: true, text: "Ct médian" } }, x: { grid: { display: false } } } } });
+
+  // signes cliniques par tranche
+  new Chart(document.getElementById("e-signes"), { type: "bar",
+    data: { labels: G.signes.map(s => s.lib), datasets: T.map((t, k) => ({ label: t, data: G.signes.map(s => s.pct[k] ?? 0),
+      n: G.signes.map(s => s.n[k]), N: G.signes.map(s => s.N[k]), backgroundColor: C[k], borderRadius: 3 })) },
+    options: { indexAxis: "y", interaction: { mode: "index", axis: "y", intersect: false },
+      plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label} : ${c.dataset.N[c.dataIndex] ? pct(c.raw) + " (" + c.dataset.n[c.dataIndex] + "/" + c.dataset.N[c.dataIndex] + ")" : "non mesuré"}` } } },
+      scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + " %" } }, y: { grid: { display: false } } } } });
+
+  // comparaison des sites : enfants par tranche (barres empilées)
+  const el = document.getElementById("donnees-enfants-sites");
+  if (el) {
+    const S = JSON.parse(el.textContent);
+    new Chart(document.getElementById("e-sites"), { type: "bar",
+      data: { labels: S.map(s => s.nom), datasets: T.map((t, k) => ({ label: t, data: S.map(s => s.tranches[k].n), backgroundColor: C[k], borderRadius: 3 })) },
+      options: { indexAxis: "y", scales: { x: { stacked: true, beginAtZero: true, ticks: { precision: 0 }, title: { display: true, text: "Enfants" } }, y: { stacked: true, grid: { display: false } } },
+        plugins: { tooltip: { mode: "index", intersect: false } } } });
+  }
+});
+</script>
+
+</body>
+</html>
