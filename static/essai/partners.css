@@ -202,3 +202,82 @@ footer.signature .pied-bloc img{height:40px;width:auto;background:#fff;border-ra
 footer.signature .wrap{grid-template-columns:minmax(380px,1.4fr) minmax(240px,1fr) auto}
 .pied-bloc > div{min-width:220px}
 @media (max-width:900px){footer.signature .wrap{grid-template-columns:1fr}}
+
+/* =====================================================================
+   Finitions : typographie, rythme vertical, cartes, indicateurs, tableaux
+   (couche finale – surcharge les règles précédentes)
+   ===================================================================== */
+:root{--txt:#eef3fa;--txt2:#c3d0e2;--txt3:#8ea3c0;--bord:rgba(130,170,230,.16);--bord-fort:rgba(140,180,240,.28);
+  --panneau:linear-gradient(180deg,rgba(24,45,82,.94),rgba(17,34,64,.94))}
+html{-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+body{font-size:14px;line-height:1.55;letter-spacing:-.003em;font-feature-settings:"tnum" 1,"cv11" 1,"ss01" 1}
+::selection{background:rgba(79,143,240,.45);color:#fff}
+*{scrollbar-width:thin;scrollbar-color:rgba(140,180,240,.28) transparent}
+*::-webkit-scrollbar{width:8px;height:8px}*::-webkit-scrollbar-thumb{background:rgba(140,180,240,.25);border-radius:8px}
+main.wrap{padding-top:22px;padding-bottom:48px}
+
+/* en-tête */
+header.top{background:rgba(8,20,40,.82);border-bottom:1px solid var(--bord)}
+.brand h1{font-size:20px;font-weight:700;letter-spacing:-.015em}
+.brand .puce-date{font-weight:600;letter-spacing:.01em}
+
+/* titres de section (hors cartes) */
+main > h2{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:36px 0 14px;color:var(--txt)}
+main > h2::before{width:3px;height:16px}
+
+/* bandeau d'accueil */
+.hero{border-radius:16px!important;padding:26px 30px!important}
+.hero .surtitre{font-size:11px;letter-spacing:.16em;color:#8fc0ff}
+.hero h2.hero-titre{font-size:26px;font-weight:750;letter-spacing:-.025em;line-height:1.15}
+.hero-page h2.hero-titre{font-size:21px}
+.hero p{color:#c9d8ec;line-height:1.6;max-width:760px}
+.hero-puces span{font-size:12px;font-weight:600;padding:5px 11px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
+
+/* cartes */
+.grille{gap:20px}
+.carte{border-radius:14px!important;padding:20px 22px 18px!important;border:1px solid var(--bord)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 8px 24px rgba(0,0,0,.22)!important;transition:border-color .2s}
+.carte:hover{border-color:var(--bord-fort)!important}
+.carte > h2:first-of-type{font-size:14.5px!important;font-weight:650;letter-spacing:-.005em;color:var(--txt)!important;
+  border-bottom:1px solid var(--bord)!important;padding-bottom:12px;margin-bottom:16px}
+.carte .note,.carte p.note{font-size:12px;line-height:1.55;color:var(--txt3);margin-top:10px}
+.chart-box{height:290px}.chart-box.haut{height:350px}
+
+/* indicateurs clés */
+.panneau-kpi > h2:first-of-type{margin-bottom:14px}
+.kpis{gap:12px;grid-template-columns:repeat(auto-fill,minmax(178px,1fr))}
+.kpi{padding:14px 14px 13px;border-radius:12px;background:linear-gradient(180deg,rgba(40,70,120,.55),rgba(26,50,92,.55));
+  border:1px solid var(--bord)!important;box-shadow:none;transition:transform .15s,border-color .15s}
+.kpi:hover{transform:translateY(-2px);border-color:var(--bord-fort)!important;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.kpi .lib{font-size:12.5px;font-weight:600;color:var(--txt2);letter-spacing:.005em;border-bottom:1px solid var(--bord);padding-bottom:8px;margin-bottom:10px}
+.kpi .val{font-size:30px;font-weight:750;letter-spacing:-.03em;line-height:1.05;color:#fff}
+.kpi .det{font-size:11.5px;line-height:1.5;color:var(--txt3);margin-top:7px}
+.kpi.alerte{box-shadow:inset 0 -2px 0 rgba(239,68,68,.55)}
+.kpi.bon{box-shadow:inset 0 -2px 0 rgba(34,197,94,.55)}
+
+/* tableaux */
+.carte table{font-size:13px;border-collapse:separate;border-spacing:0}
+.carte thead th{font-size:10.5px!important;font-weight:650;text-transform:uppercase!important;letter-spacing:.06em!important;color:var(--txt3)!important;
+  background:rgba(255,255,255,.035)!important;border-bottom:1px solid var(--bord-fort)!important;border-right:0!important;padding:10px 12px!important}
+.carte tbody td{padding:9px 12px;border-bottom:1px solid rgba(148,178,222,.08);border-right:0!important;color:var(--txt2)}
+.carte tbody td b,.carte tbody td strong{color:var(--txt)}
+.carte tbody tr:nth-child(even) td{background:rgba(255,255,255,.018)}
+.carte tbody tr:hover td{background:rgba(79,143,240,.09)}
+.carte tr.total td,.carte tfoot td{color:var(--txt);font-weight:650;border-top:1px solid var(--bord-fort)}
+.carte table.compact th,.carte table.compact td{padding:8px 9px!important}
+td.num,th.num{font-variant-numeric:tabular-nums}
+
+/* filtres, boutons, badges */
+input,select{border-radius:10px;padding:8px 12px;font-size:13px;background:#0f2549;border:1px solid var(--bord-fort)}
+select:hover,input:hover{border-color:rgba(160,195,250,.45)}
+.badge{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
+.avertissement{border-radius:12px;font-size:13px;line-height:1.55}
+
+/* menu latéral */
+aside.menu a{font-size:13.5px;padding:8px 11px;border-radius:10px}
+aside.menu .groupe{font-size:10px;letter-spacing:.14em;margin-top:18px}
+
+/* pied de page */
+footer.signature{border-top:1px solid var(--bord)}
+
+@media (prefers-reduced-motion:reduce){.carte,.kpi{transition:none}.kpi:hover{transform:none}}

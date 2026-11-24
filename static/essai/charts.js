@@ -1,4 +1,4 @@
-/* Aides Chart.js – réglages visuels repris du tableau de bord MEURI RDC. */
+/* Aides Chart.js – thème PARTNERS (base MEURI) : traits fins, grilles discrètes, nombres au format français. */
 (function () {
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const COUL = ["#2f6fdb", "#f08a24", "#16a37f", "#e9a514", "#7c5cff", "#e0569b", "#0e9fb8", "#d1364a"];
@@ -7,45 +7,158 @@
     css,
     slot: (i) => COUL[(i - 1) % COUL.length],
     base() {
-      Chart.defaults.font.family = 'Inter,"Segoe UI",system-ui,sans-serif';
-      Chart.defaults.color = "#b8c7dc";
-      Chart.defaults.borderColor = "rgba(148,178,222,.16)";
-      Chart.defaults.plugins.legend.labels.boxWidth = 10;
-      Chart.defaults.plugins.legend.labels.boxHeight = 10;
-      Chart.defaults.plugins.legend.labels.usePointStyle = true;
-      Chart.defaults.plugins.legend.labels.pointStyle = "rectRounded";
-      Chart.defaults.plugins.legend.labels.padding = 14;
-      Chart.defaults.plugins.legend.align = "start";
-      Chart.defaults.plugins.tooltip.backgroundColor = "rgba(8,26,49,.95)";
-      Chart.defaults.plugins.tooltip.padding = 10;
-      Chart.defaults.plugins.tooltip.cornerRadius = 8;
-      Chart.defaults.plugins.tooltip.boxPadding = 4;
-      Chart.defaults.plugins.tooltip.usePointStyle = true;
-      Chart.defaults.plugins.tooltip.titleFont = { weight: "600" };
-      Chart.defaults.elements.line.tension = 0.3;
-      Chart.defaults.elements.line.borderWidth = 2.5;
-      Chart.defaults.animation.duration = 900;
-      Chart.defaults.animation.easing = "easeOutQuart";
-      Chart.defaults.scale.grid.color = "rgba(148,178,222,.12)";
-      Chart.defaults.scale.border.display = false;
-      Chart.defaults.maintainAspectRatio = false;
-      // barres en dégradé (couleur pleine en haut, plus claire à la base), comme MEURI
+      if (window.__pcBase) return;
+      window.__pcBase = true;
+      // la police Inter arrive après la création des graphiques : on recalcule la mise en page
+      // (sinon les étiquettes d'axe, mesurées avec la police de secours, sont rognées)
+      if (document.fonts && document.fonts.ready) {
+        const relayout = () => Object.values(Chart.instances).forEach(c => c.update("none"));
+        document.fonts.ready.then(() => setTimeout(relayout, 0));
+        document.fonts.addEventListener && document.fonts.addEventListener("loadingdone", relayout);
+      }
+      const D = Chart.defaults;
+      D.locale = "fr-FR";                                   // séparateurs français (1 002 ; 26,2)
+      D.font.family = 'Inter,"Segoe UI",system-ui,sans-serif';
+      D.font.size = 12;
+      D.color = "#93a6c2";
+      D.borderColor = "rgba(148,178,222,.10)";
+      D.maintainAspectRatio = false;
+      D.layout.padding = { top: 4, right: 8, bottom: 0, left: 8 };
+      D.interaction.mode = "nearest";
+      D.interaction.intersect = false;
+      // animation discrète
+      D.animation.duration = 650;
+      D.animation.easing = "easeOutCubic";
+      // légende : pastilles rondes, texte clair, aligné à gauche
+      const L = D.plugins.legend;
+      L.align = "start";
+      L.labels.usePointStyle = true;
+      L.labels.pointStyle = "circle";
+      L.labels.boxWidth = 7;
+      L.labels.boxHeight = 7;
+      L.labels.padding = 16;
+      L.labels.color = "#c9d6e8";
+      L.labels.font = { size: 12, weight: "500" };
+      // infobulle : verre sombre, bord fin, typographie hiérarchisée
+      const T = D.plugins.tooltip;
+      T.backgroundColor = "rgba(9,20,40,.96)";
+      T.borderColor = "rgba(140,180,240,.28)";
+      T.borderWidth = 1;
+      T.cornerRadius = 10;
+      T.padding = { x: 12, y: 10 };
+      T.caretSize = 5;
+      T.boxPadding = 5;
+      T.usePointStyle = true;
+      T.titleColor = "#ffffff";
+      T.titleFont = { size: 12.5, weight: "600" };
+      T.titleMarginBottom = 6;
+      T.bodyColor = "#c9d6e8";
+      T.bodyFont = { size: 12 };
+      T.bodySpacing = 4;
+      // axes : grilles horizontales très légères, pas de bordure, graduations aérées
+      D.scale.border.display = false;
+      D.scale.grid.color = "rgba(148,178,222,.09)";
+      D.scale.grid.drawTicks = false;
+      D.scale.grid.tickLength = 0;          // sinon décalage des étiquettes d’axe (rognées à gauche)
+      D.scale.grid.lineWidth = 1;
+      D.scale.ticks.padding = 8;
+      D.scale.ticks.color = "#8ea3c0";
+      D.scale.ticks.font = { size: 11.5 };
+      D.scale.title.color = "#8ea3c0";
+      D.scale.title.font = { size: 11.5, weight: "500" };
+      D.scales.category.grid = { display: false };
+      // marques fines
+      D.elements.line.borderWidth = 2;
+      D.elements.line.tension = 0.32;
+      D.elements.line.borderCapStyle = "round";
+      D.elements.line.borderJoinStyle = "round";
+      D.elements.point.radius = 0;
+      D.elements.point.hoverRadius = 5;
+      D.elements.point.hitRadius = 12;
+      D.elements.point.borderWidth = 2;
+      D.elements.point.hoverBorderWidth = 2;
+      D.elements.point.borderColor = "#132a50";
+      D.elements.point.hoverBorderColor = "#ffffff";
+      D.elements.bar.borderRadius = 4;
+      D.elements.arc.borderWidth = 2;
+      D.elements.arc.borderColor = "#16305a";
+      D.elements.arc.hoverOffset = 6;
+      D.datasets.bar.maxBarThickness = 34;
+      D.datasets.bar.categoryPercentage = 0.78;
+      D.datasets.bar.barPercentage = 0.9;
+
+      // barres : dégradé discret + séparation de 2 px entre segments empilés (lisibilité)
       if (!Chart.registry.plugins.get("degrade")) {
         Chart.register({ id: "degrade", beforeUpdate(chart) {
+          const empile = Object.values(chart.options.scales || {}).some(s => s && s.stacked);
           chart.data.datasets.forEach(ds => {
             const type = ds.type || chart.config.type;
-            if (type !== "bar" || typeof ds.backgroundColor !== "string" || !/^#[0-9a-f]{6}$/i.test(ds.backgroundColor) || ds._degrade) return;
+            if (type !== "bar") return;
+            if (empile && ds.borderWidth === undefined) { ds.borderWidth = { top: 0, right: 0, bottom: 0, left: 0 }; ds.borderColor = "#14305a";
+              ds.borderWidth = chart.options.indexAxis === "y" ? { right: 2 } : { top: 2 }; ds.borderSkipped = false; }
+            if (typeof ds.backgroundColor !== "string" || !/^#[0-9a-f]{6}$/i.test(ds.backgroundColor) || ds._degrade) return;
             const c = ds.backgroundColor; ds._degrade = true; ds.hoverBackgroundColor = c;
             ds.backgroundColor = ctx => { const a = ctx.chart.chartArea; if (!a) return c;
               const h = ctx.chart.options.indexAxis === "y";
               const g = h ? ctx.chart.ctx.createLinearGradient(a.left, 0, a.right, 0) : ctx.chart.ctx.createLinearGradient(0, a.bottom, 0, a.top);
-              g.addColorStop(0, c + "99"); g.addColorStop(1, c); return g; };
+              g.addColorStop(0, c + "b3"); g.addColorStop(1, c); return g; };
           });
+        } });
+      }
+      // étiquettes longues des axes de catégories : retour à la ligne (Chart.js limite la largeur de l'axe)
+      if (!Chart.registry.plugins.get("retourLigne")) {
+        const couper = (t, max) => {
+          if (typeof t !== "string" || t.length <= max) return t;
+          const mots = t.split(" "), lignes = [""];
+          mots.forEach(m => { const l = lignes[lignes.length - 1];
+            if ((l + " " + m).trim().length > max && l) lignes.push(m); else lignes[lignes.length - 1] = (l + " " + m).trim(); });
+          return lignes;
+        };
+        Chart.register({ id: "retourLigne", beforeInit(chart) {
+          if (chart.options.indexAxis !== "y" || !Array.isArray(chart.data.labels)) return;
+          const w = (chart.canvas.parentNode && chart.canvas.parentNode.clientWidth) || chart.width;
+          const max = w < 420 ? 15 : w < 800 ? 18 : 22;
+          chart.data.labels = chart.data.labels.map(t => couper(t, max));
+          // l'axe des étiquettes prend la largeur de sa plus longue ligne (pas de troncature)
+          const opts = chart.config.options;
+          opts.scales = opts.scales || {};
+          opts.scales.y = opts.scales.y || {};
+          if (!opts.scales.y.afterFit) opts.scales.y.afterFit = sc => {
+            const ctx = sc.ctx, f = sc.options.ticks.font || {};
+            ctx.save();
+            ctx.font = `${f.weight || "normal"} ${f.size || 12}px ${f.family || "Inter, sans-serif"}`;
+            let w = 0;
+            (sc.chart.data.labels || []).forEach(l => (Array.isArray(l) ? l : [l]).forEach(x => { w = Math.max(w, ctx.measureText(String(x)).width); }));
+            ctx.restore();
+            sc.width = Math.max(sc.width, Math.ceil(w) + (sc.options.ticks.padding || 8) + 6);
+          };
+        } });
+      }
+      // étiquettes directes (valeur au bout de la barre) : options.plugins.valeurs = {format: v => …}
+      if (!Chart.registry.plugins.get("valeurs")) {
+        Chart.register({ id: "valeurs", afterDatasetsDraw(chart, _a, o) {
+          if (!o || !o.actif) return;
+          const ctx = chart.ctx, h = chart.options.indexAxis === "y";
+          ctx.save();
+          ctx.font = '600 11.5px Inter,"Segoe UI",sans-serif';
+          ctx.fillStyle = "#dbe5f3";
+          chart.data.datasets.forEach((ds, i) => {
+            const meta = chart.getDatasetMeta(i);
+            if (meta.hidden) return;
+            meta.data.forEach((el, k) => {
+              const v = ds.data[k];
+              if (v == null || v === 0) return;
+              const txt = o.format ? o.format(v, k, ds) : Number(v).toLocaleString("fr-FR");
+              if (h) { ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(txt, el.x + 6, el.y); }
+              else { ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(txt, el.x, el.y - 4); }
+            });
+          });
+          ctx.restore();
         } });
       }
     },
     barre(couleur) {
-      return { backgroundColor: couleur, borderRadius: 5, borderSkipped: "bottom", maxBarThickness: 40 };
+      return { backgroundColor: couleur, borderRadius: 4, borderSkipped: "start", maxBarThickness: 34 };
     },
     axes(empile, titreY) {
       return {
@@ -95,8 +208,9 @@
     return new Chart(canvas, {
       type: "bar",
       data: { labels: items.map(i => i.lib), datasets: [{ label: "% des participants", data: items.map(i => i.pct ?? 0),
-        backgroundColor: couleur, borderRadius: 4, barThickness: 16 }] },
-      options: { indexAxis: "y", plugins: { legend: { display: false },
+        backgroundColor: couleur, borderRadius: 4, barThickness: 14 }] },
+      options: { indexAxis: "y", layout: { padding: { right: 44 } }, plugins: { legend: { display: false },
+          valeurs: { actif: true, format: (v, k) => items[k].N ? v.toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %" : "" },
           tooltip: { callbacks: { label: c => ` ${(items[c.dataIndex].pct ?? 0).toLocaleString("fr-FR")} % (${items[c.dataIndex].n}/${items[c.dataIndex].N})` } } },
         scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + " %" } }, y: { grid: { display: false } } } },
     });
