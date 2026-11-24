@@ -36,7 +36,7 @@
   <a href="dictionnaire.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h4"/></svg>Dictionnaire de données</a>
   <a href="rapports.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Rapports hebdomadaires</a>
 
-  <div class="groupe">Version statique<small>Instantané des données au 23/11/2026 ; données agrégées, sans identifiant de participant.</small></div>
+  <div class="groupe">Version statique<small>Instantané des données au 24/11/2026 ; données agrégées, sans identifiant de participant.</small></div>
   
   </nav>
   <div class="auteur"><div class="avatar" aria-hidden="true">LO</div><div><small>Réalisé par</small><b>Leader Lawanga O'ntshick</b><span>MSc. PhD Student</span>
@@ -47,7 +47,7 @@
   <div class="brand">
     <div class="titre-bloc"><button class="btn sec petit" id="bouton-menu" type="button" aria-label="Ouvrir le menu">☰</button>
       <div class="titre-texte"><h1>Comparaison des sites</h1>
-        <div class="meta"><span class="puce-date">Données au 23/11/2026</span>
+        <div class="meta"><span class="puce-date">Données au 24/11/2026</span>
           <span class="meta-txt">Exports OpenClinica · 6 sites</span></div>
       </div></div>
     <div class="outils">
@@ -162,6 +162,78 @@
     </tbody>
   </table></div>
 </section>
+
+<h2>Virologie : PCR de suivi par site</h2>
+<section class="carte" style="margin-bottom:16px">
+  <h2>Ct médian par jour d'étude et négativation de la PCR</h2>
+  <div class="chart-box haut"><canvas id="vir-ct" aria-label="Ct médian par jour d'étude et par site"></canvas></div>
+  <div class="table-scroll"><table class="compact">
+    <thead><tr><th>Site</th><th>Données</th><th class="num">Participants avec PCR</th><th class="num">PCR saisies</th><th class="num">PCR / participant</th>
+      <th class="num">Ct médian J1</th><th class="num">Négativation observée</th><th class="num">Jour médian 1<sup>re</sup> PCR négative</th>
+      <th class="num">Ct J1</th><th class="num">Ct J3</th><th class="num">Ct J5</th><th class="num">Ct J7</th><th class="num">Ct J10</th><th class="num">Ct J13</th></tr></thead>
+    <tbody><tr>
+      <td><span class="pastille-site" style="background:#2f6fdb"></span>ALIMA Nizi</td>
+      <td><span class="badge ok">complet</span></td>
+      <td class="num">247</td><td class="num">828</td>
+      <td class="num">3</td>
+      <td class="num"><b>29</b></td>
+      <td class="num"><b>66,4 %</b> <span class="muted">(164/247)</span></td>
+      <td class="num">J4</td>
+      <td class="num">29 <span class="muted">(247)</span></td><td class="num">30,3 <span class="muted">(117)</span></td><td class="num">35 <span class="muted">(66)</span></td><td class="num">36 <span class="muted">(17)</span></td><td class="num">37,9 <span class="muted">(15)</span></td><td class="num">— <span class="muted">(1)</span></td></tr><tr>
+      <td><span class="pastille-site" style="background:#f08a24"></span>Elikya (MSF), Bunia</td>
+      <td><span class="badge ok">complet</span></td>
+      <td class="num">210</td><td class="num">818</td>
+      <td class="num">4</td>
+      <td class="num"><b>28</b></td>
+      <td class="num"><b>65,7 %</b> <span class="muted">(138/210)</span></td>
+      <td class="num">J5</td>
+      <td class="num">28 <span class="muted">(210)</span></td><td class="num">31 <span class="muted">(147)</span></td><td class="num">33,5 <span class="muted">(102)</span></td><td class="num">35 <span class="muted">(30)</span></td><td class="num">36 <span class="muted">(20)</span></td><td class="num">37 <span class="muted">(4)</span></td></tr><tr>
+      <td><span class="pastille-site" style="background:#16a37f"></span>IMC HGR Bunia</td>
+      <td><span class="badge ok">complet</span></td>
+      <td class="num">93</td><td class="num">279</td>
+      <td class="num">3</td>
+      <td class="num"><b>27</b></td>
+      <td class="num"><b>52,7 %</b> <span class="muted">(49/93)</span></td>
+      <td class="num">J5</td>
+      <td class="num">27 <span class="muted">(93)</span></td><td class="num">30,3 <span class="muted">(58)</span></td><td class="num">34 <span class="muted">(37)</span></td><td class="num">—</td><td class="num">36 <span class="muted">(7)</span></td><td class="num">—</td></tr><tr>
+      <td><span class="pastille-site" style="background:#e9a514"></span>Beni (MSF)</td>
+      <td><span class="badge ok">complet</span></td>
+      <td class="num">52</td><td class="num">124</td>
+      <td class="num">2</td>
+      <td class="num"><b>24</b></td>
+      <td class="num"><b>23,1 %</b> <span class="muted">(12/52)</span></td>
+      <td class="num">J3</td>
+      <td class="num">24 <span class="muted">(52)</span></td><td class="num">26,5 <span class="muted">(20)</span></td><td class="num">30 <span class="muted">(9)</span></td><td class="num">—</td><td class="num">— <span class="muted">(2)</span></td><td class="num">—</td></tr><tr>
+      <td><span class="pastille-site" style="background:#7c5cff"></span>Beni (IMC)</td>
+      <td><span class="badge ok">complet</span></td>
+      <td class="num">41</td><td class="num">104</td>
+      <td class="num">3</td>
+      <td class="num"><b>22,3</b></td>
+      <td class="num"><b>51,2 %</b> <span class="muted">(21/41)</span></td>
+      <td class="num">J3</td>
+      <td class="num">22,3 <span class="muted">(41)</span></td><td class="num">28,6 <span class="muted">(15)</span></td><td class="num">28,3 <span class="muted">(9)</span></td><td class="num">—</td><td class="num">— <span class="muted">(2)</span></td><td class="num">—</td></tr><tr>
+      <td><span class="pastille-site" style="background:#e0569b"></span>CME ALIMA Bunia</td>
+      <td><span class="badge ok">complet</span></td>
+      <td class="num">241</td><td class="num">869</td>
+      <td class="num">4</td>
+      <td class="num"><b>28</b></td>
+      <td class="num"><b>73 %</b> <span class="muted">(176/241)</span></td>
+      <td class="num">J5</td>
+      <td class="num">28 <span class="muted">(227)</span></td><td class="num">31,1 <span class="muted">(150)</span></td><td class="num">34 <span class="muted">(106)</span></td><td class="num">36 <span class="muted">(38)</span></td><td class="num">37 <span class="muted">(27)</span></td><td class="num">— <span class="muted">(2)</span></td></tr><tr>
+      <td><span class="pastille-site" style="background:#0e9fb8"></span>SP Nyakunde</td>
+      <td><span class="badge alerte">PCR seulement</span></td>
+      <td class="num">113</td><td class="num">391</td>
+      <td class="num">3</td>
+      <td class="num"><b>27</b></td>
+      <td class="num"><b>60,2 %</b> <span class="muted">(68/113)</span></td>
+      <td class="num">J7</td>
+      <td class="num">27 <span class="muted">(113)</span></td><td class="num">30 <span class="muted">(86)</span></td><td class="num">33 <span class="muted">(57)</span></td><td class="num">35 <span class="muted">(11)</span></td><td class="num">37 <span class="muted">(11)</span></td><td class="num">— <span class="muted">(1)</span></td></tr></tbody>
+  </table></div>
+  <p class="note">CRF PCR (événement « PCR ») : la PCR J1 est positive chez 100 % des participants (critère d'inclusion). Négativation observée = participants positifs à J1 ayant ensuite au moins une PCR négative ;
+    elle dépend aussi de la durée du suivi (décès, sorties précoces, suivi en cours). Ct médian des PCR positives ; entre parenthèses, nombre de valeurs (médiane affichée si ≥ 3).
+    <b>SP Nyakunde</b> : seule une sauvegarde du CRF PCR a été exportée (« avant correction éventuelle ») – site absent des indicateurs cliniques (randomisation, issues, enfants, rapports).</p>
+</section>
+<script id="donnees-virologie" type="application/json">{"sites": [{"nom": "ALIMA Nizi", "proto": "PA_103", "slot": 1, "couleur": "#2f6fdb", "pcr_seul": false, "participants_site": 249, "participants_pcr": 247, "n_pcr": 828, "pos_j1": 100.0, "n_j1": 247, "ct_j1": 29.0, "negativation": 66.4, "n_pos_j1": 247, "n_neg": 164, "jour_neg_med": 4.0, "ct_jour": [{"jour": 1, "med": 29.0, "n": 247}, {"jour": 3, "med": 30.3, "n": 117}, {"jour": 5, "med": 35.0, "n": 66}, {"jour": 7, "med": 36.0, "n": 17}, {"jour": 10, "med": 37.9, "n": 15}, {"jour": 13, "med": null, "n": 1}]}, {"nom": "Elikya (MSF), Bunia", "proto": "PA_104", "slot": 2, "couleur": "#f08a24", "pcr_seul": false, "participants_site": 210, "participants_pcr": 210, "n_pcr": 818, "pos_j1": 100.0, "n_j1": 210, "ct_j1": 28.0, "negativation": 65.7, "n_pos_j1": 210, "n_neg": 138, "jour_neg_med": 5.0, "ct_jour": [{"jour": 1, "med": 28.0, "n": 210}, {"jour": 3, "med": 31.0, "n": 147}, {"jour": 5, "med": 33.5, "n": 102}, {"jour": 7, "med": 35.0, "n": 30}, {"jour": 10, "med": 36.0, "n": 20}, {"jour": 13, "med": 37.0, "n": 4}]}, {"nom": "IMC HGR Bunia", "proto": "PA_105", "slot": 3, "couleur": "#16a37f", "pcr_seul": false, "participants_site": 94, "participants_pcr": 93, "n_pcr": 279, "pos_j1": 100.0, "n_j1": 93, "ct_j1": 27.0, "negativation": 52.7, "n_pos_j1": 93, "n_neg": 49, "jour_neg_med": 5, "ct_jour": [{"jour": 1, "med": 27.0, "n": 93}, {"jour": 3, "med": 30.3, "n": 58}, {"jour": 5, "med": 34.0, "n": 37}, {"jour": 7, "med": null, "n": 0}, {"jour": 10, "med": 36.0, "n": 7}, {"jour": 13, "med": null, "n": 0}]}, {"nom": "Beni (MSF)", "proto": "PA_110", "slot": 4, "couleur": "#e9a514", "pcr_seul": false, "participants_site": 52, "participants_pcr": 52, "n_pcr": 124, "pos_j1": 100.0, "n_j1": 52, "ct_j1": 24.0, "negativation": 23.1, "n_pos_j1": 52, "n_neg": 12, "jour_neg_med": 3.0, "ct_jour": [{"jour": 1, "med": 24.0, "n": 52}, {"jour": 3, "med": 26.5, "n": 20}, {"jour": 5, "med": 30.0, "n": 9}, {"jour": 7, "med": null, "n": 0}, {"jour": 10, "med": null, "n": 2}, {"jour": 13, "med": null, "n": 0}]}, {"nom": "Beni (IMC)", "proto": "PA_111", "slot": 5, "couleur": "#7c5cff", "pcr_seul": false, "participants_site": 42, "participants_pcr": 41, "n_pcr": 104, "pos_j1": 100.0, "n_j1": 41, "ct_j1": 22.3, "negativation": 51.2, "n_pos_j1": 41, "n_neg": 21, "jour_neg_med": 3, "ct_jour": [{"jour": 1, "med": 22.3, "n": 41}, {"jour": 3, "med": 28.6, "n": 15}, {"jour": 5, "med": 28.3, "n": 9}, {"jour": 7, "med": null, "n": 0}, {"jour": 10, "med": null, "n": 2}, {"jour": 13, "med": null, "n": 0}]}, {"nom": "CME ALIMA Bunia", "proto": "PA_101", "slot": 6, "couleur": "#e0569b", "pcr_seul": false, "participants_site": 242, "participants_pcr": 241, "n_pcr": 869, "pos_j1": 100.0, "n_j1": 241, "ct_j1": 28.0, "negativation": 73.0, "n_pos_j1": 241, "n_neg": 176, "jour_neg_med": 5.0, "ct_jour": [{"jour": 1, "med": 28.0, "n": 227}, {"jour": 3, "med": 31.1, "n": 150}, {"jour": 5, "med": 34.0, "n": 106}, {"jour": 7, "med": 36.0, "n": 38}, {"jour": 10, "med": 37.0, "n": 27}, {"jour": 13, "med": null, "n": 2}]}, {"nom": "SP Nyakunde", "proto": "PA_106", "slot": 7, "couleur": "#0e9fb8", "pcr_seul": true, "participants_site": 113, "participants_pcr": 113, "n_pcr": 391, "pos_j1": 100.0, "n_j1": 113, "ct_j1": 27.0, "negativation": 60.2, "n_pos_j1": 113, "n_neg": 68, "jour_neg_med": 7.0, "ct_jour": [{"jour": 1, "med": 27.0, "n": 113}, {"jour": 3, "med": 30.0, "n": 86}, {"jour": 5, "med": 33.0, "n": 57}, {"jour": 7, "med": 35.0, "n": 11}, {"jour": 10, "med": 37.0, "n": 11}, {"jour": 13, "med": null, "n": 1}]}], "jours": ["J1", "J3", "J5", "J7", "J10", "J13"]}</script>
 
 <h2>Enfants (&lt; 18 ans) par site</h2>
 <section class="carte" style="margin-bottom:16px">
@@ -1061,7 +1133,7 @@
   <div class="pied-bloc"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"><img src="static/essai/logo_inrb.png" alt="INRB"><div><b>Essai clinique PARTNERS</b><span>Tableau de bord · maladie à virus Ebola · Remdesivir / MBP134 · RD Congo</span></div></div>
   <div class="pied-auteur"><span class="pied-label">Réalisé par</span><b>Leader Lawanga O'ntshick</b> <span>MSc. PhD Student</span>
     <span class="pied-role">Biostatisticien - Département d'Épidémiologie et Santé Globale</span></div>
-  <div class="pied-note">Données au 23/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 10:29</div>
+  <div class="pied-note">Données au 24/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 10:50</div>
 </div></footer>
 </div>
 </div>
@@ -1076,6 +1148,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // même échelle (en %) pour toutes les pyramides de site, pour pouvoir les comparer
   const maxPct = Math.max(...P.sites.flatMap(s => [...s.M, ...s.F].map(v => s.total ? 100 * v / s.total : 0)));
   const borne = Math.ceil(maxPct / 5) * 5;
+  const V = JSON.parse(document.getElementById("donnees-virologie").textContent);
+  new Chart(document.getElementById("vir-ct"), { type: "line",
+    data: { labels: V.jours, datasets: V.sites.map(s => ({ label: s.nom + (s.pcr_seul ? " (PCR seulement)" : ""), data: s.ct_jour.map(c => c.med),
+      n: s.ct_jour.map(c => c.n), borderColor: s.couleur, backgroundColor: s.couleur, borderDash: s.pcr_seul ? [6, 4] : [], pointRadius: 4, spanGaps: true })) },
+    options: { interaction: { mode: "index", intersect: false },
+      plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label} : Ct ${c.raw ?? "—"} (n = ${c.dataset.n[c.dataIndex]})` } } },
+      scales: { y: { suggestedMin: 20, suggestedMax: 40, title: { display: true, text: "Ct médian (PCR positives)" } }, x: { grid: { display: false } } } } });
   P.sites.forEach(s => PC.pyramide(document.getElementById("pyr-" + s.proto), s, { pct: true, max: borne, compact: true }));
   PC.proportions(document.getElementById("cl-ensemble"), C.ensemble, COUL[0]);
   PC.proportions(document.getElementById("bio-ensemble"), C.biologie.anomalies, COUL[7]);
