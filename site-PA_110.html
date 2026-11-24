@@ -26,6 +26,7 @@
   <a href="index.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>Vue d'ensemble</a>
   <details class="pli" open><summary><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Sites<span class="pastille">6</span></summary>
   <a class="sous " href="site-PA_103.html">ALIMA Nizi</a><a class="sous " href="site-PA_104.html">Elikya (MSF), Bunia</a><a class="sous " href="site-PA_105.html">IMC HGR Bunia</a><a class="sous actif" href="site-PA_110.html">Beni (MSF)</a><a class="sous " href="site-PA_111.html">Beni (IMC)</a><a class="sous " href="site-PA_101.html">CME ALIMA Bunia</a>
+  <a class="sous " href="site-PA_106.html">SP Nyakunde <span class="pastille">PCR</span></a>
   </details>
   <a href="sites.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>Comparaison des sites</a>
   <a href="enfants.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg>Enfants (&lt; 18 ans)</a>
@@ -218,7 +219,7 @@
   <div class="pied-bloc"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"><img src="static/essai/logo_inrb.png" alt="INRB"><div><b>Essai clinique PARTNERS</b><span>Tableau de bord · maladie à virus Ebola · Remdesivir / MBP134 · RD Congo</span></div></div>
   <div class="pied-auteur"><span class="pied-label">Réalisé par</span><b>Leader Lawanga O'ntshick</b> <span>MSc. PhD Student</span>
     <span class="pied-role">Biostatisticien - Département d'Épidémiologie et Santé Globale</span></div>
-  <div class="pied-note">Données au 24/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 10:50</div>
+  <div class="pied-note">Données au 24/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 11:03</div>
 </div></footer>
 </div>
 </div>
@@ -233,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
   new Chart(document.getElementById("g-recrutement"), {
     type: "line",
     data: { labels: G.recrutement.labels, datasets: G.recrutement.series.map(s => ({
-      label: s.nom, data: s.valeurs, borderColor: PC.slot(s.slot), backgroundColor: PC.slot(s.slot),
+      label: s.nom, data: s.valeurs, borderColor: PC.slot(s.slot), backgroundColor: PC.slot(s.slot), borderDash: s.approx ? [6, 4] : [],
       borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, pointHoverBorderColor: PC.css("--surface"), pointHoverBorderWidth: 2, tension: 0.2,
     })) },
     options: {

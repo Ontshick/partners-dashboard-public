@@ -197,3 +197,8 @@ footer.signature .pied-bloc img{height:40px;width:auto;background:#fff;border-ra
 .dl{display:inline-block;padding:3px 10px;border-radius:7px;font-size:12px;font-weight:700;color:#fff!important;text-decoration:none;margin-right:4px}
 .dl.pdf{background:linear-gradient(135deg,#c8323f,#e8626d)}.dl.docx{background:linear-gradient(135deg,#2b579a,#4a7fd0)}.dl.pptx{background:linear-gradient(135deg,#c43e1c,#ec7a4c)}
 .dl:hover{filter:brightness(1.1)}
+.carte td.col-pcr,.carte th.col-pcr{border-left:2px dashed rgba(14,159,184,.6);font-style:italic}
+.carte tr.ligne-pcr td{background:rgba(14,159,184,.07)}
+footer.signature .wrap{grid-template-columns:minmax(380px,1.4fr) minmax(240px,1fr) auto}
+.pied-bloc > div{min-width:220px}
+@media (max-width:900px){footer.signature .wrap{grid-template-columns:1fr}}

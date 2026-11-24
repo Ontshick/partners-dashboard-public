@@ -26,6 +26,7 @@
   <a href="index.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>Vue d'ensemble</a>
   <details class="pli" ><summary><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Sites<span class="pastille">6</span></summary>
   <a class="sous " href="site-PA_103.html">ALIMA Nizi</a><a class="sous " href="site-PA_104.html">Elikya (MSF), Bunia</a><a class="sous " href="site-PA_105.html">IMC HGR Bunia</a><a class="sous " href="site-PA_110.html">Beni (MSF)</a><a class="sous " href="site-PA_111.html">Beni (IMC)</a><a class="sous " href="site-PA_101.html">CME ALIMA Bunia</a>
+  <a class="sous " href="site-PA_106.html">SP Nyakunde <span class="pastille">PCR</span></a>
   </details>
   <a href="sites.html" class="actif"><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>Comparaison des sites</a>
   <a href="enfants.html" class=""><svg class="ico-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 20a6.5 6.5 0 0 0-3-5.5"/></svg>Enfants (&lt; 18 ans)</a>
@@ -159,8 +160,16 @@
         <td class="num">22,2 %</td><td class="num">8</td>
         <td class="num">908</td><td class="num">0</td><td class="num">1</td>
       </tr>
+      <tr class="ligne-pcr">
+        <td><span class="pastille-site" style="background:var(--s7)"></span><a href="site-PA_106.html">SP Nyakunde</a> <span class="badge alerte">PCR seulement</span></td>
+        <td><code>PA_106</code></td><td class="num">113</td>
+        <td>20/08/2026 → 23/11/2026 <span class="muted">(PCR J1)</span></td>
+        <td class="num muted">—</td><td class="num muted">—</td><td class="num">27</td>
+        <td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td>
+        <td class="num">391</td><td class="num muted">—</td><td class="num muted">—</td></tr>
     </tbody>
   </table></div>
+  <p class="note">« PCR seulement » : seul le CRF PCR a été exporté ; période = dates des PCR J1, Ct médian = Ct J1. Les autres colonnes nécessitent un export complet.</p>
 </section>
 
 <h2>Virologie : PCR de suivi par site</h2>
@@ -273,729 +282,739 @@
 
 <h2>Inclusions par jour</h2>
 <section class="carte" style="margin-bottom:16px">
-  <h2>Randomisations quotidiennes par site (889 participants, 143 jours)</h2>
+  <h2>Randomisations quotidiennes par site (889 participants, 145 jours)</h2>
   <div class="table-scroll table-jours"><table class="compact">
-    <thead><tr><th>Date</th><th class="num"><span class="pastille-site" style="background:var(--s1)"></span>ALIMA Nizi</th><th class="num"><span class="pastille-site" style="background:var(--s2)"></span>Elikya (MSF), Bunia</th><th class="num"><span class="pastille-site" style="background:var(--s3)"></span>IMC HGR Bunia</th><th class="num"><span class="pastille-site" style="background:var(--s4)"></span>Beni (MSF)</th><th class="num"><span class="pastille-site" style="background:var(--s5)"></span>Beni (IMC)</th><th class="num"><span class="pastille-site" style="background:var(--s6)"></span>CME ALIMA Bunia</th><th class="num">Total du jour</th><th class="num">Cumul</th></tr></thead>
+    <thead><tr><th>Date</th><th class="num"><span class="pastille-site" style="background:var(--s1)"></span>ALIMA Nizi</th><th class="num"><span class="pastille-site" style="background:var(--s2)"></span>Elikya (MSF), Bunia</th><th class="num"><span class="pastille-site" style="background:var(--s3)"></span>IMC HGR Bunia</th><th class="num"><span class="pastille-site" style="background:var(--s4)"></span>Beni (MSF)</th><th class="num"><span class="pastille-site" style="background:var(--s5)"></span>Beni (IMC)</th><th class="num"><span class="pastille-site" style="background:var(--s6)"></span>CME ALIMA Bunia</th><th class="num">Total du jour</th><th class="num">Cumul</th><th class="num col-pcr"><span class="pastille-site" style="background:var(--s7)"></span>SP Nyakunde<br><span style="font-weight:400;text-transform:none">PCR J1 (approx.)</span></th></tr></thead>
     <tbody>
+      <tr class="debut-semaine jour-vide">
+        <td><span class="muted">lun.</span> 23/11/2026</td>
+        <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
+        <td class="num"><b>0</b></td><td class="num">889</td><td class="num col-pcr">2</td>
+      </tr>
+      <tr class=" jour-vide">
+        <td><span class="muted">dim.</span> 22/11/2026</td>
+        <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
+        <td class="num"><b>0</b></td><td class="num">889</td><td class="num col-pcr"><span class="muted">·</span></td>
+      </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 21/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>8</b></td><td class="num">889</td>
+        <td class="num"><b>8</b></td><td class="num">889</td><td class="num col-pcr">4</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 20/11/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>10</b></td><td class="num">881</td>
+        <td class="num"><b>10</b></td><td class="num">881</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 19/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>7</b></td><td class="num">871</td>
+        <td class="num"><b>7</b></td><td class="num">871</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 18/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>4</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>10</b></td><td class="num">864</td>
+        <td class="num"><b>10</b></td><td class="num">864</td><td class="num col-pcr">3</td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 17/11/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>3</b></td><td class="num"><b>5</b></td><td class="num"><b>2</b></td>
-        <td class="num"><b>15</b></td><td class="num">854</td>
+        <td class="num"><b>15</b></td><td class="num">854</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 16/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>6</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>9</b></td><td class="num">839</td>
+        <td class="num"><b>9</b></td><td class="num">839</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 15/11/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>5</b></td><td class="num">830</td>
+        <td class="num"><b>5</b></td><td class="num">830</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 14/11/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>9</b></td><td class="num">825</td>
+        <td class="num"><b>9</b></td><td class="num">825</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 13/11/2026</td>
         <td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>11</b></td><td class="num">816</td>
+        <td class="num"><b>11</b></td><td class="num">816</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 12/11/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>5</b></td><td class="num">805</td>
+        <td class="num"><b>5</b></td><td class="num">805</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 11/11/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">800</td>
+        <td class="num"><b>6</b></td><td class="num">800</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 10/11/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>2</b></td>
-        <td class="num"><b>4</b></td><td class="num">794</td>
+        <td class="num"><b>4</b></td><td class="num">794</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 09/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>6</b></td><td class="num">790</td>
+        <td class="num"><b>6</b></td><td class="num">790</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 08/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>5</b></td><td class="num">784</td>
+        <td class="num"><b>5</b></td><td class="num">784</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 07/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>9</b></td><td class="num">779</td>
+        <td class="num"><b>9</b></td><td class="num">779</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 06/11/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>5</b></td><td class="num">770</td>
+        <td class="num"><b>5</b></td><td class="num">770</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 05/11/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>5</b></td><td class="num"><b>1</b></td><td class="num"><b>2</b></td>
-        <td class="num"><b>10</b></td><td class="num">765</td>
+        <td class="num"><b>10</b></td><td class="num">765</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 04/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>9</b></td><td class="num">755</td>
+        <td class="num"><b>9</b></td><td class="num">755</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 03/11/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>5</b></td><td class="num">746</td>
+        <td class="num"><b>5</b></td><td class="num">746</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 02/11/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>8</b></td><td class="num">741</td>
+        <td class="num"><b>8</b></td><td class="num">741</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 01/11/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>3</b></td><td class="num">733</td>
+        <td class="num"><b>3</b></td><td class="num">733</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 31/10/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>7</b></td><td class="num">730</td>
+        <td class="num"><b>7</b></td><td class="num">730</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 30/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>7</b></td><td class="num">723</td>
+        <td class="num"><b>7</b></td><td class="num">723</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 29/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>3</b></td>
-        <td class="num"><b>8</b></td><td class="num">716</td>
+        <td class="num"><b>8</b></td><td class="num">716</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 28/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>5</b></td><td class="num">708</td>
+        <td class="num"><b>5</b></td><td class="num">708</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 27/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td>
-        <td class="num"><b>4</b></td><td class="num">703</td>
+        <td class="num"><b>4</b></td><td class="num">703</td><td class="num col-pcr">4</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 26/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>3</b></td><td class="num">699</td>
+        <td class="num"><b>3</b></td><td class="num">699</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 25/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>2</b></td><td class="num">696</td>
+        <td class="num"><b>2</b></td><td class="num">696</td><td class="num col-pcr">3</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 24/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>4</b></td><td class="num">694</td>
+        <td class="num"><b>4</b></td><td class="num">694</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 23/10/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>3</b></td><td class="num">690</td>
+        <td class="num"><b>3</b></td><td class="num">690</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 22/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>4</b></td><td class="num">687</td>
+        <td class="num"><b>4</b></td><td class="num">687</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 21/10/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>3</b></td><td class="num">683</td>
+        <td class="num"><b>3</b></td><td class="num">683</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 20/10/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>7</b></td><td class="num">680</td>
+        <td class="num"><b>7</b></td><td class="num">680</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 19/10/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>9</b></td><td class="num">673</td>
+        <td class="num"><b>9</b></td><td class="num">673</td><td class="num col-pcr">3</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 18/10/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>2</b></td><td class="num">664</td>
+        <td class="num"><b>2</b></td><td class="num">664</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 17/10/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>9</b></td><td class="num">662</td>
+        <td class="num"><b>9</b></td><td class="num">662</td><td class="num col-pcr">4</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 16/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>3</b></td><td class="num">653</td>
+        <td class="num"><b>3</b></td><td class="num">653</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 15/10/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>5</b></td><td class="num">650</td>
+        <td class="num"><b>5</b></td><td class="num">650</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 14/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>6</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>13</b></td><td class="num">645</td>
+        <td class="num"><b>13</b></td><td class="num">645</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 13/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>4</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>12</b></td><td class="num">632</td>
+        <td class="num"><b>12</b></td><td class="num">632</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 12/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">620</td>
+        <td class="num"><b>6</b></td><td class="num">620</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 11/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">614</td>
+        <td class="num"><b>6</b></td><td class="num">614</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 10/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">608</td>
+        <td class="num"><b>6</b></td><td class="num">608</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 09/10/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>6</b></td><td class="num">602</td>
+        <td class="num"><b>6</b></td><td class="num">602</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 08/10/2026</td>
         <td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>9</b></td><td class="num">596</td>
+        <td class="num"><b>9</b></td><td class="num">596</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 07/10/2026</td>
         <td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">587</td>
+        <td class="num"><b>6</b></td><td class="num">587</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 06/10/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>5</b></td><td class="num">581</td>
+        <td class="num"><b>5</b></td><td class="num">581</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 05/10/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>6</b></td><td class="num">576</td>
+        <td class="num"><b>6</b></td><td class="num">576</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 04/10/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>5</b></td>
-        <td class="num"><b>8</b></td><td class="num">570</td>
+        <td class="num"><b>8</b></td><td class="num">570</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 03/10/2026</td>
         <td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>6</b></td><td class="num">562</td>
+        <td class="num"><b>6</b></td><td class="num">562</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 02/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>5</b></td>
-        <td class="num"><b>9</b></td><td class="num">556</td>
+        <td class="num"><b>9</b></td><td class="num">556</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 01/10/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>8</b></td><td class="num">547</td>
+        <td class="num"><b>8</b></td><td class="num">547</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 30/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>9</b></td><td class="num">539</td>
+        <td class="num"><b>9</b></td><td class="num">539</td><td class="num col-pcr">4</td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 29/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">530</td>
+        <td class="num"><b>8</b></td><td class="num">530</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 28/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>5</b></td><td class="num">522</td>
+        <td class="num"><b>5</b></td><td class="num">522</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 27/09/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>6</b></td><td class="num">517</td>
+        <td class="num"><b>6</b></td><td class="num">517</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 26/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>2</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>11</b></td><td class="num">511</td>
+        <td class="num"><b>11</b></td><td class="num">511</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 25/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>6</b></td><td class="num">500</td>
+        <td class="num"><b>6</b></td><td class="num">500</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 24/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>5</b></td><td class="num">494</td>
+        <td class="num"><b>5</b></td><td class="num">494</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 23/09/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>3</b></td><td class="num">489</td>
+        <td class="num"><b>3</b></td><td class="num">489</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 22/09/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>4</b></td><td class="num">486</td>
+        <td class="num"><b>4</b></td><td class="num">486</td><td class="num col-pcr">4</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 21/09/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">482</td>
+        <td class="num"><b>6</b></td><td class="num">482</td><td class="num col-pcr">4</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 20/09/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">476</td>
+        <td class="num"><b>6</b></td><td class="num">476</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 19/09/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">470</td>
+        <td class="num"><b>8</b></td><td class="num">470</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 18/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>3</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>11</b></td><td class="num">462</td>
+        <td class="num"><b>11</b></td><td class="num">462</td><td class="num col-pcr">3</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 17/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>4</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>10</b></td><td class="num">451</td>
+        <td class="num"><b>10</b></td><td class="num">451</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 16/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">441</td>
+        <td class="num"><b>8</b></td><td class="num">441</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 15/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>3</b></td><td class="num"><b>6</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>7</b></td>
-        <td class="num"><b>20</b></td><td class="num">433</td>
+        <td class="num"><b>20</b></td><td class="num">433</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 14/09/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">413</td>
+        <td class="num"><b>8</b></td><td class="num">413</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 13/09/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>10</b></td><td class="num">405</td>
+        <td class="num"><b>10</b></td><td class="num">405</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 12/09/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">395</td>
+        <td class="num"><b>2</b></td><td class="num">395</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 11/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>7</b></td><td class="num">393</td>
+        <td class="num"><b>7</b></td><td class="num">393</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 10/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>4</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>10</b></td><td class="num">386</td>
+        <td class="num"><b>10</b></td><td class="num">386</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 09/09/2026</td>
         <td class="num"><b>5</b></td><td class="num"><b>3</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>14</b></td><td class="num">376</td>
+        <td class="num"><b>14</b></td><td class="num">376</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 08/09/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">362</td>
+        <td class="num"><b>8</b></td><td class="num">362</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 07/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>3</b></td><td class="num">354</td>
+        <td class="num"><b>3</b></td><td class="num">354</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 06/09/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">351</td>
+        <td class="num"><b>8</b></td><td class="num">351</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 05/09/2026</td>
         <td class="num"><b>5</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>7</b></td><td class="num">343</td>
+        <td class="num"><b>7</b></td><td class="num">343</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 04/09/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>9</b></td><td class="num">336</td>
+        <td class="num"><b>9</b></td><td class="num">336</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 03/09/2026</td>
         <td class="num"><b>5</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>11</b></td><td class="num">327</td>
+        <td class="num"><b>11</b></td><td class="num">327</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 02/09/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>5</b></td><td class="num">316</td>
+        <td class="num"><b>5</b></td><td class="num">316</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 01/09/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>7</b></td><td class="num">311</td>
+        <td class="num"><b>7</b></td><td class="num">311</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 31/08/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>6</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>11</b></td><td class="num">304</td>
+        <td class="num"><b>11</b></td><td class="num">304</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 30/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>2</b></td><td class="num">293</td>
+        <td class="num"><b>2</b></td><td class="num">293</td><td class="num col-pcr">5</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 29/08/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>11</b></td><td class="num">291</td>
+        <td class="num"><b>11</b></td><td class="num">291</td><td class="num col-pcr">3</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 28/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>6</b></td><td class="num">280</td>
+        <td class="num"><b>6</b></td><td class="num">280</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 27/08/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>8</b></td><td class="num">274</td>
+        <td class="num"><b>8</b></td><td class="num">274</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 26/08/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>10</b></td><td class="num">266</td>
+        <td class="num"><b>10</b></td><td class="num">266</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 25/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>9</b></td><td class="num">256</td>
+        <td class="num"><b>9</b></td><td class="num">256</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 24/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>9</b></td><td class="num">247</td>
+        <td class="num"><b>9</b></td><td class="num">247</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 23/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>6</b></td>
-        <td class="num"><b>9</b></td><td class="num">238</td>
+        <td class="num"><b>9</b></td><td class="num">238</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 22/08/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>9</b></td><td class="num">229</td>
+        <td class="num"><b>9</b></td><td class="num">229</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 21/08/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">220</td>
+        <td class="num"><b>8</b></td><td class="num">220</td><td class="num col-pcr">2</td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 20/08/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>9</b></td><td class="num">212</td>
+        <td class="num"><b>9</b></td><td class="num">212</td><td class="num col-pcr">1</td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 19/08/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>9</b></td><td class="num">203</td>
+        <td class="num"><b>9</b></td><td class="num">203</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 18/08/2026</td>
         <td class="num"><b>5</b></td><td class="num"><b>6</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>13</b></td><td class="num">194</td>
+        <td class="num"><b>13</b></td><td class="num">194</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 17/08/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>7</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>12</b></td><td class="num">181</td>
+        <td class="num"><b>12</b></td><td class="num">181</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 16/08/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>6</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>12</b></td><td class="num">169</td>
+        <td class="num"><b>12</b></td><td class="num">169</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 15/08/2026</td>
         <td class="num"><b>5</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>5</b></td>
-        <td class="num"><b>15</b></td><td class="num">157</td>
+        <td class="num"><b>15</b></td><td class="num">157</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 14/08/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>8</b></td><td class="num">142</td>
+        <td class="num"><b>8</b></td><td class="num">142</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 13/08/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>6</b></td><td class="num">134</td>
+        <td class="num"><b>6</b></td><td class="num">134</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 12/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>7</b></td><td class="num">128</td>
+        <td class="num"><b>7</b></td><td class="num">128</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 11/08/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>6</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>8</b></td><td class="num">121</td>
+        <td class="num"><b>8</b></td><td class="num">121</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 10/08/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>7</b></td><td class="num">113</td>
+        <td class="num"><b>7</b></td><td class="num">113</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 09/08/2026</td>
         <td class="num"><b>3</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>10</b></td><td class="num">106</td>
+        <td class="num"><b>10</b></td><td class="num">106</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 08/08/2026</td>
         <td class="num"><b>4</b></td><td class="num"><b>5</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>13</b></td><td class="num">96</td>
+        <td class="num"><b>13</b></td><td class="num">96</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 07/08/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>4</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>4</b></td>
-        <td class="num"><b>10</b></td><td class="num">83</td>
+        <td class="num"><b>10</b></td><td class="num">83</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 06/08/2026</td>
         <td class="num"><b>2</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>5</b></td><td class="num">73</td>
+        <td class="num"><b>5</b></td><td class="num">73</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 05/08/2026</td>
         <td class="num"><b>1</b></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>6</b></td><td class="num">68</td>
+        <td class="num"><b>6</b></td><td class="num">68</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 04/08/2026</td>
         <td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>2</b></td><td class="num">62</td>
+        <td class="num"><b>2</b></td><td class="num">62</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 03/08/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>3</b></td><td class="num">60</td>
+        <td class="num"><b>3</b></td><td class="num">60</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 02/08/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>4</b></td><td class="num">57</td>
+        <td class="num"><b>4</b></td><td class="num">57</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 01/08/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>3</b></td><td class="num">53</td>
+        <td class="num"><b>3</b></td><td class="num">53</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 31/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td>
-        <td class="num"><b>6</b></td><td class="num">50</td>
+        <td class="num"><b>6</b></td><td class="num">50</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 30/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>3</b></td><td class="num">44</td>
+        <td class="num"><b>3</b></td><td class="num">44</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 29/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>3</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>4</b></td><td class="num">41</td>
+        <td class="num"><b>4</b></td><td class="num">41</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 28/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>2</b></td><td class="num">37</td>
+        <td class="num"><b>2</b></td><td class="num">37</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 27/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>2</b></td><td class="num">35</td>
+        <td class="num"><b>2</b></td><td class="num">35</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 26/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>1</b></td><td class="num">33</td>
+        <td class="num"><b>1</b></td><td class="num">33</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 25/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>3</b></td><td class="num">32</td>
+        <td class="num"><b>3</b></td><td class="num">32</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 24/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>2</b></td><td class="num">29</td>
+        <td class="num"><b>2</b></td><td class="num">29</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 23/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>2</b></td><td class="num">27</td>
+        <td class="num"><b>2</b></td><td class="num">27</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 22/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">25</td>
+        <td class="num"><b>1</b></td><td class="num">25</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 21/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">24</td>
+        <td class="num"><b>1</b></td><td class="num">24</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 20/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">23</td>
+        <td class="num"><b>1</b></td><td class="num">23</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 19/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">22</td>
+        <td class="num"><b>1</b></td><td class="num">22</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class=" jour-vide">
         <td><span class="muted">sam.</span> 18/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>0</b></td><td class="num">21</td>
+        <td class="num"><b>0</b></td><td class="num">21</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 17/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">21</td>
+        <td class="num"><b>2</b></td><td class="num">21</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 16/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">19</td>
+        <td class="num"><b>1</b></td><td class="num">19</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 15/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">18</td>
+        <td class="num"><b>2</b></td><td class="num">18</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 14/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">16</td>
+        <td class="num"><b>2</b></td><td class="num">16</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 13/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">14</td>
+        <td class="num"><b>2</b></td><td class="num">14</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 12/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">12</td>
+        <td class="num"><b>1</b></td><td class="num">12</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 11/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">11</td>
+        <td class="num"><b>1</b></td><td class="num">11</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class=" jour-vide">
         <td><span class="muted">ven.</span> 10/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>0</b></td><td class="num">10</td>
+        <td class="num"><b>0</b></td><td class="num">10</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class=" jour-vide">
         <td><span class="muted">jeu.</span> 09/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td>
-        <td class="num"><b>0</b></td><td class="num">10</td>
+        <td class="num"><b>0</b></td><td class="num">10</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mer.</span> 08/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">10</td>
+        <td class="num"><b>2</b></td><td class="num">10</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">mar.</span> 07/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">8</td>
+        <td class="num"><b>2</b></td><td class="num">8</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="debut-semaine">
         <td><span class="muted">lun.</span> 06/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">6</td>
+        <td class="num"><b>1</b></td><td class="num">6</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">dim.</span> 05/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">5</td>
+        <td class="num"><b>1</b></td><td class="num">5</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">sam.</span> 04/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>2</b></td>
-        <td class="num"><b>2</b></td><td class="num">4</td>
+        <td class="num"><b>2</b></td><td class="num">4</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">ven.</span> 03/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">2</td>
+        <td class="num"><b>1</b></td><td class="num">2</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
       <tr class="">
         <td><span class="muted">jeu.</span> 02/07/2026</td>
         <td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><span class="muted">·</span></td><td class="num"><b>1</b></td>
-        <td class="num"><b>1</b></td><td class="num">1</td>
+        <td class="num"><b>1</b></td><td class="num">1</td><td class="num col-pcr"><span class="muted">·</span></td>
       </tr>
     </tbody>
-    <tfoot><tr><td><b>Total</b></td><td class="num"><b>249</b></td><td class="num"><b>210</b></td><td class="num"><b>94</b></td><td class="num"><b>52</b></td><td class="num"><b>42</b></td><td class="num"><b>242</b></td><td class="num"><b>889</b></td><td></td></tr></tfoot>
+    <tfoot><tr><td><b>Total</b></td><td class="num"><b>249</b></td><td class="num"><b>210</b></td><td class="num"><b>94</b></td><td class="num"><b>52</b></td><td class="num"><b>42</b></td><td class="num"><b>242</b></td><td class="num"><b>889</b></td><td></td><td class="num col-pcr"><b>113</b></td></tr></tfoot>
   </table></div>
-  <p class="note">Du plus récent au plus ancien, selon la date de randomisation ; tous les jours calendaires sont listés (« · » = aucune inclusion). Un trait marque le début de chaque semaine (lundi).</p>
+  <p class="note">Du plus récent au plus ancien, selon la date de randomisation ; tous les jours calendaires sont listés (« · » = aucune inclusion). Un trait marque le début de chaque semaine (lundi). Colonnes en italique : sites « PCR seulement », comptés à la date de la PCR J1 (approximation de l'inclusion) et <b>exclus du total et du cumul</b>.</p>
 </section>
 
 <h2>Pyramides des âges</h2>
@@ -1133,7 +1152,7 @@
   <div class="pied-bloc"><img src="static/essai/logo_partners.png" alt="PARTNERS Trial"><img src="static/essai/logo_inrb.png" alt="INRB"><div><b>Essai clinique PARTNERS</b><span>Tableau de bord · maladie à virus Ebola · Remdesivir / MBP134 · RD Congo</span></div></div>
   <div class="pied-auteur"><span class="pied-label">Réalisé par</span><b>Leader Lawanga O'ntshick</b> <span>MSc. PhD Student</span>
     <span class="pied-role">Biostatisticien - Département d'Épidémiologie et Santé Globale</span></div>
-  <div class="pied-note">Données au 24/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 10:50</div>
+  <div class="pied-note">Données au 24/11/2026 · données agrégées, sans identifiant de participant · générée le 24/11/2026 11:03</div>
 </div></footer>
 </div>
 </div>
